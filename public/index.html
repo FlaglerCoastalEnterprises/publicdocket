@@ -238,7 +238,7 @@ button,input{font:inherit;color:inherit}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="#" data-info="digest">Weekly digest</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 16, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 19, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -350,7 +350,7 @@ const DOCS=[
   snip:"Recordings of current and past Flagler County School Board meetings (2024 forward).",kw:"video recordings youtube"}
 ];
 const MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],MOL=["January","February","March","April","May","June","July","August","September","October","November","December"],WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],WDL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-const TODAY=new Date("2026-10-16T12:00:00");
+const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
 const ST={c:"Confirmed",s:"On regular schedule",w:"Date may change"};
 function dt(s){return new Date(s+"T12:00:00")}
 function fmt(s){const d=dt(s);return MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
