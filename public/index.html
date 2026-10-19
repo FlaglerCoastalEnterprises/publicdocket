@@ -327,7 +327,8 @@ const MEET=[
  ["2026-11-17","9:00 a.m.","pc","Business meeting","","s",""],
  ["2026-11-23","7:00 p.m.","bun","Regular meeting","","s",""],
  ["2026-11-24","6:00 p.m.","sb","Regular board meeting","","w","Thanksgiving week; check the board calendar."],
- ["2026-11-26","5:30 p.m.","fb","Regular meeting","","w","Thanksgiving Day; likely rescheduled."]
+ ["2026-11-26","5:30 p.m.","fb","Regular meeting","","w","Thanksgiving Day; likely rescheduled."],
+ ["2026-12-07","9:00 a.m.","county","Regular meeting","","c","Listed on the county's 2026 BOCC meeting calendar (flaglercounty.gov). Streams on YouTube."]
 ];
 const DOCS=[
  {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
@@ -460,12 +461,27 @@ const HEAD=[
  {d:"2026-10-19",b:"county",tag:"",t:"County Commission meets Monday evening",w:"Regular meeting, 5 p.m., Government Services Bldg. 2, Bunnell.",q:"county commission October 19"},
  {d:"2026-10-20",b:"pc",tag:"",t:"Palm Coast City Council holds Tuesday morning business meeting",w:"9 a.m. at City Hall. Agenda, video and audio posted by the city.",q:"Palm Coast October 20"},
  {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
+ {d:"2026-10-26",b:"bun",tag:"",t:"Bunnell City Commission meets Oct. 26",w:"Regular meeting, 7 p.m., City Chambers, 2400 Commerce Pkwy.",q:"Bunnell October 26"},
+ {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d);
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
  <div class="tx"><span class="src">${esc(BODY[h.b].short)}${h.tag?` · <span class="tag">${esc(h.tag)}</span>`:""}</span><span class="ttl">${esc(h.t)}</span><span class="why">${esc(h.w)}</span></div></button>`}).join("");
 document.querySelectorAll("[data-hq]").forEach(b=>b.addEventListener("click",()=>run(b.dataset.hq,true)));
+
+/* ---------- schema.org Event data for upcoming meetings (SEO) ---------- */
+(()=>{try{
+ const off=d=>{const y=+d.slice(0,4),m=+d.slice(5,7),day=+d.slice(8,10);
+  const nth=(mo,n)=>{const f=new Date(y,mo-1,1).getDay();return 1+((7-f)%7)+7*(n-1)};
+  const t=m*100+day,a=300+nth(3,2),b=1100+nth(11,1);return t>=a&&t<b?"-04:00":"-05:00"};
+ const tm=s=>{const r=/^(\d{1,2}):(\d{2})\s*([ap])/i.exec(s||"");if(!r)return "";let h=+r[1]%12;if(r[3].toLowerCase()==="p")h+=12;return "T"+String(h).padStart(2,"0")+":"+r[2]+":00"};
+ const ev=MEET.filter(m=>m[5]!=="w"&&dt(m[0])>=TODAY).slice(0,30).map(m=>{const b=BODY[m[2]],t=tm(m[1]);
+  return {"@type":"Event","name":b.short+": "+m[3],"startDate":m[0]+(t?t+off(m[0]):""),"eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
+   "location":{"@type":"Place","name":m[4]||b.where||b.name,"address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US","streetAddress":m[4]||b.where||""}},
+   "organizer":{"@type":"GovernmentOrganization","name":b.name,"url":b.url},"isAccessibleForFree":true,"url":b.url,"description":m[6]||(b.name+" "+m[3].toLowerCase()+".")}});
+ if(!ev.length)return;const el=document.createElement("script");el.type="application/ld+json";el.textContent=JSON.stringify({"@context":"https://schema.org","@graph":ev});document.head.appendChild(el);
+}catch(e){}})();
 
 /* ---------- newsletter signup ---------- */
 const SIGNUP_URL="https://formsubmit.co/ajax/coastalenterprises386@gmail.com";
