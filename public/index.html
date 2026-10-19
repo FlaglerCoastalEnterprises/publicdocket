@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PublicDocket Flagler</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="canonical" href="https://publicdocket.coastalenterprises386.workers.dev/">
+<meta name="description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"PublicDocket","url":"https://publicdocket.coastalenterprises386.workers.dev/","potentialAction":{"@type":"SearchAction","target":"https://publicdocket.coastalenterprises386.workers.dev/?q={search_term_string}","query-input":"required name=search_term_string"}}
+</script>
+<style>
+/* Layout: search-engine pattern — centered home box; results view with top bar, tabs, result list and a side panel */
+:root{
+  --bg:#ffffff; --fg:#202124; --muted:#5f6368; --line:#dadce0; --soft:#f1f3f4;
+  --link:#1a4f8b; --visited:#5b3a8c; --crumb:#4d5156; --brand:#1f5a96; --hl:#fff3c4; --warn:#b06000; --hl-fg:#202124;
+  --navy:#0f2340; --gold:#a8823c; --sky:#e3f0fb; --sand:#fbf5e8; --card:#ffffff; --on-brand:#ffffff;
+  --shadow:0 1px 6px rgba(32,33,36,.28);
+  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --soft:#303134;
+  --link:#8ab4f8; --visited:#c58af9; --crumb:#bdc1c6; --brand:#7fb3e6; --hl:#4a3f12; --warn:#f6ad55; --hl-fg:#fdf6d8;
+  --navy:#e8eaed; --gold:#d9b56e; --sky:#14243a; --sand:#2a2418; --card:#283039; --on-brand:#0f2340;
+  --shadow:0 1px 6px rgba(0,0,0,.5); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --soft:#303134;
+  --link:#8ab4f8; --visited:#c58af9; --crumb:#bdc1c6; --brand:#7fb3e6; --hl:#4a3f12; --warn:#f6ad55; --hl-fg:#fdf6d8;
+  --navy:#e8eaed; --gold:#d9b56e; --sky:#14243a; --sand:#2a2418; --card:#283039; --on-brand:#0f2340;
+  --shadow:0 1px 6px rgba(0,0,0,.5); color-scheme:dark}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.58}
+a{color:var(--link);text-decoration:none}
+a:hover{text-decoration:underline}
+button,input{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* logo */
+.logo{font-family:Georgia,"Times New Roman",serif;font-weight:700;letter-spacing:-.01em;color:var(--navy);white-space:nowrap}
+.logo span{color:var(--brand)}
+.logo small{font-family:var(--font);font-weight:700;font-size:.3em;color:var(--gold);letter-spacing:.18em;letter-spacing:.02em;margin-left:.35em;vertical-align:.9em}
+
+/* search box */
+.box{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:24px;background:var(--bg);padding:0 8px 0 16px;height:46px;box-sizing:border-box}
+.box:hover,.box:focus-within{box-shadow:var(--shadow);border-color:transparent}
+.box svg{flex:none;fill:var(--muted)}
+.box input{flex:1;min-width:0;border:0;background:transparent;font-size:16px;outline:none;height:100%}
+.box .clear{border:0;background:none;color:var(--muted);font-size:22px;cursor:pointer;padding:0 6px;line-height:1}
+
+/* home */
+#home{min-height:100%;display:flex;flex-direction:column;background:linear-gradient(180deg,var(--sky) 0%,var(--bg) 62%)}
+.home-main .box{box-shadow:var(--shadow);border-color:transparent;height:52px}
+.home-main{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:26px;padding-block:40px 60px}
+.home-main .logo{font-size:clamp(44px,11vw,76px)}
+.home-main form{width:100%;max-width:584px}
+.btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btns button{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:0 20px;height:40px;font-size:14px;cursor:pointer;color:var(--navy)}
+.btns button[type=submit]{background:var(--brand);border-color:var(--brand);color:var(--on-brand);font-weight:700}
+.btns button:hover{border-color:var(--line);box-shadow:0 1px 1px rgba(0,0,0,.1)}
+.tryline{font-size:13px;color:var(--muted);text-align:center;max-width:584px}
+.tryline a{margin:0 4px}
+.heads{width:100%;max-width:584px;display:grid;gap:4px;margin-top:6px}
+.heads h2,.spons h2{font-size:13px;font-weight:700;color:var(--gold);margin:0 0 4px;text-transform:uppercase;letter-spacing:.06em}
+.hlist{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(15,35,64,.08)}
+.hl{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center;padding:12px 16px;background:var(--card);border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;width:100%}
+.hl:first-child{border-top:0}
+.hl:hover{background:var(--soft)}
+.hl .dd{text-align:center;line-height:1.1}
+.hl .dd b{display:block;font-size:24px;font-weight:700;color:var(--gold);font-family:Georgia,serif}
+.hl .dd span{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+.hl .tx{display:grid;gap:2px;min-width:0}
+.hl .src{font-size:12px;color:var(--muted)}
+.hl .ttl{font-size:16px;color:var(--link);line-height:1.3}
+.hl .why{font-size:13px;color:var(--muted)}
+.hl .tag{font-size:11px;font-weight:700;color:var(--warn);text-transform:uppercase;letter-spacing:.04em}
+.homebar{display:flex;justify-content:space-between;align-items:center;gap:8px;padding-block:14px 0;flex-wrap:wrap}
+.homebar .right{display:flex;gap:8px;flex-wrap:wrap}
+.pub{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);background:none;border:0;cursor:pointer;padding:0}
+.pub img,.pubfoot img,.mark img{background:#fff;border-radius:8px;padding:3px 5px}
+.pub img{height:34px;width:auto}
+.signup{width:100%;max-width:584px;box-sizing:border-box;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:8px;box-shadow:0 2px 10px rgba(15,35,64,.08)}
+.signup h2{font-family:Georgia,serif;font-size:20px;color:var(--navy);margin:0;text-transform:none;letter-spacing:0;font-weight:700}
+.signup p{margin:0;color:var(--muted)}
+.su{display:grid;gap:10px}
+.su .row{display:flex;gap:8px;flex-wrap:wrap}
+.su input[type=email],.su input[type=text]{flex:1 1 200px;min-width:0;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.su .go{background:var(--brand);color:var(--on-brand);border:0;border-radius:8px;padding:10px 18px;font-weight:700;cursor:pointer}
+.su .go:disabled{opacity:.6;cursor:default}
+.su fieldset{border:0;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 14px;font-size:13px;color:var(--muted)}
+.su legend{font-size:13px;color:var(--muted);margin-bottom:4px;padding:0}
+.su .msg{font-size:14px;margin:0}
+.su .msg.ok{color:var(--brand);font-weight:700}
+.su .msg.err{color:var(--warn)}
+.su .fine{font-size:12px;color:var(--muted);margin:0}
+.hp{position:absolute;left:-9999px}
+.spons{width:100%;max-width:584px;display:grid;gap:4px;margin-top:10px}
+.sgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:520px){.sgrid{grid-template-columns:minmax(0,1fr)}}
+.slot{border:1.5px dashed var(--gold);background:var(--sand);border-radius:12px;padding:14px;display:grid;gap:4px;text-align:left;cursor:pointer;color:var(--fg)}
+.slot:hover{border-style:solid}
+.slot b{color:var(--navy);font-size:14px}
+.slot span{font-size:12px;color:var(--muted)}
+.sponcard{border:1.5px dashed var(--gold);background:var(--sand);border-radius:8px;padding:14px 16px;display:grid;gap:6px;align-self:start}
+.sponcard .lbl{font-size:11px;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sponcard button{justify-self:start;border:1px solid var(--brand);color:var(--brand);background:var(--card);border-radius:16px;padding:4px 12px;cursor:pointer}
+.side{display:grid;gap:16px;align-content:start;min-width:0}
+.pubfoot{display:flex;align-items:center;gap:10px}
+.pubfoot img{height:40px;width:auto}
+.ratecard{border-collapse:collapse;width:100%;font-size:14px}
+.ratecard td,.ratecard th{border-bottom:1px solid var(--line);padding:8px 6px;text-align:left;vertical-align:top}
+.ratecard th{font-size:12px;color:var(--muted);font-weight:400}
+.biglogo{max-width:300px;background:#fff;border-radius:12px;padding:10px}
+.pillbtn{background:var(--bg);border:1px solid var(--line);border-radius:18px;padding:6px 12px;cursor:pointer;font-size:13px;white-space:nowrap}
+.pillbtn:hover{background:var(--soft)}
+.topbtns{display:flex;gap:8px;flex-wrap:wrap}
+.cov{max-width:584px;width:100%;box-sizing:border-box;border:1px solid var(--line);border-radius:8px;padding:12px 14px;background:var(--soft);font-size:14px;display:grid;gap:8px}
+#results .cov{max-width:652px;margin-top:12px}
+.cov b{color:var(--fg)}
+.cov .copy{font-size:13px}
+.acts{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.act{background:var(--bg);border:1px solid var(--line);border-radius:16px;padding:4px 12px;font-size:13px;cursor:pointer;color:var(--fg)}
+.act:hover{background:var(--soft)}
+.act[aria-pressed="true"]{border-color:var(--brand);color:var(--brand);font-weight:700}
+.calmenu{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.calmenu a{font-size:13px;border:1px solid var(--line);border-radius:16px;padding:4px 12px}
+.scrim{position:fixed;inset:0;background:rgba(0,0,0,.45);display:grid;place-items:center;z-index:20;padding:16px}
+.scrim[hidden]{display:none!important}
+.sheet{background:var(--bg);color:var(--fg);border-radius:12px;padding:20px;width:100%;max-width:420px;box-sizing:border-box;display:grid;gap:8px;box-shadow:var(--shadow)}
+.sheet h2{font-size:20px;font-weight:400;margin:0 0 6px}
+.sheet label{font-size:13px;color:var(--muted)}
+.sheet select,.sheet input{font-size:16px;padding:9px 10px;border:1px solid var(--line);border-radius:6px;background:var(--bg);width:100%;box-sizing:border-box}
+.sheet .hint{margin:4px 0 0;font-size:13px;color:var(--muted)}
+.sheetbtns{display:flex;justify-content:flex-end;gap:8px;margin-top:8px}
+.sheetbtns button{border:1px solid var(--line);background:var(--bg);border-radius:6px;padding:8px 14px;cursor:pointer}
+.sheetbtns .primary{background:var(--brand);border-color:var(--brand);color:var(--on-brand)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(24px + env(safe-area-inset-bottom,0px));background:var(--fg);color:var(--bg);padding:10px 16px;border-radius:6px;font-size:14px;z-index:30;max-width:calc(100% - 32px)}
+.foot{background:var(--soft);color:var(--muted);font-size:13px}
+.foot .row1{border-bottom:1px solid var(--line);padding-block:12px}
+.foot .row2{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;padding-block:12px}
+.foot .row2 div{display:flex;gap:20px;flex-wrap:wrap}
+.foot a{color:var(--muted)}
+
+/* results */
+#results{display:none}
+.top{display:flex;align-items:center;gap:24px;padding-block:20px 8px;flex-wrap:wrap}
+.top .logo{font-size:26px;cursor:pointer;background:none;border:0;padding:0}
+.top{background:linear-gradient(180deg,var(--sky),var(--bg))}
+.top form{flex:1;min-width:240px;max-width:692px}
+.tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tabs button{background:none;border:0;border-bottom:3px solid transparent;padding:10px 12px 8px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tabs button[aria-selected="true"]{color:var(--brand);border-bottom-color:var(--brand)}
+.indent{padding-left:calc(max(16px,env(safe-area-inset-left,0px)) + 0px)}
+.layout{display:grid;grid-template-columns:minmax(0,652px) minmax(0,368px);gap:48px;padding-block:12px 48px}
+@media (min-width:900px){.layout,.tabs-inner,.stats{margin-left:150px}}
+.stats{color:var(--muted);font-size:14px;padding-block:10px 4px}
+.list{display:grid;gap:28px;min-width:0}
+.res{min-width:0}
+.crumb{display:flex;align-items:center;gap:10px;font-size:13px;color:var(--crumb);margin-bottom:2px;min-width:0}
+.fav{flex:none;width:26px;height:26px;border-radius:50%;background:var(--soft);border:1px solid var(--line);display:grid;place-items:center;font-size:10px;font-weight:700;color:var(--muted)}
+.crumb .site{display:grid;line-height:1.3;min-width:0}
+.crumb .site b{font-weight:400;color:var(--fg);font-size:14px}
+.crumb .site span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.res h3{font-size:20px;font-weight:400;line-height:1.3;margin:0 0 3px}
+.res h3 a:visited{color:var(--visited)}
+.snip{color:var(--fg);margin:0;overflow-wrap:anywhere}
+.snip .d{color:var(--muted)}
+.snip mark,.panel mark{background:transparent;color:inherit;font-weight:700}
+.chipline{display:flex;gap:6px;flex-wrap:wrap;margin-top:6px}
+.chip{font-size:12px;border:1px solid var(--line);border-radius:12px;padding:1px 8px;color:var(--muted)}
+.chip.warn{border-color:#e37400;color:var(--warn)}
+.none p{margin:0 0 12px}
+.none ul{margin:0;padding-left:22px}
+
+/* side panel */
+.panel{border:1px solid var(--line);border-radius:8px;padding:16px 18px;display:grid;gap:10px;align-self:start}
+.panel h2{font-size:26px;font-weight:400;margin:0;line-height:1.2}
+.panel .sub{color:var(--muted);margin-top:-6px}
+.panel dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.panel dt{font-weight:700}
+.panel dd{margin:0;min-width:0}
+.panel .next{background:var(--soft);border-radius:8px;padding:10px 12px}
+@media (max-width:899px){.layout{grid-template-columns:minmax(0,1fr);gap:24px}.side{order:-1}.side .sponcard{display:none}}
+
+.info{max-width:652px;display:grid;gap:12px}
+.info h2{font-size:22px;font-weight:400;margin:0}
+.info p{margin:0}
+.copy{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.copy code{background:var(--soft);padding:4px 8px;border-radius:4px}
+.copy button{border:1px solid var(--line);background:var(--bg);border-radius:4px;padding:4px 12px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<div id="home">
+  <div class="homebar gut">
+    <button type="button" class="pub" data-info="about" aria-label="About the publisher"><img src="/logo-mark.png" alt="Flagler Coastal Enterprises logo"><span>by Flagler Coastal Enterprises</span></button>
+    <div class="right">
+      <button type="button" class="pillbtn locbtn">📍 <span class="locname">Flagler County, FL</span> ▾</button>
+      <button type="button" class="pillbtn savedbtn">★ Saved <span class="savedn">0</span></button>
+    </div>
+  </div>
+  <main class="home-main gut">
+    <div class="logo" aria-label="PublicDocket">Public<span>Docket</span><small class="loctag">FLAGLER</small></div>
+    <div class="cov" hidden></div>
+    <form id="f1" role="search">
+      <div class="box">
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+        <input id="q1" type="search" aria-label="Search Flagler County public records" autocomplete="off" placeholder="Search meetings, agendas and notices">
+      </div>
+      <div class="btns">
+        <button type="submit">Search records</button>
+        <button type="button" id="nextbtn">Next meeting</button>
+      </div>
+    </form>
+    <div class="tryline">Try: <a href="#" data-q="Project Butterfly">Project Butterfly</a><a href="#" data-q="school board">school board</a><a href="#" data-q="Palm Coast council">Palm Coast council</a><a href="#" data-q="November">November</a></div>
+    <section class="heads" aria-labelledby="hh">
+      <h2 id="hh">Coming up in Flagler</h2>
+      <div class="hlist" id="hlist"></div>
+    </section>
+    <section class="signup" aria-labelledby="suh">
+      <h2 id="suh">Get the free weekly digest</h2>
+      <p>Every Sunday: the week's meetings, new agendas and deadlines in Flagler County.</p>
+      <div class="suform" data-form="home"></div>
+    </section>
+    <section class="spons" aria-labelledby="sh">
+      <h2 id="sh">Local sponsors</h2>
+      <div class="sgrid">
+        <button type="button" class="slot" data-info="sponsor"><b>Founding Sponsor</b><span>Your business here. 3 spots open.</span></button>
+        <button type="button" class="slot" data-info="sponsor"><b>Founding Sponsor</b><span>Logo on every page and in the weekly digest.</span></button>
+        <button type="button" class="slot" data-info="sponsor"><b>Become a sponsor</b><span>See rates and how to apply →</span></button>
+      </div>
+    </section>
+  </main>
+  <footer class="foot">
+    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies</span></div>
+    <div class="row2 gut">
+      <div><a href="#" data-info="about">About</a><a href="#" data-info="digest">Weekly digest</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
+      <div><span>Updated Oct 16, 2026</span><a href="#" data-info="sources">Sources</a></div>
+    </div>
+  </footer>
+</div>
+
+<div id="results">
+  <div class="top gut">
+    <button class="logo" id="homebtn" aria-label="PublicDocket home">Public<span>Docket</span></button>
+    <form id="f2" role="search">
+      <div class="box">
+        <input id="q2" type="search" aria-label="Search Flagler County public records" autocomplete="off">
+        <button type="button" class="clear" id="clr" aria-label="Clear search">×</button>
+        <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 14h-.8l-.3-.3A6.5 6.5 0 1 0 14 15.5l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/></svg>
+      </div>
+    </form>
+    <div class="topbtns">
+      <button type="button" class="pillbtn locbtn">📍 <span class="locname">Flagler County, FL</span> ▾</button>
+      <button type="button" class="pillbtn savedbtn">★ <span class="savedn">0</span></button>
+    </div>
+  </div>
+  <div class="tabs gut" role="tablist"><div class="tabs-inner" style="display:flex;gap:4px">
+    <button role="tab" data-t="all" aria-selected="true">All</button>
+    <button role="tab" data-t="meeting" aria-selected="false">Meetings</button>
+    <button role="tab" data-t="doc" aria-selected="false">Agendas &amp; notices</button>
+    <button role="tab" data-t="saved" aria-selected="false">★ Saved</button>
+  </div></div>
+  <div class="gut"><div class="tabs-inner"><div class="cov" hidden></div></div><div class="stats" id="stats"></div></div>
+  <div class="layout gut">
+    <div class="list" id="list"></div>
+    <div class="side">
+      <aside class="panel" id="panel" hidden></aside>
+      <aside class="sponcard" aria-label="Sponsorship"><span class="lbl">Sponsor spot</span><div>Reach Flagler residents, builders and professionals who follow local government.</div><button type="button" data-info="sponsor">Become a sponsor</button></aside>
+    </div>
+  </div>
+  <footer class="foot">
+    <div class="row2 gut">
+      <div><a href="#" data-info="about">About</a><a href="#" data-info="digest">Weekly digest</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a><a href="#" data-info="sources">Sources</a></div>
+      <span>PublicDocket is an independent index. The linked government sites are the official record.</span>
+    </div>
+  </footer>
+</div>
+
+<div class="scrim" id="scrim" hidden>
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="loch">
+    <h2 id="loch">Choose your location</h2>
+    <label for="stsel">State</label>
+    <select id="stsel"></select>
+    <label for="cosel">County</label>
+    <select id="cosel"></select>
+    <input id="cotxt" type="text" placeholder="Type your county name" hidden>
+    <p class="hint" id="lochint"></p>
+    <div class="sheetbtns"><button type="button" id="loccancel">Cancel</button><button type="button" id="locsave" class="primary">Use this location</button></div>
+  </div>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script>
+const BODY={
+ county:{name:"Flagler County Board of County Commissioners",short:"Flagler County Commission",site:"flaglercounty.gov",url:"https://flaglercofl.portal.civicclerk.com/",fav:"FC",
+   type:"County governing board",sched:"1st Monday 9 a.m., 3rd Monday 5 p.m.",where:"Government Services Bldg. 2, 1769 E. Moody Blvd., Bunnell",members:"Leann Pennington (Chair), Kim Carney (Vice Chair), Andy Dance, Gregory Hansen, Pam Richardson",phone:"(386) 313-4000",keys:"county commission bocc board of county commissioners flagler county"},
+ pc:{name:"Palm Coast City Council",short:"Palm Coast City Council",site:"palmcoast.gov",url:"https://www.palmcoast.gov/agendas",fav:"PC",
+   type:"City council",sched:"Business: 1st Tue 6 p.m. & 3rd Tue 9 a.m.; Workshop: 2nd Tue 9 a.m.",where:"City Hall, 160 Lake Ave., Palm Coast",members:"",phone:"(386) 986-2360",keys:"palm coast city council"},
+ fb:{name:"Flagler Beach City Commission",short:"Flagler Beach City Commission",site:"flaglerbeach-fl.municodemeetings.com",url:"https://flaglerbeach-fl.municodemeetings.com/",fav:"FB",
+   type:"City commission",sched:"2nd & 4th Thursday, 5:30 p.m.",where:"City Hall, Flagler Beach",members:"",phone:"",keys:"flagler beach city commission"},
+ bun:{name:"Bunnell City Commission",short:"Bunnell City Commission",site:"bunnellcity.us",url:"https://www.bunnellcity.us/1479/Agendas-Minutes",fav:"BN",
+   type:"City commission",sched:"2nd & 4th Monday, 7 p.m.",where:"City Chambers, 2400 Commerce Pkwy, Bunnell",members:"Catherine Robinson (Mayor), John R. Rogers (Vice Mayor), Bill Baxley, Donnie Nobles, Tonya Gordon",phone:"(386) 437-7500, option 5",keys:"bunnell city commission"},
+ sb:{name:"Flagler County School Board",short:"Flagler County School Board",site:"flaglerschools.com",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",fav:"FS",
+   type:"School board",sched:"Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",where:"1769 E. Moody Blvd., Bldg. 2, Bunnell",members:"",phone:"(386) 437-7526 x1104",keys:"school board flagler schools education boarddocs"}
+};
+// [date, time, body, title, place, status, note]
+const MEET=[
+ ["2026-10-19","5:00 p.m.","county","Regular meeting","","s",""],
+ ["2026-10-20","9:00 a.m.","pc","Business meeting","","s",""],
+ ["2026-10-22","5:30 p.m.","fb","Regular meeting","","s",""],
+ ["2026-10-26","7:00 p.m.","bun","Regular meeting","","c","Listed on the City of Bunnell calendar."],
+ ["2026-10-27","1:00 p.m.","sb","Information workshop","","s",""],
+ ["2026-10-27","6:00 p.m.","sb","Regular board meeting","","s",""],
+ ["2026-10-28","9:00 a.m.","bun","Special meeting: De Novo hearing on Project Butterfly","","c","Quasi-judicial appeal hearing. The city expects to post the agenda Oct. 21. Overflow parking at 2301 Commerce Pkwy."],
+ ["2026-11-02","9:00 a.m.","county","Regular meeting","","s",""],
+ ["2026-11-03","6:00 p.m.","pc","Business meeting","","w","Falls on Election Day; the date may change."],
+ ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
+ ["2026-11-10","9:00 a.m.","pc","Workshop","","s",""],
+ ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","s",""],
+ ["2026-11-10","6:00 p.m.","sb","Regular board meeting","","s",""],
+ ["2026-11-12","5:30 p.m.","fb","Regular meeting","","s",""],
+ ["2026-11-16","5:00 p.m.","county","Regular meeting","","s",""],
+ ["2026-11-17","9:00 a.m.","pc","Business meeting","","s",""],
+ ["2026-11-23","7:00 p.m.","bun","Regular meeting","","s",""],
+ ["2026-11-24","6:00 p.m.","sb","Regular board meeting","","w","Thanksgiving week; check the board calendar."],
+ ["2026-11-26","5:30 p.m.","fb","Regular meeting","","w","Thanksgiving Day; likely rescheduled."]
+];
+const DOCS=[
+ {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
+  snip:"Media release. The Commission will rehear the Project Butterfly application on Oct. 28 at 9 a.m. after appeals of the Sept. 1 Planning, Zoning and Appeals Board decision. Order: staff, applicant, appellants (20 min), appellees (20 min), rebuttal (15 min), public comment, then decision. Notices mailed to owners within 500 feet.",kw:"project butterfly project b de novo appeal hearing quasi-judicial planning zoning pza development"},
+ {b:"bun",date:"",title:"Agendas & Minutes | City of Bunnell",url:"https://www.bunnellcity.us/1479/Agendas-Minutes",path:"Government › Agendas & Minutes",
+  snip:"Agendas and minutes for the Bunnell City Commission, Planning, Zoning and Appeals Board and Code Enforcement Board.",kw:"agenda minutes pza code enforcement"},
+ {b:"county",date:"",title:"Flagler County BOCC agendas (Aug. 17, 2026 forward)",url:"https://flaglercofl.portal.civicclerk.com/",path:"CivicClerk portal",
+  snip:"Board of County Commissioners agendas moved to the CivicClerk public portal on Aug. 17, 2026. Earlier agendas remain in the county's archive.",kw:"agenda packet portal civicclerk"},
+ {b:"county",date:"",title:"BOCC agenda archive (before Aug. 17, 2026)",url:"https://www.flaglercounty.gov/Government/Board-of-County-Commissioners/Meetings-Agendas-Summaries/BOCC-Agendas/Agendas",path:"Government › BOCC Agendas",
+  snip:"Archived agendas and summaries for Board of County Commissioners meetings held before Aug. 17, 2026.",kw:"agenda archive summaries 2025 2026"},
+ {b:"county",date:"",title:"Watch Board of County Commissioners meetings live",url:"https://www.youtube.com/@FlaglerCounty/live",path:"YouTube › @FlaglerCounty",
+  snip:"County Commission meetings stream live on YouTube and air on Spectrum channel 492.",kw:"video livestream watch youtube"},
+ {b:"pc",date:"",title:"Agenda & Minutes | City of Palm Coast",url:"https://www.palmcoast.gov/agendas",path:"Agendas",
+  snip:"Agendas, minutes, video and downloadable MP3 audio for Palm Coast City Council business meetings and workshops.",kw:"agenda minutes audio mp3 video workshop"},
+ {b:"fb",date:"",title:"Flagler Beach meetings, agendas and packets",url:"https://flaglerbeach-fl.municodemeetings.com/",path:"Municode Meetings",
+  snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
+ {b:"sb",date:"",title:"BoardDocs | Flagler County School Board",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",path:"BoardDocs › Public",
+  snip:"Agendas, supporting documents and board policies for Flagler Schools board meetings and workshops.",kw:"boarddocs agenda policies workshop"},
+ {b:"sb",date:"",title:"School Board meeting videos",url:"https://youtube.com/playlist?list=PLfx_w2JpNlBzcLsx7mTHJCM0z9nNsKrZE",path:"YouTube › Board Meetings",
+  snip:"Recordings of current and past Flagler County School Board meetings (2024 forward).",kw:"video recordings youtube"}
+];
+const MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],MOL=["January","February","March","April","May","June","July","August","September","October","November","December"],WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],WDL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+const TODAY=new Date("2026-10-16T12:00:00");
+const ST={c:"Confirmed",s:"On regular schedule",w:"Date may change"};
+function dt(s){return new Date(s+"T12:00:00")}
+function fmt(s){const d=dt(s);return MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
+const RECS=[];
+MEET.forEach((m,i)=>{const B=BODY[m[2]],d=dt(m[0]);
+  RECS.push({id:"m"+i,m,t:"meeting",b:m[2],date:m[0],title:`${B.short}: ${m[3]} — ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()}`,
+   url:B.url,path:"Meetings › "+m[0],
+   snip:`${m[1]} at ${B.where}. ${m[6]?m[6]+" ":""}${m[5]==="c"?"":"Agenda typically posted the week before."}`,status:m[5],
+   hay:[B.keys,B.name,m[3],m[6],MOL[d.getMonth()],MO[d.getMonth()],WDL[d.getDay()],String(d.getDate()),"meeting",ST[m[5]]].join(" ")})});
+DOCS.forEach(x=>{const B=BODY[x.b];RECS.push({t:"doc",b:x.b,date:x.date,title:x.title,url:x.url,path:x.path,snip:x.snip,hay:[B.keys,B.name,x.kw,x.title,x.snip].join(" ")})});
+
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const terms=q=>q.toLowerCase().replace(/[^\w\s-]/g," ").split(/\s+/).filter(t=>t&&!["the","a","of","and","in","on","for","meeting","meetings"].includes(t));
+function hl(s,ts){let out=esc(s);ts.filter(t=>t.length>1).forEach(t=>{out=out.replace(new RegExp("("+t.replace(/[-]/g,"\\-")+")","gi"),"<mark>$1</mark>")});return out}
+let tab="all",cur="";
+function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+let saved=load("pd-saved",[]);
+let loc=load("pd-loc",{st:"FL",co:"Flagler"});
+
+function score(r,ts){
+  if(!ts.length)return 1;
+  const T=r.title.toLowerCase(),H=r.hay.toLowerCase(),S=r.snip.toLowerCase();let sc=0;
+  for(const t of ts){let hit=0;if(T.includes(t))hit+=3;if(H.includes(t))hit+=2;if(S.includes(t))hit+=1;if(!hit)return 0;sc+=hit}
+  if(r.t==="meeting"&&dt(r.date)>=TODAY)sc+=1/(1+(dt(r.date)-TODAY)/864e5);
+  return sc;
+}
+function panelFor(ts){
+  const q=" "+ts.join(" ")+" ";
+  let best=null,bs=0;
+  for(const k in BODY){const kw=BODY[k].keys.split(" ");const s=ts.filter(t=>kw.includes(t)).length;if(s>bs){bs=s;best=k}}
+  if(!best||bs<1)return "";
+  if(best==="county"&&ts.length===1&&ts[0]==="flagler")return "";
+  const B=BODY[best];
+  const nxt=MEET.filter(m=>m[2]===best&&dt(m[0])>=TODAY)[0];
+  const d=nxt&&dt(nxt[0]);
+  return `<h2>${esc(B.name)}</h2><div class="sub">${esc(B.type)} · Flagler County, Florida</div>
+  ${nxt?`<div class="next"><b>Next meeting:</b> ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()} at ${nxt[1]}<br>${esc(nxt[3])}</div>`:""}
+  <dl><dt>Meets</dt><dd>${esc(B.sched)}</dd><dt>Where</dt><dd>${esc(B.where)}</dd>
+  ${B.members?`<dt>Members</dt><dd>${esc(B.members)}</dd>`:""}${B.phone?`<dt>Phone</dt><dd>${esc(B.phone)}</dd>`:""}</dl>
+  <a href="${B.url}" target="_blank" rel="noopener">Official agendas →</a>`;
+}
+function resultHTML(r,ts){
+  const B=BODY[r.b];
+  const sv=r.t==="meeting"&&saved.includes(r.id);
+  const chip=r.t==="meeting"?`<div class="chipline"><span class="chip${r.status==="w"?" warn":""}">${ST[r.status]}</span></div>
+  <div class="acts" data-id="${r.id}"><button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button></div>`:"";
+  const datePre=r.date&&r.t==="doc"?`<span class="d">${fmt(r.date)} — </span>`:"";
+  return `<div class="res"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(B.site)} › ${esc(r.path)}</span></div></div>
+  <h3><a href="${r.url}" target="_blank" rel="noopener">${hl(r.title,ts)}</a></h3>
+  <p class="snip">${datePre}${hl(r.snip,ts)}</p>${chip}</div>`;
+}
+function run(q,push){
+  cur=q.trim();
+  if(!cur&&tab!=="saved"){showHome(push);return}
+  $("home").style.display="none";$("results").style.display="block";$("q2").value=cur;
+  document.querySelectorAll("[data-t]").forEach(x=>x.setAttribute("aria-selected",x.dataset.t===tab));
+  const t0=performance.now(),ts=terms(cur);
+  if(tab==="saved"){
+    const rs=RECS.filter(r=>saved.includes(r.id)&&(!ts.length||score(r,ts)>0)).sort((a,b)=>a.date<b.date?-1:1);
+    $("stats").textContent=rs.length?`${rs.length} saved event${rs.length>1?"s":""} on this device`:"";
+    $("list").innerHTML=rs.length?rs.map(r=>resultHTML(r,ts)).join(""):`<div class="none"><p>No saved events yet.</p><p>Tap <b>☆ Save</b> on any meeting to keep it here. Saved events stay on this device and browser.</p></div>`;
+    $("panel").hidden=true;document.title="Saved - PublicDocket";return;
+  }
+  let rs=RECS.map(r=>({r,s:score(r,ts)})).filter(x=>x.s>0&&(tab==="all"||x.r.t===tab));
+  rs.sort((a,b)=>b.s-a.s||((a.r.date||"9")<(b.r.date||"9")?-1:1));
+  const ms=Math.max(.01,(performance.now()-t0)/1000);
+  $("stats").textContent=rs.length?`About ${rs.length} result${rs.length>1?"s":""} (${ms.toFixed(2)} seconds)`:"";
+  $("list").innerHTML=rs.length?rs.map(x=>resultHTML(x.r,ts)).join(""):
+   `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any Flagler County records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like November.</li><li>Try fewer words.</li></ul></div>`;
+  const p=panelFor(ts);$("panel").innerHTML=p;$("panel").hidden=!p;
+  document.title=cur+" - PublicDocket";
+  if(push){try{history.pushState({q:cur},"","?q="+encodeURIComponent(cur))}catch(e){}}
+  scrollTo(0,0);
+}
+function showHome(push){
+  $("results").style.display="none";$("home").style.display="flex";$("q1").value="";document.title="PublicDocket Flagler";
+  if(push){try{history.pushState({q:""},"",location.pathname)}catch(e){}}
+}
+const INFO={
+ about:["About PublicDocket","<img class='biglogo' src='/logo-full.png' alt='Flagler Coastal Enterprises LLC: People, Opportunity, A Stronger Tomorrow'><p>PublicDocket searches public meetings, agendas and notices from the Flagler County Commission, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place. Every result links to the government's own page.</p><p><b>Confirmed</b> meetings appear on the government's posted calendar. <b>On regular schedule</b> meetings follow the body's adopted schedule but aren't posted yet. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.</p>"],
+ digest:["Weekly digest","<p>A free Sunday email with the coming week's meetings, new agendas and deadlines in Flagler County. First issue: Sunday, Oct. 25.</p><div class='suform' data-form='page'></div>"],
+
+ sponsor:["Sponsor PublicDocket","<p>Put your business in front of Flagler residents, builders, real estate pros and local leaders who follow what's happening at City Hall and the County Commission.</p><table class='ratecard'><tr><th>Package</th><th>Includes</th><th>Price</th></tr><tr><td><b>Founding Sponsor</b><br>3 months · 3 spots</td><td>Logo on the homepage and every results page, plus a mention in every weekly digest. Rate locked for renewal.</td><td>$150</td></tr><tr><td><b>Digest sponsor</b><br>1 month</td><td>Featured message in 4 weekly digest emails.</td><td>$75</td></tr><tr><td><b>Single issue</b></td><td>Featured message in one weekly digest.</td><td>$25</td></tr></table><p>Sponsors never influence what we publish. Every sponsored spot is labeled. To reserve a spot, email:</p><div class='copy'><code id='addr'>coastalenterprises386@gmail.com</code><button type='button' id='cp'>Copy</button></div>"],
+ corrections:["Corrections","<p>If a date, time or link is wrong, email coastalenterprises386@gmail.com. Errors are fixed within 24 hours and noted here.</p><p>No corrections yet.</p>"],
+ sources:["Sources","<p>"+Object.values(BODY).map(B=>`<a href="${B.url}" target="_blank" rel="noopener">${esc(B.name)}</a>`).join("<br>")+"</p>"]
+};
+function showInfo(k){
+  $("home").style.display="none";$("results").style.display="block";$("q2").value="";$("stats").textContent="";
+  $("panel").hidden=true;$("list").innerHTML=`<div class="info"><h2>${INFO[k][0]}</h2>${INFO[k][1]}</div>`;
+  mountForms($("list"));
+  const cp=$("cp");if(cp)cp.onclick=()=>{navigator.clipboard.writeText($("addr").textContent).then(()=>cp.textContent="Copied",()=>{const r=document.createRange();r.selectNodeContents($("addr"));const s=getSelection();s.removeAllRanges();s.addRange(r);cp.textContent="Selected"})};
+  scrollTo(0,0);
+}
+$("f1").addEventListener("submit",e=>{e.preventDefault();run($("q1").value,true)});
+$("f2").addEventListener("submit",e=>{e.preventDefault();run($("q2").value,true)});
+$("homebtn").addEventListener("click",()=>showHome(true));
+$("clr").addEventListener("click",()=>{$("q2").value="";$("q2").focus()});
+$("nextbtn").addEventListener("click",()=>{const m=MEET.find(m=>dt(m[0])>=TODAY);run(BODY[m[2]].short+" "+MOL[dt(m[0]).getMonth()]+" "+dt(m[0]).getDate(),true)});
+document.querySelectorAll("[data-q]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();run(a.dataset.q,true)}));
+document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();showInfo(a.dataset.info)}));
+document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
+addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
+const HEAD=[
+ {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing, 9 a.m. Agenda due Oct. 21.",q:"Project Butterfly"},
+ {d:"2026-10-19",b:"county",tag:"",t:"County Commission meets Monday evening",w:"Regular meeting, 5 p.m., Government Services Bldg. 2, Bunnell.",q:"county commission October 19"},
+ {d:"2026-10-20",b:"pc",tag:"",t:"Palm Coast City Council holds Tuesday morning business meeting",w:"9 a.m. at City Hall. Agenda, video and audio posted by the city.",q:"Palm Coast October 20"},
+ {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
+ {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"}
+];
+$("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d);
+ return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
+ <div class="tx"><span class="src">${esc(BODY[h.b].short)}${h.tag?` · <span class="tag">${esc(h.tag)}</span>`:""}</span><span class="ttl">${esc(h.t)}</span><span class="why">${esc(h.w)}</span></div></button>`}).join("");
+document.querySelectorAll("[data-hq]").forEach(b=>b.addEventListener("click",()=>run(b.dataset.hq,true)));
+
+/* ---------- newsletter signup ---------- */
+const SIGNUP_URL="https://formsubmit.co/ajax/coastalenterprises386@gmail.com";
+function mountForms(root){
+  (root||document).querySelectorAll(".suform:not([data-ready])").forEach(box=>{
+    box.dataset.ready="1";const k=box.dataset.form;
+    box.innerHTML=`<form class="su" novalidate>
+      <div class="row"><input type="email" id="su-email-${k}" name="email" required placeholder="Your email" aria-label="Email address" autocomplete="email">
+      <input type="text" id="su-name-${k}" name="name" placeholder="First name (optional)" aria-label="First name" autocomplete="given-name"></div>
+      <fieldset><legend>I care most about (optional):</legend>
+      ${Object.entries(BODY).map(([b,B])=>`<label><input type="checkbox" name="topics" value="${esc(B.short)}" id="su-${b}-${k}"> ${esc(B.short.replace(" City Commission","").replace(" City Council","").replace("Flagler County ",""))}</label>`).join("")}</fieldset>
+      <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="row"><button class="go" type="submit">Subscribe free</button></div>
+      <p class="msg" role="status" aria-live="polite"></p>
+      <p class="fine">Free. One email a week. Unsubscribe anytime by replying "stop". We never sell or share your email.</p></form>`;
+    const f=box.querySelector("form"),msg=f.querySelector(".msg"),btn=f.querySelector(".go");
+    f.addEventListener("submit",async e=>{
+      e.preventDefault();
+      const email=f.email.value.trim();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.className="msg err";msg.textContent="Enter a valid email address, like name@example.com.";f.email.focus();return}
+      if(f._honey.value)return;
+      const topics=[...f.querySelectorAll("input[name=topics]:checked")].map(x=>x.value).join(", ")||"All";
+      btn.disabled=true;btn.textContent="Signing up…";msg.className="msg";msg.textContent="";
+      try{
+        const r=await fetch(SIGNUP_URL,{method:"POST",headers:{"Content-Type":"application/json","Accept":"application/json"},
+          body:JSON.stringify({email,name:f.name.value.trim(),topics,location:`${loc.co} County, ${loc.st}`,_subject:"New PublicDocket digest signup",_template:"table",_captcha:"false"})});
+        if(!r.ok)throw new Error(r.status);
+        msg.className="msg ok";msg.textContent="You're on the list. Your first digest arrives Sunday morning.";
+        f.reset();store("pd-subscribed",true);btn.textContent="Subscribed ✓";
+      }catch(err){
+        msg.className="msg err";msg.textContent="Sign-up didn't go through. Try again, or email coastalenterprises386@gmail.com and we'll add you.";
+        btn.disabled=false;btn.textContent="Subscribe free";
+      }
+    });
+  });
+}
+mountForms();
+
+/* ---------- toast ---------- */
+let tt;function toast(msg){const t=$("toast");t.textContent=msg;t.hidden=false;clearTimeout(tt);tt=setTimeout(()=>t.hidden=true,2600)}
+
+/* ---------- saved ---------- */
+function updSaved(){document.querySelectorAll(".savedn").forEach(e=>e.textContent=saved.length)}
+document.querySelectorAll(".savedbtn").forEach(b=>b.addEventListener("click",()=>{tab="saved";run(cur,true)}));
+
+/* ---------- event links ---------- */
+function evInfo(r){
+  const m=r.m,B=BODY[m[2]],[time,ap]=m[1].split(" ");let [h,mi]=time.split(":").map(Number);
+  if(ap.startsWith("p")&&h<12)h+=12;if(ap.startsWith("a")&&h===12)h=0;
+  const p=n=>String(n).padStart(2,"0"),ds=m[0].replace(/-/g,"");
+  const s=`${ds}T${p(h)}${p(mi)}00`,e=`${ds}T${p(Math.min(h+2,23))}${p(mi)}00`;
+  const title=`${B.short}: ${m[3]}`,where=B.where+", FL";
+  const details=`${m[6]?m[6]+"\n":""}Official agenda: ${B.url}\nFound on PublicDocket.`;
+  return {B,title,where,details,s,e,date:m[0],time:m[1]};
+}
+function shareURL(r){try{return location.origin&&location.origin!=="null"?location.origin+location.pathname+"?e="+r.id:BODY[r.b].url}catch(e){return BODY[r.b].url}}
+function gcal(i){return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(i.title)+"&dates="+i.s+"/"+i.e+"&ctz=America/New_York&location="+encodeURIComponent(i.where)+"&details="+encodeURIComponent(i.details)}
+function outlook(i){const iso=x=>`${x.slice(0,4)}-${x.slice(4,6)}-${x.slice(6,8)}T${x.slice(9,11)}:${x.slice(11,13)}:00`;
+  return "https://outlook.live.com/calendar/0/deeplink/compose?subject="+encodeURIComponent(i.title)+"&startdt="+iso(i.s)+"&enddt="+iso(i.e)+"&location="+encodeURIComponent(i.where)+"&body="+encodeURIComponent(i.details)}
+function ics(i,id){
+  const esc2=s=>s.replace(/[\\,;]/g,m=>"\\"+m).replace(/\n/g,"\\n");
+  const txt=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//PublicDocket//EN","BEGIN:VEVENT","UID:"+id+"-"+i.s+"@publicdocket","DTSTAMP:20261016T120000Z",
+   "DTSTART;TZID=America/New_York:"+i.s,"DTEND;TZID=America/New_York:"+i.e,"SUMMARY:"+esc2(i.title),"LOCATION:"+esc2(i.where),"DESCRIPTION:"+esc2(i.details),"END:VEVENT","END:VCALENDAR"].join("\r\n");
+  try{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([txt],{type:"text/calendar"}));a.download=id+".ics";document.body.appendChild(a);a.click();a.remove();toast("Calendar file downloaded")}catch(e){toast("Download not available here. Use Google or Outlook.")}
+}
+$("list").addEventListener("click",async e=>{
+  const b=e.target.closest(".act");if(!b)return;
+  const id=b.parentElement.dataset.id,r=RECS.find(x=>x.id===id),a=b.dataset.a;
+  if(a==="save"){
+    if(saved.includes(id)){saved=saved.filter(x=>x!==id);b.textContent="☆ Save";b.setAttribute("aria-pressed","false");toast("Removed from Saved")}
+    else{saved.push(id);b.textContent="★ Saved";b.setAttribute("aria-pressed","true");toast("Saved. Find it under ★ Saved.")}
+    store("pd-saved",saved);updSaved();if(tab==="saved")run(cur,false);
+  }else if(a==="share"){
+    const i=evInfo(r),url=shareURL(r),text=`${i.title} — ${WDL[dt(i.date).getDay()]}, ${MOL[dt(i.date).getMonth()]} ${dt(i.date).getDate()} at ${i.time}, ${i.where}`;
+    if(navigator.share){try{await navigator.share({title:i.title,text,url});return}catch(err){if(err&&err.name==="AbortError")return}}
+    try{await navigator.clipboard.writeText(text+"\n"+url);toast("Link copied. Paste it in a text or email.")}catch(err){toast("Couldn't copy. Long-press the title to copy its link.")}
+  }else if(a==="cal"){
+    const box=b.parentElement,old=box.nextElementSibling;
+    if(old&&old.classList.contains("calmenu")){old.remove();return}
+    const i=evInfo(r),m=document.createElement("div");m.className="calmenu";
+    m.innerHTML=`<a href="${gcal(i)}" target="_blank" rel="noopener">Google Calendar</a><a href="${outlook(i)}" target="_blank" rel="noopener">Outlook</a><a href="#" data-ics>Apple / other (.ics)</a>`;
+    m.querySelector("[data-ics]").addEventListener("click",ev=>{ev.preventDefault();ics(i,id)});
+    box.after(m);
+  }
+});
+
+/* ---------- location ---------- */
+const STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
+const FLCO=["Alachua","Baker","Bay","Bradford","Brevard","Broward","Calhoun","Charlotte","Citrus","Clay","Collier","Columbia","DeSoto","Dixie","Duval","Escambia","Flagler","Franklin","Gadsden","Gilchrist","Glades","Gulf","Hamilton","Hardee","Hendry","Hernando","Highlands","Hillsborough","Holmes","Indian River","Jackson","Jefferson","Lafayette","Lake","Lee","Leon","Levy","Liberty","Madison","Manatee","Marion","Martin","Miami-Dade","Monroe","Nassau","Okaloosa","Okeechobee","Orange","Osceola","Palm Beach","Pasco","Pinellas","Polk","Putnam","Santa Rosa","Sarasota","Seminole","St. Johns","St. Lucie","Sumter","Suwannee","Taylor","Union","Volusia","Wakulla","Walton","Washington"];
+const COVERED=l=>l.st==="FL"&&l.co==="Flagler";
+const stsel=$("stsel"),cosel=$("cosel"),cotxt=$("cotxt");
+stsel.innerHTML=Object.entries(STATES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
+function fillCo(st,co){
+  if(st==="FL"){cosel.hidden=false;cotxt.hidden=true;cosel.innerHTML=FLCO.map(c=>`<option${c===co?" selected":""}>${c}</option>`).join("")}
+  else{cosel.hidden=true;cotxt.hidden=false;cotxt.value=co&&st===loc.st?co:""}
+  hint();
+}
+function hint(){const st=stsel.value,co=st==="FL"?cosel.value:cotxt.value.trim();
+  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
+stsel.addEventListener("change",()=>fillCo(stsel.value,""));cosel.addEventListener("change",hint);cotxt.addEventListener("input",hint);
+function openLoc(){stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
+function closeLoc(){$("scrim").hidden=true}
+document.querySelectorAll(".locbtn").forEach(b=>b.addEventListener("click",openLoc));
+$("loccancel").addEventListener("click",closeLoc);
+$("scrim").addEventListener("click",e=>{if(e.target.id==="scrim")closeLoc()});
+addEventListener("keydown",e=>{if(e.key==="Escape"&&!$("scrim").hidden)closeLoc()});
+$("locsave").addEventListener("click",()=>{
+  const st=stsel.value,co=(st==="FL"?cosel.value:cotxt.value.trim().replace(/\s+county$/i,""));
+  if(!co){toast("Enter a county name first.");return}
+  loc={st,co};store("pd-loc",loc);closeLoc();applyLoc();
+  toast(COVERED(loc)?"Showing Flagler County, FL":`${co} County isn't covered yet`);
+  if($("results").style.display==="block")run(cur,false);
+});
+function applyLoc(){
+  const name=`${loc.co} County, ${loc.st}`;
+  document.querySelectorAll(".locname").forEach(e=>e.textContent=name);
+  $("home").querySelector(".loctag").textContent=COVERED(loc)?"FLAGLER":loc.co.toUpperCase();
+  document.querySelectorAll(".cov").forEach(c=>{
+    if(COVERED(loc)){c.hidden=true;return}
+    const msg=`Please add ${loc.co} County, ${STATES[loc.st]} to PublicDocket.`;
+    c.innerHTML=`<div><b>${esc(loc.co)} County, ${esc(STATES[loc.st])} isn't on PublicDocket yet.</b> We're adding counties in the order readers ask for them. Results below are from Flagler County, FL.</div>
+    <div>To request your county, email this message to <b>coastalenterprises386@gmail.com</b>:</div>
+    <div class="copy"><code>${esc(msg)}</code><button type="button" class="cpreq">Copy message</button></div>`;
+    c.hidden=false;
+    c.querySelector(".cpreq").addEventListener("click",ev=>{navigator.clipboard.writeText(msg+"\n\nSend to: coastalenterprises386@gmail.com").then(()=>toast("Message copied"),()=>toast("Couldn't copy. Select the text instead."))});
+  });
+}
+applyLoc();updSaved();
+
+let start="",startE="";try{const P=new URLSearchParams(location.search);start=P.get("q")||"";startE=P.get("e")||""}catch(e){}
+if(startE){const r=RECS.find(x=>x.id===startE);if(r){const B=BODY[r.b],d=dt(r.date);start=B.short+" "+MOL[d.getMonth()]+" "+d.getDate()}}
+start?run(start,false):showHome(false);
+</script>
+</body>
+</html>

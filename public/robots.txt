@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://publicdocket.coastalenterprises386.workers.dev/sitemap.xml
