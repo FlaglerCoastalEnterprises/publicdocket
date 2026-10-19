@@ -6,3 +6,4 @@
 - 2026-10-19: Site now uses the real current date, so past meetings drop off automatically.
 - 2026-10-19: Connected Cloudflare to GitHub for automatic publishing.
 - 2026-10-19: Newsletter sign-ups now go straight to Kit (form 10069452), with email backup.
+- 2026-10-19: Added /subscribe page (shareable newsletter sign-up, feeds Kit); footer "Weekly digest" links to it.
