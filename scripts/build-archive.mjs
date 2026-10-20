@@ -75,13 +75,26 @@ for (const [n, rows] of [["meetings", meetings], ["documents", documents], ["bod
 // ---------- archive page ----------
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 const MO = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const WD = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const fmt = s => { if (!s) return ""; const [y, m, d] = s.split("-"); return `${MO[+m - 1]} ${+d}, ${y}`; };
+const wd = s => WD[new Date(s + "T12:00:00Z").getUTCDay()];
 const up = meetings.filter(m => m.date >= today).reverse(), past = meetings.filter(m => m.date < today);
+
+// Editorial highlights: the homepage "Coming up" headlines (current version only).
+let HEAD = [];
+{ const html = versions[versions.length - 1].html, a = html.indexOf("const HEAD="), b = a < 0 ? -1 : html.indexOf("\n];", a);
+  if (a >= 0 && b > a) { const ctx = {}; try { vm.runInNewContext("var " + html.slice(a + 6, b + 3), ctx, { timeout: 2000 }); HEAD = ctx.HEAD || []; } catch {} } }
+const hl = HEAD.filter(h => h.d >= today).sort((a, b) => a.d < b.d ? -1 : 1).sort((a, b) => (b.tag === "Hearing") - (a.tag === "Hearing")).slice(0, 4);
+const recentDocs = documents.filter(d => d.date).slice(0, 3);
+const shortName = k => (bodies[k] && bodies[k].short) || B(k).name;
+
+const card = h => `<a class="hc" href="/?q=${encodeURIComponent(h.q || "")}"><span class="dd"><small>${MO[+h.d.slice(5, 7) - 1]}</small><b>${+h.d.slice(8, 10)}</b><small>${wd(h.d)}</small></span>
+<span class="tx"><span class="src">${esc(shortName(h.b))}${h.tag ? ` · <em>${esc(h.tag)}</em>` : ""}</span><strong>${esc(h.t)}</strong><span class="mut">${esc(h.w)}</span></span></a>`;
 const mrow = m => `<tr data-s="${esc((m.date + " " + fmt(m.date) + " " + m.body + " " + m.title + " " + m.note + " " + m.status).toLowerCase())}">
 <td class="nw">${fmt(m.date)}<br><span class="mut">${esc(m.time)}</span></td><td><a href="${esc(m.official_source)}" rel="noopener">${esc(m.body)}</a></td>
 <td>${esc(m.title)}${m.note ? `<br><span class="mut">${esc(m.note)}</span>` : ""}</td><td><span class="st st-${m.status === "Confirmed" ? "c" : m.status === "No longer listed" ? "x" : "s"}">${esc(m.status)}</span></td></tr>`;
-const table = (rows, cap) => rows.length ? `<div class="tw"><table><caption class="sr">${cap}</caption><thead><tr><th scope="col">Date</th><th scope="col">Body</th><th scope="col">Meeting</th><th scope="col">Status</th></tr></thead><tbody>${rows.map(mrow).join("")}</tbody></table></div>` : `<p class="mut">None yet.</p>`;
-const drow = d => `<li data-s="${esc((d.title + " " + d.body + " " + d.summary).toLowerCase())}"><a href="${esc(d.url)}" rel="noopener">${esc(d.title)}</a><span class="mut"> · ${esc(d.body)}${d.date ? " · " + fmt(d.date) : ""} · first indexed ${fmt(d.first_seen)}</span>${d.summary ? `<p>${esc(d.summary)}</p>` : ""}</li>`;
+const table = (rows, cap) => rows.length ? `<div class="tw"><table><caption class="sr">${cap}</caption><thead><tr><th scope="col">Date</th><th scope="col">Body</th><th scope="col">Meeting</th><th scope="col">Status</th></tr></thead><tbody>${rows.map(mrow).join("")}</tbody></table></div>` : `<p class="mut">None yet. Meetings move here after they happen.</p>`;
+const drow = d => `<li data-s="${esc((d.title + " " + d.body + " " + d.summary).toLowerCase())}"><a href="${esc(d.url)}" rel="noopener">${esc(d.title)}</a><span class="mut"> · ${esc(d.body)}${d.date ? " · " + fmt(d.date) : ""}</span>${d.summary ? `<p>${esc(d.summary)}</p>` : ""}</li>`;
 const ld = { "@context": "https://schema.org", "@type": "Dataset", name: "PublicDocket Flagler meetings and documents archive",
   description: "Every Flagler County, Florida public meeting, agenda and notice indexed by PublicDocket, with links to the official government sources: Flagler County Commission, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and Flagler County School Board.",
   url: SITE + "/archive/", isAccessibleForFree: true, dateModified: today, spatialCoverage: "Flagler County, Florida",
@@ -94,39 +107,61 @@ const page = `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Flagler County Public Meetings Archive | PublicDocket</title>
-<meta name="description" content="Archive of every Flagler County public meeting, agenda and notice PublicDocket has indexed, with links to official sources. Free CSV and JSON downloads.">
+<meta name="description" content="Highlights and full archive of Flagler County public meetings, agendas and notices indexed by PublicDocket, with links to official sources. Free CSV and JSON downloads.">
 <link rel="canonical" href="${SITE}/archive/">
 <meta property="og:title" content="Flagler County Public Meetings Archive">
 <meta property="og:image" content="${SITE}/logo-full.png">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <style>
-:root{--bg:#f3f8fd;--card:#fff;--fg:#14202e;--muted:#5a6878;--line:#d7e2ee;--brand:#1f5a96;--gold:#a8823c;--navy:#0f2340;--warn:#b06000;--ok:#1e6b3a;--font:Arial,"Helvetica Neue",Helvetica,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#14202e;--card:#1d2b3b;--fg:#e8eef5;--muted:#a3b2c2;--line:#30455c;--brand:#8ab4f8;--gold:#d9b56e;--navy:#e8eef5;--warn:#f6ad55;--ok:#7fd19b;color-scheme:dark}}
+:root{--bg:#f3f8fd;--card:#fff;--fg:#14202e;--muted:#5a6878;--line:#d7e2ee;--brand:#1f5a96;--gold:#a8823c;--navy:#0f2340;--warn:#b06000;--ok:#1e6b3a;--soft:#eaf2fa;--font:Arial,"Helvetica Neue",Helvetica,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#14202e;--card:#1d2b3b;--fg:#e8eef5;--muted:#a3b2c2;--line:#30455c;--brand:#8ab4f8;--gold:#d9b56e;--navy:#e8eef5;--warn:#f6ad55;--ok:#7fd19b;--soft:#22344a;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5;font-size:15px}
-.wrap{max-width:960px;margin:0 auto;padding-block:32px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:22px}
-a{color:var(--brand)}
+.wrap{max-width:860px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
 .wrap>*{min-width:0}
+a{color:var(--brand)}
 .logo{display:flex;align-items:center;gap:10px;color:var(--navy);text-decoration:none;font-weight:700;font-size:14px}
 .logo img{height:36px;background:#fff;border-radius:8px;padding:3px 5px}
-.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0}
-h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,6vw,40px);line-height:1.1;margin:0;color:var(--navy);text-wrap:balance}
-h2{font-family:Georgia,"Times New Roman",serif;font-size:22px;margin:0 0 10px;color:var(--navy)}
-p{margin:0}.lede{color:var(--muted);font-size:16px;max-width:680px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px}
-.dl{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
-.dl div{border:1px solid var(--line);border-radius:10px;padding:12px;display:grid;gap:4px}
-.dl b{color:var(--navy)}
+.eyebrow{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin:0 0 6px}
+h1{font-family:Georgia,"Times New Roman",serif;font-size:clamp(28px,6vw,38px);line-height:1.1;margin:0;color:var(--navy);text-wrap:balance}
+h2{font-family:Georgia,"Times New Roman",serif;font-size:21px;margin:0 0 12px;color:var(--navy)}
+p{margin:0}.lede{color:var(--muted);font-size:16px;margin-top:8px;max-width:620px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.stats div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;text-align:center}
+.stats b{display:block;font-size:24px;color:var(--navy);font-family:Georgia,serif}
+.stats span{font-size:12px;color:var(--muted)}
+@media (max-width:520px){.stats{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.hgrid{display:grid;gap:10px}
+.hc{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;text-decoration:none;color:var(--fg)}
+.hc:hover{border-color:var(--brand)}
+.dd{flex:none;width:52px;text-align:center;border-right:1px solid var(--line);padding-right:12px;display:grid}
+.dd b{font-size:24px;line-height:1.1;color:var(--gold);font-family:Georgia,serif}
+.dd small{font-size:11px;text-transform:uppercase;color:var(--muted);letter-spacing:.05em}
+.tx{display:grid;gap:2px}.tx strong{color:var(--brand);font-size:16px;line-height:1.3}
+.src{font-size:12px;color:var(--muted)}.src em{font-style:normal;font-weight:700;color:var(--warn)}
+.mut{color:var(--muted);font-size:13px}
+ul.docs{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+ul.docs p{font-size:14px;margin-top:2px}
+.recent li{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px}
+.full{display:grid;gap:10px}
+.full>*{min-width:0}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px}
+summary{cursor:pointer;padding:14px 16px;font-weight:700;color:var(--navy);list-style:none;display:flex;justify-content:space-between;gap:10px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--muted);font-weight:400;font-size:18px;line-height:1}
+details[open] summary::after{content:"–"}
+summary .mut{font-weight:400;margin-left:auto}
+.inner{padding:0 16px 16px}
 input[type=search]{font:inherit;font-size:16px;width:100%;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--card);color:var(--fg)}
-.tw{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
-table{border-collapse:collapse;width:100%;min-width:620px}
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px}
+table{border-collapse:collapse;width:100%;min-width:600px}
 th,td{text-align:left;vertical-align:top;padding:10px 12px;border-bottom:1px solid var(--line)}
 th{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 tr:last-child td{border-bottom:0}
-.nw{white-space:nowrap}.mut{color:var(--muted);font-size:13px}
+.nw{white-space:nowrap}
 .st{font-size:12px;font-weight:700;white-space:nowrap}.st-c{color:var(--ok)}.st-s{color:var(--muted)}.st-x{color:var(--warn)}
-ul.docs{list-style:none;margin:0;padding:0;display:grid;gap:14px}
-ul.docs p{font-size:14px;margin-top:2px}
+.dl{font-size:14px;color:var(--muted);background:var(--soft);border-radius:12px;padding:14px 16px}
+.dl b{color:var(--navy)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 footer{font-size:13px;color:var(--muted)}
@@ -135,30 +170,33 @@ footer{font-size:13px;color:var(--muted)}
 <body>
 <div class="wrap">
 <a class="logo" href="/"><img src="/logo-mark.png" alt="Flagler Coastal Enterprises logo"><span>PublicDocket · by Flagler Coastal Enterprises</span></a>
-<div><p class="eyebrow">Public archive</p><h1>Flagler County meetings and documents archive</h1></div>
-<p class="lede">Every meeting, agenda and notice PublicDocket has indexed from official Flagler County government websites, including past items that no longer appear in search. Each entry links to the official source, which is the legal record. Updated ${fmt(today)}.</p>
-<section class="card" aria-labelledby="dlh"><h2 id="dlh">Download the data</h2>
-<p class="mut" style="margin-bottom:10px">Free to use with credit to PublicDocket. Spreadsheet (CSV) files open in Excel or Google Sheets.</p>
-<div class="dl">
-<div><b>Meetings</b><span class="mut">${meetings.length} records</span><span><a href="/data/meetings.csv">CSV</a> · <a href="/data/meetings.json">JSON</a></span></div>
-<div><b>Documents</b><span class="mut">${documents.length} records</span><span><a href="/data/documents.csv">CSV</a> · <a href="/data/documents.json">JSON</a></span></div>
-<div><b>Government bodies</b><span class="mut">${bodyList.length} records</span><span><a href="/data/bodies.csv">CSV</a> · <a href="/data/bodies.json">JSON</a></span></div>
-</div></section>
-<label class="sr" for="flt">Filter the archive</label>
-<input id="flt" type="search" placeholder="Filter by body, date or topic (e.g. Bunnell, November, landfill)" autocomplete="off">
-<section aria-labelledby="uph"><h2 id="uph">Upcoming meetings</h2>${table(up, "Upcoming meetings")}</section>
-<section aria-labelledby="pah"><h2 id="pah">Past meetings</h2>${table(past, "Past meetings")}</section>
-<section aria-labelledby="doh"><h2 id="doh">Agendas, notices and documents</h2><ul class="docs">${documents.map(drow).join("")}</ul></section>
-<section aria-labelledby="boh"><h2 id="boh">Government bodies covered</h2><ul class="docs">${bodyList.map(b => `<li><a href="${esc(b.official_site)}" rel="noopener">${esc(b.name)}</a><p>${esc(b.schedule)}${b.location ? " · " + esc(b.location) : ""}</p></li>`).join("")}</ul></section>
-<footer><p>"Confirmed" means an official source listed the meeting. "On regular schedule" means it follows the body's normal calendar but wasn't individually confirmed. "No longer listed" means it was removed before its date, often because it was rescheduled or canceled. Spot an error? Email <a href="mailto:coastalenterprises386@gmail.com">coastalenterprises386@gmail.com</a>.</p>
+<header><p class="eyebrow">Archive · Updated ${fmt(today)}</p><h1>Flagler County public meetings at a glance</h1>
+<p class="lede">The highlights first. Every record we've collected is below, each linked to the official government source.</p></header>
+<div class="stats" aria-label="Archive totals">
+<div><b>${up.length}</b><span>upcoming meetings</span></div><div><b>${past.length}</b><span>past meetings</span></div><div><b>${documents.length}</b><span>documents</span></div><div><b>${bodyList.length}</b><span>boards covered</span></div>
+</div>
+${hl.length ? `<section aria-labelledby="hlh"><h2 id="hlh">Highlights</h2><div class="hgrid">${hl.map(card).join("")}</div></section>` : ""}
+${recentDocs.length ? `<section aria-labelledby="rdh"><h2 id="rdh">Recently posted</h2><ul class="docs recent">${recentDocs.map(drow).join("")}</ul></section>` : ""}
+<section class="full" aria-labelledby="fullh"><h2 id="fullh">Full records</h2>
+<label class="sr" for="flt">Search the full records</label>
+<input id="flt" type="search" placeholder="Search all records (e.g. Bunnell, November, landfill)" autocomplete="off">
+<details><summary>Upcoming meetings <span class="mut">${up.length}</span></summary><div class="inner">${table(up, "Upcoming meetings")}</div></details>
+<details><summary>Past meetings <span class="mut">${past.length}</span></summary><div class="inner">${table(past, "Past meetings")}</div></details>
+<details><summary>Agendas, notices and documents <span class="mut">${documents.length}</span></summary><div class="inner"><ul class="docs">${documents.map(drow).join("")}</ul></div></details>
+<details><summary>Boards covered <span class="mut">${bodyList.length}</span></summary><div class="inner"><ul class="docs">${bodyList.map(b => `<li><a href="${esc(b.official_site)}" rel="noopener">${esc(b.name)}</a><p>${esc(b.schedule)}${b.location ? " · " + esc(b.location) : ""}</p></li>`).join("")}</ul></div></details>
+</section>
+<p class="dl"><b>Download the data:</b> meetings (<a href="/data/meetings.csv">CSV</a>, <a href="/data/meetings.json">JSON</a>) · documents (<a href="/data/documents.csv">CSV</a>, <a href="/data/documents.json">JSON</a>) · boards (<a href="/data/bodies.csv">CSV</a>, <a href="/data/bodies.json">JSON</a>). Free to use with credit to PublicDocket. CSV files open in Excel or Google Sheets.</p>
+<footer><p>"Confirmed" means an official source listed the meeting. "On regular schedule" means it follows the board's normal calendar but wasn't individually confirmed. "No longer listed" means it was removed before its date, often because it was rescheduled or canceled. Spot an error? Email <a href="mailto:coastalenterprises386@gmail.com">coastalenterprises386@gmail.com</a>.</p>
 <p style="margin-top:8px"><a href="/">Search PublicDocket</a> · <a href="/subscribe/">Weekly digest</a> · <a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a></p></footer>
 </div>
 <script>
-const f=document.getElementById("flt"),rows=[...document.querySelectorAll("[data-s]")];
-f.addEventListener("input",()=>{const q=f.value.trim().toLowerCase().split(/\\s+/).filter(Boolean);rows.forEach(r=>{r.hidden=q.length&&!q.every(w=>r.dataset.s.includes(w))})});
+const f=document.getElementById("flt"),rows=[...document.querySelectorAll(".full [data-s]")],ds=[...document.querySelectorAll(".full details")];
+f.addEventListener("input",()=>{const q=f.value.trim().toLowerCase().split(/\\s+/).filter(Boolean);
+rows.forEach(r=>{r.hidden=q.length&&!q.every(w=>r.dataset.s.includes(w))});
+if(q.length)ds.forEach(d=>{d.open=!!d.querySelector("[data-s]:not([hidden])")})});
 </script>
 </body>
 </html>
 `;
 writeFileSync("public/archive/index.html", page);
-console.log(`archive: ${meetings.length} meetings (${up.length} upcoming, ${past.length} past), ${documents.length} documents, ${bodyList.length} bodies`);
+console.log(`archive: ${meetings.length} meetings (${up.length} upcoming, ${past.length} past), ${documents.length} documents, ${bodyList.length} bodies, ${hl.length} highlights`);

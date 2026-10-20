@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-20: Archive page redesigned to be skimmable: totals at a glance, Highlights (same as homepage "Coming up"), Recently posted documents, full records folded into expandable sections with search, downloads moved to the bottom. Footer link renamed "Archive".
 - 2026-10-20: Linked the new X account @FCEpublicdocket in the footers (homepage, results, subscribe, archive), site schema (sameAs) and llms.txt.
 - 2026-10-20: Added public archive at /archive/ (every meeting and document ever indexed, past and upcoming, with official links) and free downloads in /data/ (CSV and JSON for meetings, documents, bodies). Built from git history by scripts/build-archive.mjs; rerun after each data update. Added Dataset schema, sitemap entry, llms.txt section and "Archive & data" footer link.
 - 2026-10-20: Homepage: added a one-line intro (also the page's main H1 heading), a more descriptive browser/Google title, and replaced the two empty "Your business here" sponsor boxes with one invitation box. No change to sponsor terms or prices.
