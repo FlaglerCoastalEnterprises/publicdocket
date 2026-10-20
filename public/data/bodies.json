@@ -1,0 +1,54 @@
+{
+ "publisher": "PublicDocket by Flagler Coastal Enterprises LLC",
+ "generated": "2026-10-20",
+ "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
+ "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
+ "count": 5,
+ "bodies": [
+  {
+   "key": "county",
+   "name": "Flagler County Board of County Commissioners",
+   "type": "County governing board",
+   "schedule": "1st Monday 9 a.m., 3rd Monday 5 p.m.",
+   "location": "Government Services Bldg. 2, 1769 E. Moody Blvd., Bunnell",
+   "official_site": "https://flaglercofl.portal.civicclerk.com/",
+   "phone": "(386) 313-4000"
+  },
+  {
+   "key": "pc",
+   "name": "Palm Coast City Council",
+   "type": "City council",
+   "schedule": "Business: 1st Tue 6 p.m. & 3rd Tue 9 a.m.; Workshop: 2nd Tue 9 a.m.",
+   "location": "City Hall, 160 Lake Ave., Palm Coast",
+   "official_site": "https://www.palmcoast.gov/agendas",
+   "phone": "(386) 986-2360"
+  },
+  {
+   "key": "fb",
+   "name": "Flagler Beach City Commission",
+   "type": "City commission",
+   "schedule": "2nd & 4th Thursday, 5:30 p.m.",
+   "location": "City Hall, Flagler Beach",
+   "official_site": "https://flaglerbeach-fl.municodemeetings.com/",
+   "phone": ""
+  },
+  {
+   "key": "bun",
+   "name": "Bunnell City Commission",
+   "type": "City commission",
+   "schedule": "2nd & 4th Monday, 7 p.m.",
+   "location": "City Chambers, 2400 Commerce Pkwy, Bunnell",
+   "official_site": "https://www.bunnellcity.us/1479/Agendas-Minutes",
+   "phone": "(386) 437-7500, option 5"
+  },
+  {
+   "key": "sb",
+   "name": "Flagler County School Board",
+   "type": "School board",
+   "schedule": "Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",
+   "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
+   "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
+   "phone": "(386) 437-7526 x1104"
+  }
+ ]
+}
