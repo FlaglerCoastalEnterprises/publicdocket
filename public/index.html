@@ -527,7 +527,7 @@ function mountForms(root){
             body:JSON.stringify({email,name:f.name.value.trim(),topics,location:`${loc.co} County, ${loc.st}`,_subject:"New PublicDocket digest signup (add to Kit)",_template:"table",_captcha:"false"})});
           if(!r.ok)throw new Error(r.status);
         }
-        msg.className="msg ok";msg.textContent="You're on the list. Your first digest arrives Sunday morning.";
+        msg.className="msg ok";msg.textContent="One more step: check your email (and your spam folder) and tap Confirm. Your first digest arrives Sunday morning.";
         f.reset();store("pd-subscribed",true);btn.textContent="Subscribed ✓";
       }catch(err){
         msg.className="msg err";msg.textContent="Sign-up didn't go through. Try again, or email coastalenterprises386@gmail.com and we'll add you.";

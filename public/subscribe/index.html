@@ -75,7 +75,7 @@ f.addEventListener("submit",async e=>{
     if(r.ok){const j=await r.json().catch(()=>({}));ok=!j.status||j.status==="success"||j.status==="quarantined"}}catch(err){}
   if(!ok){try{const r=await fetch(BACKUP,{method:"POST",headers:{"Content-Type":"application/json",Accept:"application/json"},
     body:JSON.stringify({email,name,source:"subscribe page",_subject:"New PublicDocket digest signup (add to Kit)",_captcha:"false"})});ok=r.ok}catch(err){}}
-  if(ok){msg.className="msg ok";msg.textContent="You're on the list. Check your inbox to confirm, and look for your first digest Sunday morning.";f.reset();go.textContent="Subscribed ✓"}
+  if(ok){msg.className="msg ok";msg.textContent="One more step: check your email (and your spam folder) and tap Confirm. Your first digest arrives Sunday morning.";f.reset();go.textContent="Subscribed ✓"}
   else{msg.className="msg err";msg.textContent="Sign-up didn't go through. Try again, or email coastalenterprises386@gmail.com and we'll add you.";go.disabled=false;go.textContent="Subscribe free"}
 });
 </script>
