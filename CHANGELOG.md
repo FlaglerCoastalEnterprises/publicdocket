@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-20: Linked the new X account @FCEpublicdocket in the footers (homepage, results, subscribe, archive), site schema (sameAs) and llms.txt.
 - 2026-10-20: Added public archive at /archive/ (every meeting and document ever indexed, past and upcoming, with official links) and free downloads in /data/ (CSV and JSON for meetings, documents, bodies). Built from git history by scripts/build-archive.mjs; rerun after each data update. Added Dataset schema, sitemap entry, llms.txt section and "Archive & data" footer link.
 - 2026-10-20: Homepage: added a one-line intro (also the page's main H1 heading), a more descriptive browser/Google title, and replaced the two empty "Your business here" sponsor boxes with one invitation box. No change to sponsor terms or prices.
 - 2026-10-20: Confirmed Palm Coast Nov. 10 workshop and Nov. 17 business meeting (city's 2026 meetings page). Added Oct. 20 Palm Coast agenda to documents, Dec. 1 Palm Coast meeting and Nov. 24 School Board workshop (regular schedule). Headlines: removed past Oct. 19 item, added Nov. 10 Palm Coast and School Board, added appeal count to Project Butterfly. Accessibility: labeled the county-name box. Sitemap and footer dates updated.

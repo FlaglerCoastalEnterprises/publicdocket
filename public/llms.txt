@@ -5,6 +5,7 @@
 - Homepage: https://publicdocket.coastalenterprises386.workers.dev/
 - Search example: https://publicdocket.coastalenterprises386.workers.dev/?q=Project%20Butterfly
 - Contact: coastalenterprises386@gmail.com
+- X (Twitter): https://x.com/FCEpublicdocket
 - Archive (static HTML, all meetings and documents indexed, past and upcoming): https://publicdocket.coastalenterprises386.workers.dev/archive/
 
 ## Open data (updated with each site update)

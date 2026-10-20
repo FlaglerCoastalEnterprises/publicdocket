@@ -151,7 +151,7 @@ footer{font-size:13px;color:var(--muted)}
 <section aria-labelledby="doh"><h2 id="doh">Agendas, notices and documents</h2><ul class="docs">${documents.map(drow).join("")}</ul></section>
 <section aria-labelledby="boh"><h2 id="boh">Government bodies covered</h2><ul class="docs">${bodyList.map(b => `<li><a href="${esc(b.official_site)}" rel="noopener">${esc(b.name)}</a><p>${esc(b.schedule)}${b.location ? " · " + esc(b.location) : ""}</p></li>`).join("")}</ul></section>
 <footer><p>"Confirmed" means an official source listed the meeting. "On regular schedule" means it follows the body's normal calendar but wasn't individually confirmed. "No longer listed" means it was removed before its date, often because it was rescheduled or canceled. Spot an error? Email <a href="mailto:coastalenterprises386@gmail.com">coastalenterprises386@gmail.com</a>.</p>
-<p style="margin-top:8px"><a href="/">Search PublicDocket</a> · <a href="/subscribe/">Weekly digest</a></p></footer>
+<p style="margin-top:8px"><a href="/">Search PublicDocket</a> · <a href="/subscribe/">Weekly digest</a> · <a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a></p></footer>
 </div>
 <script>
 const f=document.getElementById("flt"),rows=[...document.querySelectorAll("[data-s]")];
