@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>PublicDocket Flagler</title>
+<title>PublicDocket Flagler: Search Flagler County Meetings, Agendas &amp; Notices</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="canonical" href="https://publicdocket.coastalenterprises386.workers.dev/">
 <meta name="description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place.">
@@ -101,6 +101,8 @@ button,input{font:inherit;color:inherit}
 @media (max-width:520px){.sgrid{grid-template-columns:minmax(0,1fr)}}
 .slot{border:1.5px dashed var(--gold);background:var(--sand);border-radius:12px;padding:14px;display:grid;gap:4px;text-align:left;cursor:pointer;color:var(--fg)}
 .slot:hover{border-style:solid}
+.slot.one{grid-column:1/-1;text-align:center;justify-items:center}
+.intro{margin:-12px 0 0;max-width:584px;text-align:center;font-size:clamp(16px,4.2vw,19px);font-weight:400;line-height:1.4;color:var(--muted)}
 .slot b{color:var(--navy);font-size:14px}
 .slot span{font-size:12px;color:var(--muted)}
 .sponcard{border:1.5px dashed var(--gold);background:var(--sand);border-radius:8px;padding:14px 16px;display:grid;gap:6px;align-self:start}
@@ -204,6 +206,7 @@ button,input{font:inherit;color:inherit}
   </div>
   <main class="home-main gut">
     <div class="logo" aria-label="PublicDocket">Public<span>Docket</span><small class="loctag">FLAGLER</small></div>
+    <h1 class="intro">Every public meeting, agenda and notice in Flagler County, searchable in one place.</h1>
     <div class="cov" hidden></div>
     <form id="f1" role="search">
       <div class="box">
@@ -228,9 +231,7 @@ button,input{font:inherit;color:inherit}
     <section class="spons" aria-labelledby="sh">
       <h2 id="sh">Local sponsors</h2>
       <div class="sgrid">
-        <button type="button" class="slot" data-info="sponsor"><b>Founding Sponsor</b><span>Your business here. 3 spots open.</span></button>
-        <button type="button" class="slot" data-info="sponsor"><b>Founding Sponsor</b><span>Logo on every page and in the weekly digest.</span></button>
-        <button type="button" class="slot" data-info="sponsor"><b>Become a sponsor</b><span>See rates and how to apply →</span></button>
+        <button type="button" class="slot one" data-info="sponsor"><b>Founding sponsor spots are open</b><span>Put your business in front of Flagler residents who follow local government. Your logo on every page and in the weekly digest. See rates and how to apply →</span></button>
       </div>
     </section>
   </main>
