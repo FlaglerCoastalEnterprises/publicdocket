@@ -238,7 +238,7 @@ button,input{font:inherit;color:inherit}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 19, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 20, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -287,7 +287,7 @@ button,input{font:inherit;color:inherit}
     <select id="stsel"></select>
     <label for="cosel">County</label>
     <select id="cosel"></select>
-    <input id="cotxt" type="text" placeholder="Type your county name" hidden>
+    <input id="cotxt" type="text" placeholder="Type your county name" aria-label="Your county name" hidden>
     <p class="hint" id="lochint"></p>
     <div class="sheetbtns"><button type="button" id="loccancel">Cancel</button><button type="button" id="locsave" class="primary">Use this location</button></div>
   </div>
@@ -319,15 +319,17 @@ const MEET=[
  ["2026-11-02","9:00 a.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
  ["2026-11-03","6:00 p.m.","pc","Business meeting","","w","Falls on Election Day; the date may change."],
  ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
- ["2026-11-10","9:00 a.m.","pc","Workshop","","s",""],
+ ["2026-11-10","9:00 a.m.","pc","Workshop","","c","Listed on the city's 2026 City Council meetings page."],
  ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","s",""],
  ["2026-11-10","6:00 p.m.","sb","Regular board meeting","","s",""],
  ["2026-11-12","5:30 p.m.","fb","Regular meeting","","s",""],
  ["2026-11-16","5:00 p.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
- ["2026-11-17","9:00 a.m.","pc","Business meeting","","s",""],
+ ["2026-11-17","9:00 a.m.","pc","Business meeting","","c","Listed on the city's 2026 City Council meetings page."],
  ["2026-11-23","7:00 p.m.","bun","Regular meeting","","s",""],
+ ["2026-11-24","1:00 p.m.","sb","Information workshop","","w","Thanksgiving week; check the board calendar."],
  ["2026-11-24","6:00 p.m.","sb","Regular board meeting","","w","Thanksgiving week; check the board calendar."],
  ["2026-11-26","5:30 p.m.","fb","Regular meeting","","w","Thanksgiving Day; likely rescheduled."],
+ ["2026-12-01","6:00 p.m.","pc","Business meeting","","s",""],
  ["2026-12-07","9:00 a.m.","county","Regular meeting","","c","Listed on the county's 2026 BOCC meeting calendar (flaglercounty.gov). Streams on YouTube."]
 ];
 const DOCS=[
@@ -343,6 +345,8 @@ const DOCS=[
   snip:"Adopted 2026 calendar. Remaining dates: Nov. 2 (9 a.m.), Nov. 16 (5 p.m.), Dec. 7 (9 a.m.) and Dec. 14 (5 p.m.), each with a possible 1 p.m. workshop that is added or canceled as needed.",kw:"schedule calendar 2026 dates workshop"},
  {b:"county",date:"",title:"Watch Board of County Commissioners meetings live",url:"https://www.youtube.com/@FlaglerCounty/live",path:"YouTube › @FlaglerCounty",
   snip:"County Commission meetings stream live on YouTube and air on Spectrum channel 492.",kw:"video livestream watch youtube"},
+ {b:"pc",date:"2026-10-20",title:"City Council Business Meeting agenda, Oct. 20, 2026",url:"https://www.palmcoast.gov/agendas/details/city-council/17845/City%20Council%20Business%20Meeting/",path:"Agendas › City Council › Oct. 20 Business Meeting",
+  snip:"Agenda for the Oct. 20 City Council business meeting, 9 a.m. at City Hall, as posted by the City of Palm Coast.",kw:"agenda business meeting october"},
  {b:"pc",date:"",title:"Agenda & Minutes | City of Palm Coast",url:"https://www.palmcoast.gov/agendas",path:"Agendas",
   snip:"Agendas, minutes, video and downloadable MP3 audio for Palm Coast City Council business meetings and workshops.",kw:"agenda minutes audio mp3 video workshop"},
  {b:"fb",date:"",title:"Flagler Beach meetings, agendas and packets",url:"https://flaglerbeach-fl.municodemeetings.com/",path:"Municode Meetings",
@@ -459,12 +463,13 @@ document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
- {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing, 9 a.m. Agenda due Oct. 21.",q:"Project Butterfly"},
- {d:"2026-10-19",b:"county",tag:"",t:"County Commission meets Monday evening",w:"Regular meeting, 5 p.m., Government Services Bldg. 2, Bunnell.",q:"county commission October 19"},
- {d:"2026-10-20",b:"pc",tag:"",t:"Palm Coast City Council holds Tuesday morning business meeting",w:"9 a.m. at City Hall. Agenda, video and audio posted by the city.",q:"Palm Coast October 20"},
+ {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing on the 610-acre landfill proposal, 9 a.m. 18 appeals filed, including one by Flagler County. Agenda due Oct. 21.",q:"Project Butterfly"},
+ {d:"2026-10-20",b:"pc",tag:"",t:"Palm Coast City Council holds Tuesday morning business meeting",w:"9 a.m. at City Hall. The agenda is posted on the city's website.",q:"Palm Coast October 20"},
  {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
  {d:"2026-10-26",b:"bun",tag:"",t:"Bunnell City Commission meets Oct. 26",w:"Regular meeting, 7 p.m., City Chambers, 2400 Commerce Pkwy.",q:"Bunnell October 26"},
  {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
+ {d:"2026-11-10",b:"pc",tag:"",t:"Palm Coast City Council workshop Nov. 10",w:"9 a.m. at City Hall. Listed on the city's 2026 meetings page.",q:"Palm Coast November 10"},
+ {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop and regular meeting Nov. 10",w:"Agenda workshop 3 p.m.; regular meeting 6 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d);
