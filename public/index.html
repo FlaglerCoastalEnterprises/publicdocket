@@ -201,8 +201,8 @@ button,input{font:inherit;color:inherit}
   <div class="homebar gut">
     <button type="button" class="pub" data-info="about" aria-label="About the publisher"><img src="/logo-mark.png" alt="Flagler Coastal Enterprises logo"><span>by Flagler Coastal Enterprises</span></button>
     <div class="right">
-      <button type="button" class="pillbtn locbtn">📍 <span class="locname">Flagler County, FL</span> ▾</button>
-      <button type="button" class="pillbtn savedbtn">★ Saved <span class="savedn">0</span></button>
+      <button type="button" class="pillbtn locbtn"><span aria-hidden="true">📍</span> <span class="locname">Flagler County, FL</span> ▾</button>
+      <button type="button" class="pillbtn savedbtn"><span aria-hidden="true">★</span> Saved <span class="savedn">0</span></button>
     </div>
   </div>
   <main class="home-main gut">
@@ -240,7 +240,7 @@ button,input{font:inherit;color:inherit}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 20, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 21, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -256,8 +256,8 @@ button,input{font:inherit;color:inherit}
       </div>
     </form>
     <div class="topbtns">
-      <button type="button" class="pillbtn locbtn">📍 <span class="locname">Flagler County, FL</span> ▾</button>
-      <button type="button" class="pillbtn savedbtn">★ <span class="savedn">0</span></button>
+      <button type="button" class="pillbtn locbtn"><span aria-hidden="true">📍</span> <span class="locname">Flagler County, FL</span> ▾</button>
+      <button type="button" class="pillbtn savedbtn" aria-label="Saved items"><span aria-hidden="true">★</span> <span class="savedn">0</span></button>
     </div>
   </div>
   <div class="tabs gut" role="tablist"><div class="tabs-inner" style="display:flex;gap:4px">
@@ -317,7 +317,7 @@ const MEET=[
  ["2026-10-26","7:00 p.m.","bun","Regular meeting","","c","Listed on the City of Bunnell calendar."],
  ["2026-10-27","1:00 p.m.","sb","Information workshop","","s",""],
  ["2026-10-27","6:00 p.m.","sb","Regular board meeting","","s",""],
- ["2026-10-28","9:00 a.m.","bun","Special meeting: De Novo hearing on Project Butterfly","","c","Quasi-judicial appeal hearing. The city expects to post the agenda Oct. 21. Overflow parking at 2301 Commerce Pkwy."],
+ ["2026-10-28","9:00 a.m.","bun","Special meeting: De Novo hearing on Project Butterfly","Bunnell Chambers Meeting Room, 2400 Commerce Pkwy., Bunnell","c","Quasi-judicial appeal hearing on 18 appeals. The city expects to post the agenda Oct. 21 on its Agendas & Minutes page. Overflow parking at 2301 Commerce Pkwy."],
  ["2026-11-02","9:00 a.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
  ["2026-11-03","6:00 p.m.","pc","Business meeting","","w","Falls on Election Day; the date may change."],
  ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
@@ -466,13 +466,13 @@ document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
  {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing on the 610-acre landfill proposal, 9 a.m. 18 appeals filed, including one by Flagler County. Agenda due Oct. 21.",q:"Project Butterfly"},
- {d:"2026-10-20",b:"pc",tag:"",t:"Palm Coast City Council holds Tuesday morning business meeting",w:"9 a.m. at City Hall. The agenda is posted on the city's website.",q:"Palm Coast October 20"},
  {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
  {d:"2026-10-26",b:"bun",tag:"",t:"Bunnell City Commission meets Oct. 26",w:"Regular meeting, 7 p.m., City Chambers, 2400 Commerce Pkwy.",q:"Bunnell October 26"},
  {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
  {d:"2026-11-10",b:"pc",tag:"",t:"Palm Coast City Council workshop Nov. 10",w:"9 a.m. at City Hall. Listed on the city's 2026 meetings page.",q:"Palm Coast November 10"},
  {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop and regular meeting Nov. 10",w:"Agenda workshop 3 p.m.; regular meeting 6 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
- {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"}
+ {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
+ {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d);
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
