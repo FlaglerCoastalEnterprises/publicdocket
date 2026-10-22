@@ -3,11 +3,11 @@
  "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 25,
+ "count": 26,
  "documents": [
   {
    "date": "",
-   "body": "Flagler County Clerk of Court: Tax Deed Sales",
+   "body": "Flagler County Clerk of the Circuit Court & Comptroller",
    "body_key": "clerk",
    "title": "Flagler County tax deed auctions (online auction calendar)",
    "url": "https://flagler.realtaxdeed.com/",
@@ -17,7 +17,7 @@
   },
   {
    "date": "",
-   "body": "Flagler County Clerk of Court: Tax Deed Sales",
+   "body": "Flagler County Clerk of the Circuit Court & Comptroller",
    "body_key": "clerk",
    "title": "Tax Deed Sales | Flagler County Clerk of Court",
    "url": "https://flaglerclerk.gov/sales/tax-deeds-sales/",
@@ -142,6 +142,16 @@
    "title": "Flagler Schools board meeting calendar (add to your calendar)",
    "url": "https://www.flaglerschools.com/sndreq/generateCalendarICS.php?calendar_id=146564",
    "summary": "The School Board's official meeting calendar as a calendar file. Open it to add board meetings, workshops and executive sessions to Apple, Google or Outlook calendars. For fall 2026 it lists one regular board meeting a month (fourth Tuesday, 6 p.m.) and agenda workshops on second Tuesdays at 3 p.m.",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
+   "date": "",
+   "body": "Flagler County Clerk of the Circuit Court & Comptroller",
+   "body_key": "clerk",
+   "title": "Today's court docket: Flagler County courthouse",
+   "url": "https://flaglerclerk.gov/docket/",
+   "summary": "The Clerk of Court's live list of today's court hearings at the Kim C. Hammond Justice Center in Bunnell. The Clerk says it updates every 5 minutes and drops each hearing about two hours after it ends; for a full day's schedule, it points to the Clerk's case search. PublicDocket links to the docket but doesn't copy it.",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },

@@ -52,12 +52,12 @@
   },
   {
    "key": "clerk",
-   "name": "Flagler County Clerk of Court: Tax Deed Sales",
-   "type": "Tax deed auctions",
-   "schedule": "Online auctions; sale dates are on the official auction calendar",
-   "location": "Online at flagler.realtaxdeed.com",
-   "official_site": "https://flagler.realtaxdeed.com/",
-   "phone": "(386) 313-4375 (Tax Deed line)"
+   "name": "Flagler County Clerk of the Circuit Court & Comptroller",
+   "type": "Clerk of Court · court records",
+   "schedule": "Mon.–Fri., 8:30 a.m.–4:30 p.m.",
+   "location": "Kim C. Hammond Justice Center, 1769 E. Moody Blvd., Bldg. 1, Bunnell",
+   "official_site": "https://flaglerclerk.gov/docket/",
+   "phone": "(386) 313-4400"
   },
   {
    "key": "fcso",
