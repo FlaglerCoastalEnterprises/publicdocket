@@ -237,10 +237,10 @@ button,input{font:inherit;color:inherit}
     </section>
   </main>
   <footer class="foot">
-    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies</span></div>
+    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + tax deed auctions</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 21, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 22, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -306,6 +306,8 @@ const BODY={
    type:"City commission",sched:"2nd & 4th Thursday, 5:30 p.m.",where:"City Hall, Flagler Beach",members:"",phone:"",keys:"flagler beach city commission"},
  bun:{name:"Bunnell City Commission",short:"Bunnell City Commission",site:"bunnellcity.us",url:"https://www.bunnellcity.us/1479/Agendas-Minutes",fav:"BN",
    type:"City commission",sched:"2nd & 4th Monday, 7 p.m.",where:"City Chambers, 2400 Commerce Pkwy, Bunnell",members:"Catherine Robinson (Mayor), John R. Rogers (Vice Mayor), Bill Baxley, Donnie Nobles, Tonya Gordon",phone:"(386) 437-7500, option 5",keys:"bunnell city commission"},
+ clerk:{name:"Flagler County Clerk of Court: Tax Deed Sales",short:"Flagler Clerk of Court (tax deeds)",site:"flaglerclerk.gov",url:"https://flagler.realtaxdeed.com/",fav:"CL",
+   type:"Tax deed auctions",sched:"Online auctions; sale dates are on the official auction calendar",where:"Online at flagler.realtaxdeed.com",members:"",phone:"(386) 313-4375 (Tax Deed line)",keys:"tax deed deeds auction auctions sale sales clerk realtaxdeed foreclosure surplus bid bidding",schedLbl:"Sales",linkLbl:"Official auction calendar"},
  sb:{name:"Flagler County School Board",short:"Flagler County School Board",site:"flaglerschools.com",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",fav:"FS",
    type:"School board",sched:"Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",where:"1769 E. Moody Blvd., Bldg. 2, Bunnell",members:"",phone:"(386) 437-7526 x1104",keys:"school board flagler schools education boarddocs"}
 };
@@ -353,6 +355,10 @@ const DOCS=[
   snip:"Agendas, minutes, video and downloadable MP3 audio for Palm Coast City Council business meetings and workshops.",kw:"agenda minutes audio mp3 video workshop"},
  {b:"fb",date:"",title:"Flagler Beach meetings, agendas and packets",url:"https://flaglerbeach-fl.municodemeetings.com/",path:"Municode Meetings",
   snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
+ {b:"clerk",date:"",title:"Flagler County tax deed auctions (online auction calendar)",url:"https://flagler.realtaxdeed.com/",path:"Online auction site (flagler.realtaxdeed.com)",
+  snip:"Official online auction site for Flagler County tax deed sales, run for the Clerk of Court. Upcoming sale dates and the properties in each sale are listed on its calendar.",kw:"tax deed auction calendar sale dates online bidding properties"},
+ {b:"clerk",date:"",title:"Tax Deed Sales | Flagler County Clerk of Court",url:"https://flaglerclerk.gov/sales/tax-deeds-sales/",path:"Sales › Tax Deeds Sales",
+  snip:"Rules for bidders: the winning bidder pays a non-refundable deposit of 5% of the final bid or $200, whichever is greater, and for online sales the deposit must be on file before the auction. Cashier's check, certified check, money order or cash; no personal or business checks. Photo ID required. Case files are on flagler.realtdm.com. Tax Deed line (386) 313-4375.",kw:"tax deed rules deposit payment bidder surplus funds lands available for taxes realtdm"},
  {b:"sb",date:"",title:"BoardDocs | Flagler County School Board",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",path:"BoardDocs › Public",
   snip:"Agendas, supporting documents and board policies for Flagler Schools board meetings and workshops.",kw:"boarddocs agenda policies workshop"},
  {b:"sb",date:"",title:"School Board meeting videos",url:"https://youtube.com/playlist?list=PLfx_w2JpNlBzcLsx7mTHJCM0z9nNsKrZE",path:"YouTube › Board Meetings",
@@ -399,9 +405,9 @@ function panelFor(ts){
   const d=nxt&&dt(nxt[0]);
   return `<h2>${esc(B.name)}</h2><div class="sub">${esc(B.type)} · Flagler County, Florida</div>
   ${nxt?`<div class="next"><b>Next meeting:</b> ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()} at ${nxt[1]}<br>${esc(nxt[3])}</div>`:""}
-  <dl><dt>Meets</dt><dd>${esc(B.sched)}</dd><dt>Where</dt><dd>${esc(B.where)}</dd>
+  <dl><dt>${esc(B.schedLbl||"Meets")}</dt><dd>${esc(B.sched)}</dd><dt>Where</dt><dd>${esc(B.where)}</dd>
   ${B.members?`<dt>Members</dt><dd>${esc(B.members)}</dd>`:""}${B.phone?`<dt>Phone</dt><dd>${esc(B.phone)}</dd>`:""}</dl>
-  <a href="${B.url}" target="_blank" rel="noopener">Official agendas →</a>`;
+  <a href="${B.url}" target="_blank" rel="noopener">${esc(B.linkLbl||"Official agendas")} →</a>`;
 }
 function resultHTML(r,ts){
   const B=BODY[r.b];
@@ -502,7 +508,7 @@ function mountForms(root){
       <div class="row"><input type="email" id="su-email-${k}" name="email" required placeholder="Your email" aria-label="Email address" autocomplete="email">
       <input type="text" id="su-name-${k}" name="name" placeholder="First name (optional)" aria-label="First name" autocomplete="given-name"></div>
       <fieldset><legend>I care most about (optional):</legend>
-      ${Object.entries(BODY).map(([b,B])=>`<label><input type="checkbox" name="topics" value="${esc(B.short)}" id="su-${b}-${k}"> ${esc(B.short.replace(" City Commission","").replace(" City Council","").replace("Flagler County ",""))}</label>`).join("")}</fieldset>
+      ${Object.entries(BODY).filter(([b])=>b!=="clerk").map(([b,B])=>`<label><input type="checkbox" name="topics" value="${esc(B.short)}" id="su-${b}-${k}"> ${esc(B.short.replace(" City Commission","").replace(" City Council","").replace("Flagler County ",""))}</label>`).join("")}</fieldset>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row"><button class="go" type="submit">Subscribe free</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
@@ -598,7 +604,7 @@ function fillCo(st,co){
   hint();
 }
 function hint(){const st=stsel.value,co=st==="FL"?cosel.value:cotxt.value.trim();
-  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
+  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies plus tax deed auctions.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
 stsel.addEventListener("change",()=>fillCo(stsel.value,""));cosel.addEventListener("change",hint);cotxt.addEventListener("input",hint);
 function openLoc(){stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
 function closeLoc(){$("scrim").hidden=true}

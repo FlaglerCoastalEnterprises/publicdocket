@@ -1,6 +1,6 @@
 # PublicDocket Flagler
 
-> Search engine for public meetings, agendas and notices from Flagler County, Florida: the Flagler County Board of County Commissioners, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and the Flagler County School Board. Every result links to the official government source. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.
+> Search engine for public meetings, agendas and notices from Flagler County, Florida: the Flagler County Board of County Commissioners, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and the Flagler County School Board, plus links and bidder rules for Flagler County Clerk of Court tax deed auctions. Every result links to the official government source. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.
 
 - Homepage: https://publicdocket.coastalenterprises386.workers.dev/
 - Search example: https://publicdocket.coastalenterprises386.workers.dev/?q=Project%20Butterfly

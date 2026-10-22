@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-22: Added Flagler County Clerk of Court tax deed auctions (Miranda asked). Search "tax deed" or "auction" for the official online auction calendar (flagler.realtaxdeed.com) and the Clerk's bidder rules (deposit, payment, ID). Sale dates aren't listed yet: the auction site blocks automated reading, so dates get added only when verified. Not added as a newsletter topic. Footer/coverage copy, llms.txt, sitemap and footer dates updated.
 - 2026-10-21: Project Butterfly hearing (Oct. 28): added the meeting room (Bunnell Chambers, 2400 Commerce Pkwy.) and appeal count from the city's release. Headlines: removed past Oct. 20 Palm Coast item, added County Commission Nov. 16. Accessibility: location and Saved buttons no longer read decorative pin/star symbols aloud; the compact Saved button now has a label. Sitemap and footer dates updated. Bunnell hearing agenda not yet posted at run time.
 - 2026-10-20: Sign-up success message (homepage and /subscribe) now tells people to confirm by email and check spam. The homepage message previously didn't mention the confirmation step at all.
 - 2026-10-20: Archive page redesigned to be skimmable: totals at a glance, Highlights (same as homepage "Coming up"), Recently posted documents, full records folded into expandable sections with search, downloads moved to the bottom. Footer link renamed "Archive".
