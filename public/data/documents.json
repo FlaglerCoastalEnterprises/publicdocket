@@ -3,7 +3,7 @@
  "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 21,
+ "count": 23,
  "documents": [
   {
    "date": "",
@@ -102,6 +102,26 @@
    "title": "Public records requests: Flagler Schools",
    "url": "https://www.flaglerschools.com/public-records",
    "summary": "Email publicrecordsrequests@flaglerschools.com, call 386-437-7526 x1120, fax 386-586-2641, or send by mail or in person to 1769 E. Moody Blvd., Bldg. 2, Bunnell. Copies are 15 cents a page (20 cents two-sided); requests over 30 minutes may be charged staff time. Note: email addresses are public records in Florida, so call or write if you don't want yours released.",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
+   "date": "",
+   "body": "Flagler County Sheriff's Office",
+   "body_key": "fcso",
+   "title": "Sheriff's Office videos: released body cam footage and agency news",
+   "url": "https://flaglersheriff.com/fcso-videos/",
+   "summary": "The Sheriff's Office's own video page, described by the agency as bodycam footage, safety tips and agency news. The page also links to the agency's YouTube channel. These are videos the agency chose to release; PublicDocket links to them and does not host or edit footage.",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
+   "date": "",
+   "body": "Flagler County Sheriff's Office",
+   "body_key": "fcso",
+   "title": "Flagler County Sheriff's Office on YouTube",
+   "url": "https://www.youtube.com/user/FLAGLERCOUNTYSO",
+   "summary": "The Sheriff's Office's official YouTube channel, linked from flaglersheriff.com. This is where the agency posts its videos.",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
