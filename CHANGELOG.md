@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-22 (daily run): Homepage now has Open Graph and Twitter card tags (title, description, logo image) so links shared on X and Facebook show a proper preview, plus a browser-tab icon. No meeting changes: no new agendas or schedule changes could be verified from official sources this run (Project Butterfly agenda still not confirmed).
 - 2026-10-22: Removed the tax deed auction listing added earlier today (Miranda: "scratch that").
 - 2026-10-22: New "Public records & body cam footage" section on the homepage, plus searchable entries for how to request records from the Flagler County Sheriff's Office, Flagler Beach Police, Flagler County, Palm Coast (City Clerk and online records search), Flagler Beach and Flagler Schools, and a plain-language summary of Florida's body camera law (s. 119.071(2)(l)). All contacts from the agencies' own pages. Records agencies are not newsletter topics.
 - 2026-10-22: Visual refresh (Miranda asked): lighter seafoam/teal palette replaces dark navy-blue, Nunito Sans font, rounder cards and buttons, softer shadows, seafoam highlights. Results line now reads "N results" (dropped the search-engine "About … (0.01 seconds)" wording). Same palette on /subscribe and /archive.
