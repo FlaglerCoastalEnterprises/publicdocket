@@ -3,7 +3,7 @@
  "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 23,
+ "count": 24,
  "documents": [
   {
    "date": "",
@@ -121,6 +121,16 @@
    "body_key": "fcso",
    "title": "Flagler County Sheriff's Office on YouTube",
    "url": "https://www.youtube.com/user/FLAGLERCOUNTYSO",
+   "summary": "The Sheriff's Office's official YouTube channel, linked from flaglersheriff.com. This is where the agency posts its videos.",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
+   "date": "",
+   "body": "Flagler County Sheriff's Office",
+   "body_key": "fcso",
+   "title": "Flagler County Sheriff's Office on YouTube",
+   "url": "https://www.youtube.com/@flaglersheriff/videos",
    "summary": "The Sheriff's Office's official YouTube channel, linked from flaglersheriff.com. This is where the agency posts its videos.",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
