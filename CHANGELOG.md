@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-22: Removed the docket check added earlier today. The Clerk's website refuses automated visitors (it returned "403 Forbidden" to our server), so we won't pull data from it. The site is back to plain static files; the "Today's court docket" link stays.
 - 2026-10-22: Added a link to the Flagler County Clerk of Court's live daily court docket (homepage records section + search for "court docket"), with the Clerk's office address, phone and hours. PublicDocket links to the docket; it doesn't copy names or case details from it.
 - 2026-10-22: School Board dates checked against the board's official calendar file (link from Miranda): Oct. 27 workshop and meeting confirmed; Nov. 10 agenda workshop confirmed; November information workshop and board meeting are Nov. 17 (not Nov. 24); removed the Nov. 10 6 p.m. regular meeting (not on the board calendar); added Dec. 8 agenda workshop. Added the calendar file as a searchable link so visitors can add all board meetings to their own calendar. Headlines updated.
 - 2026-10-22: School Board Oct. 27 information workshop marked Confirmed (listed under Upcoming Board Meetings on flaglerschools.com; screenshot from Miranda).
