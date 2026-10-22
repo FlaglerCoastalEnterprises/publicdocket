@@ -1,9 +1,9 @@
 {
  "publisher": "PublicDocket by Flagler Coastal Enterprises LLC",
- "generated": "2026-10-21",
+ "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 5,
+ "count": 6,
  "bodies": [
   {
    "key": "county",
@@ -49,6 +49,15 @@
    "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
    "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
    "phone": "(386) 437-7526 x1104"
+  },
+  {
+   "key": "clerk",
+   "name": "Flagler County Clerk of Court: Tax Deed Sales",
+   "type": "Tax deed auctions",
+   "schedule": "Online auctions; sale dates are on the official auction calendar",
+   "location": "Online at flagler.realtaxdeed.com",
+   "official_site": "https://flagler.realtaxdeed.com/",
+   "phone": "(386) 313-4375 (Tax Deed line)"
   }
  ]
 }
