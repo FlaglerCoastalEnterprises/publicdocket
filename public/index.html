@@ -295,7 +295,7 @@ body{font-size:15px}
       <div class="hlist" id="hlist"></div>
     </section>
     <section class="recs" aria-labelledby="rh">
-      <h2 id="rh">Public records &amp; body cam footage</h2>
+      <h2 id="rh">Public records, courts &amp; body cam</h2>
       <p>Florida's public records law lets anyone ask for government records, including police body camera video, with some exceptions. Here's where to ask.</p>
       <div class="rgrid">
         <a href="?q=sheriff%20records" data-q="sheriff records"><b>Sheriff's Office</b><span>Reports, 911 audio, body cam</span></a>
@@ -304,6 +304,7 @@ body{font-size:15px}
         <a href="?q=Palm%20Coast%20public%20records" data-q="Palm Coast public records"><b>Palm Coast</b><span>City Clerk &amp; permit search</span></a>
         <a href="?q=school%20public%20records" data-q="school public records"><b>Flagler Schools</b><span>District records</span></a>
         <a href="?q=body%20camera%20law" data-q="body camera law"><b>Body cam rules</b><span>What Florida law allows</span></a>
+        <a class="wide" href="https://flaglerclerk.gov/docket/" target="_blank" rel="noopener"><b>Today's court docket</b><span>Live list of today's hearings at the courthouse in Bunnell, from the Clerk of Court</span></a>
         <a class="wide" href="?q=released%20videos" data-q="released videos"><b>Watch released body cam videos</b><span>Videos the Sheriff's Office has published itself, on its own pages</span></a>
       </div>
     </section>
@@ -393,6 +394,8 @@ const BODY={
    type:"Sheriff's office · public records",sched:"Records Unit: Mon.–Fri., 8 a.m.–4 p.m.",where:"Sheriff's Operations Center, 61 Sheriff E.W. Johnston Dr., Bunnell",members:"",phone:"(386) 437-4116",keys:"sheriff sheriffs fcso deputy deputies police body cam bodycam camera cameras footage video videos incident crash accident report reports 911 arrest",schedLbl:"Hours",linkLbl:"How to request records"},
  fbpd:{name:"Flagler Beach Police Department",short:"Flagler Beach Police Department",site:"fbpd.org",url:"https://www.fbpd.org/public-records",fav:"BP",rec:1,
    type:"Police department · public records",sched:"Requests by phone or email (records@fbpd.org)",where:"204 S. Flagler Ave., Flagler Beach",members:"",phone:"(386) 517-2020",keys:"flagler beach police fbpd body cam bodycam camera footage video report reports incident",schedLbl:"Requests",linkLbl:"Public records page"},
+ clerk:{name:"Flagler County Clerk of the Circuit Court & Comptroller",short:"Flagler County Clerk of Court",site:"flaglerclerk.gov",url:"https://flaglerclerk.gov/docket/",fav:"CC",rec:1,
+   type:"Clerk of Court · court records",sched:"Mon.–Fri., 8:30 a.m.–4:30 p.m.",where:"Kim C. Hammond Justice Center, 1769 E. Moody Blvd., Bldg. 1, Bunnell",members:"",phone:"(386) 313-4400",keys:"clerk court courts docket dockets hearing hearings judge courtroom case cases justice center",schedLbl:"Office hours",linkLbl:"Today's court docket"},
  sb:{name:"Flagler County School Board",short:"Flagler County School Board",site:"flaglerschools.com",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",fav:"FS",
    type:"School board",sched:"Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",where:"1769 E. Moody Blvd., Bldg. 2, Bunnell",members:"",phone:"(386) 437-7526 x1104",keys:"school board flagler schools education boarddocs"}
 };
@@ -442,6 +445,8 @@ const DOCS=[
   snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
  {b:"sb",date:"",title:"Flagler Schools board meeting calendar (add to your calendar)",url:"https://www.flaglerschools.com/sndreq/generateCalendarICS.php?calendar_id=146564",path:"Board calendar › Calendar file (.ics)",
   snip:"The School Board's official meeting calendar as a calendar file. Open it to add board meetings, workshops and executive sessions to Apple, Google or Outlook calendars. For fall 2026 it lists one regular board meeting a month (fourth Tuesday, 6 p.m.) and agenda workshops on second Tuesdays at 3 p.m.",kw:"calendar ics subscribe schedule dates workshop executive session"},
+ {b:"clerk",date:"",title:"Today's court docket: Flagler County courthouse",url:"https://flaglerclerk.gov/docket/",path:"Daily Court Docket",
+  snip:"The Clerk of Court's live list of today's court hearings at the Kim C. Hammond Justice Center in Bunnell. The Clerk says it updates every 5 minutes and drops each hearing about two hours after it ends; for a full day's schedule, it points to the Clerk's case search. PublicDocket links to the docket but doesn't copy it.",kw:"court docket today daily hearings hearing judge courtroom calendar case cases criminal civil family traffic probate justice center"},
  {b:"fcso",date:"",title:"How to request Sheriff's Office records and body camera footage",url:"https://flaglersheriff.com/public-interest/records",path:"Public Interest › Record Requests",
   snip:"Email publicrecordsrequest@flaglersheriff.com, call (386) 437-4116, or visit the Records Unit in Bunnell (Mon.–Fri., 8 a.m.–4 p.m.). To speed things up, include the case number, date, time and location of the incident. Flagler County lists this as the place to request accident and incident reports and body cam footage. Copies cost $0.15 a page past 7 pages; extensive requests (30+ minutes) may cost more.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam footage video incident accident crash report fees"},
  {b:"fcso",date:"",title:"Sheriff's Office videos: released body cam footage and agency news",url:"https://flaglersheriff.com/fcso-videos/",path:"FCSO Videos",
