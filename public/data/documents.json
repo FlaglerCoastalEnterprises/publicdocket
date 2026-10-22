@@ -3,7 +3,7 @@
  "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 24,
+ "count": 25,
  "documents": [
   {
    "date": "",
@@ -132,6 +132,16 @@
    "title": "Flagler County Sheriff's Office on YouTube",
    "url": "https://www.youtube.com/@flaglersheriff/videos",
    "summary": "The Sheriff's Office's official YouTube channel, linked from flaglersheriff.com. This is where the agency posts its videos.",
+   "first_seen": "2026-10-22",
+   "last_seen": "2026-10-22"
+  },
+  {
+   "date": "",
+   "body": "Flagler County School Board",
+   "body_key": "sb",
+   "title": "Flagler Schools board meeting calendar (add to your calendar)",
+   "url": "https://www.flaglerschools.com/sndreq/generateCalendarICS.php?calendar_id=146564",
+   "summary": "The School Board's official meeting calendar as a calendar file. Open it to add board meetings, workshops and executive sessions to Apple, Google or Outlook calendars. For fall 2026 it lists one regular board meeting a month (fourth Tuesday, 6 p.m.) and agenda workshops on second Tuesdays at 3 p.m.",
    "first_seen": "2026-10-22",
    "last_seen": "2026-10-22"
   },
