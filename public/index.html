@@ -402,24 +402,24 @@ const MEET=[
  ["2026-10-20","9:00 a.m.","pc","Business meeting","","c","Announced by the City of Palm Coast."],
  ["2026-10-22","5:30 p.m.","fb","Regular meeting","","s",""],
  ["2026-10-26","7:00 p.m.","bun","Regular meeting","","c","Listed on the City of Bunnell calendar."],
- ["2026-10-27","1:00 p.m.","sb","Information workshop","","c","Listed under Upcoming Board Meetings on flaglerschools.com."],
- ["2026-10-27","6:00 p.m.","sb","Regular board meeting","","s",""],
+ ["2026-10-27","1:00 p.m.","sb","Information workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
+ ["2026-10-27","6:00 p.m.","sb","Regular board meeting","","c","On the School Board's official calendar (flaglerschools.com)."],
  ["2026-10-28","9:00 a.m.","bun","Special meeting: De Novo hearing on Project Butterfly","Bunnell Chambers Meeting Room, 2400 Commerce Pkwy., Bunnell","c","Quasi-judicial appeal hearing on 18 appeals. The city expects to post the agenda Oct. 21 on its Agendas & Minutes page. Overflow parking at 2301 Commerce Pkwy."],
  ["2026-11-02","9:00 a.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
  ["2026-11-03","6:00 p.m.","pc","Business meeting","","w","Falls on Election Day; the date may change."],
  ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
  ["2026-11-10","9:00 a.m.","pc","Workshop","","c","Listed on the city's 2026 City Council meetings page."],
- ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","s",""],
- ["2026-11-10","6:00 p.m.","sb","Regular board meeting","","s",""],
+ ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
  ["2026-11-12","5:30 p.m.","fb","Regular meeting","","s",""],
  ["2026-11-16","5:00 p.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
  ["2026-11-17","9:00 a.m.","pc","Business meeting","","c","Listed on the city's 2026 City Council meetings page."],
+ ["2026-11-17","1:00 p.m.","sb","Information workshop","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
+ ["2026-11-17","6:00 p.m.","sb","Regular board meeting","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
  ["2026-11-23","7:00 p.m.","bun","Regular meeting","","s",""],
- ["2026-11-24","1:00 p.m.","sb","Information workshop","","w","Thanksgiving week; check the board calendar."],
- ["2026-11-24","6:00 p.m.","sb","Regular board meeting","","w","Thanksgiving week; check the board calendar."],
  ["2026-11-26","5:30 p.m.","fb","Regular meeting","","w","Thanksgiving Day; likely rescheduled."],
  ["2026-12-01","6:00 p.m.","pc","Business meeting","","s",""],
- ["2026-12-07","9:00 a.m.","county","Regular meeting","","c","Listed on the county's 2026 BOCC meeting calendar (flaglercounty.gov). Streams on YouTube."]
+ ["2026-12-07","9:00 a.m.","county","Regular meeting","","c","Listed on the county's 2026 BOCC meeting calendar (flaglercounty.gov). Streams on YouTube."],
+ ["2026-12-08","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."]
 ];
 const DOCS=[
  {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
@@ -440,6 +440,8 @@ const DOCS=[
   snip:"Agendas, minutes, video and downloadable MP3 audio for Palm Coast City Council business meetings and workshops.",kw:"agenda minutes audio mp3 video workshop"},
  {b:"fb",date:"",title:"Flagler Beach meetings, agendas and packets",url:"https://flaglerbeach-fl.municodemeetings.com/",path:"Municode Meetings",
   snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
+ {b:"sb",date:"",title:"Flagler Schools board meeting calendar (add to your calendar)",url:"https://www.flaglerschools.com/sndreq/generateCalendarICS.php?calendar_id=146564",path:"Board calendar › Calendar file (.ics)",
+  snip:"The School Board's official meeting calendar as a calendar file. Open it to add board meetings, workshops and executive sessions to Apple, Google or Outlook calendars. For fall 2026 it lists one regular board meeting a month (fourth Tuesday, 6 p.m.) and agenda workshops on second Tuesdays at 3 p.m.",kw:"calendar ics subscribe schedule dates workshop executive session"},
  {b:"fcso",date:"",title:"How to request Sheriff's Office records and body camera footage",url:"https://flaglersheriff.com/public-interest/records",path:"Public Interest › Record Requests",
   snip:"Email publicrecordsrequest@flaglersheriff.com, call (386) 437-4116, or visit the Records Unit in Bunnell (Mon.–Fri., 8 a.m.–4 p.m.). To speed things up, include the case number, date, time and location of the incident. Flagler County lists this as the place to request accident and incident reports and body cam footage. Copies cost $0.15 a page past 7 pages; extensive requests (30+ minutes) may cost more.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam footage video incident accident crash report fees"},
  {b:"fcso",date:"",title:"Sheriff's Office videos: released body cam footage and agency news",url:"https://flaglersheriff.com/fcso-videos/",path:"FCSO Videos",
@@ -578,11 +580,12 @@ document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
  {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing on the 610-acre landfill proposal, 9 a.m. 18 appeals filed, including one by Flagler County. Agenda posts on the city's Agendas & Minutes page.",q:"Project Butterfly"},
- {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
+ {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m. Confirmed on the board calendar.",q:"school board October 27"},
  {d:"2026-10-26",b:"bun",tag:"",t:"Bunnell City Commission meets Oct. 26",w:"Regular meeting, 7 p.m., City Chambers, 2400 Commerce Pkwy.",q:"Bunnell October 26"},
  {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
  {d:"2026-11-10",b:"pc",tag:"",t:"Palm Coast City Council workshop Nov. 10",w:"9 a.m. at City Hall. Listed on the city's 2026 meetings page.",q:"Palm Coast November 10"},
- {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop and regular meeting Nov. 10",w:"Agenda workshop 3 p.m.; regular meeting 6 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
+ {d:"2026-11-17",b:"sb",tag:"Earlier date",t:"School Board meets Nov. 17, a week earlier than usual",w:"Information workshop 1 p.m.; board meeting 6 p.m. A week earlier than its usual fourth-Tuesday slot, per the board calendar.",q:"school board November 17"},
+ {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop Nov. 10",w:"3 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
  {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"}
 ];
