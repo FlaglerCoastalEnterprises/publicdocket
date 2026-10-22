@@ -237,6 +237,22 @@ body{font-size:15px}
 .panel{background:var(--card);box-shadow:var(--shadow);border-color:transparent}
 .panel h2{font-weight:700;color:var(--navy)}
 .tabs button[aria-selected="true"]{font-weight:700}
+/* calmer results (Oct 22) */
+.res h3{font-size:18px;font-weight:700;line-height:1.35;margin:2px 0 4px}
+.res h3 mark{background:none;padding:0}
+.snip{color:var(--muted);font-size:14.5px}
+.snip mark{color:var(--fg);font-weight:700;background:none}
+.list{gap:0}
+.res{padding:18px 0;border-bottom:1px solid var(--line)}
+.res:first-child{padding-top:6px}.res:last-child{border-bottom:0}
+.acts{align-items:center;gap:4px 14px;margin-top:8px}
+.acts .chip{margin-right:2px}
+.act{background:none;border:0;padding:2px 0;border-radius:0;font-size:13px;color:var(--link);font-weight:600}
+.act:hover{background:none;text-decoration:underline}
+.act[aria-pressed="true"]{color:var(--brand)}
+.res.past{opacity:.7}
+.tabs{scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+@media (max-width:520px){.tabs button{padding:10px 9px 8px}.res h3{font-size:17px}}
 .recs{width:100%;max-width:584px;display:grid;gap:8px}
 .recs h2{font-size:13px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:.06em}
 .recs p{margin:0;color:var(--muted);font-size:14px}
@@ -245,6 +261,7 @@ body{font-size:15px}
 .rgrid a{display:grid;gap:2px;padding:12px 14px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--fg);transition:border-color .15s,transform .15s}
 .rgrid a:hover{border-color:var(--sea);transform:translateY(-1px);text-decoration:none}
 .rgrid b{color:var(--navy);font-size:14px}
+.rgrid a.wide{grid-column:1/-1}
 .rgrid span{font-size:12px;color:var(--muted)}
 </style>
 </head>
@@ -287,6 +304,7 @@ body{font-size:15px}
         <a href="?q=Palm%20Coast%20public%20records" data-q="Palm Coast public records"><b>Palm Coast</b><span>City Clerk &amp; permit search</span></a>
         <a href="?q=school%20public%20records" data-q="school public records"><b>Flagler Schools</b><span>District records</span></a>
         <a href="?q=body%20camera%20law" data-q="body camera law"><b>Body cam rules</b><span>What Florida law allows</span></a>
+        <a class="wide" href="?q=released%20videos" data-q="released videos"><b>Watch released body cam videos</b><span>Videos the Sheriff's Office has published itself, on its own pages</span></a>
       </div>
     </section>
     <section class="signup" aria-labelledby="suh">
@@ -424,6 +442,10 @@ const DOCS=[
   snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
  {b:"fcso",date:"",title:"How to request Sheriff's Office records and body camera footage",url:"https://flaglersheriff.com/public-interest/records",path:"Public Interest › Record Requests",
   snip:"Email publicrecordsrequest@flaglersheriff.com, call (386) 437-4116, or visit the Records Unit in Bunnell (Mon.–Fri., 8 a.m.–4 p.m.). To speed things up, include the case number, date, time and location of the incident. Flagler County lists this as the place to request accident and incident reports and body cam footage. Copies cost $0.15 a page past 7 pages; extensive requests (30+ minutes) may cost more.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam footage video incident accident crash report fees"},
+ {b:"fcso",date:"",title:"Sheriff's Office videos: released body cam footage and agency news",url:"https://flaglersheriff.com/fcso-videos/",path:"FCSO Videos",
+  snip:"The Sheriff's Office's own video page, described by the agency as bodycam footage, safety tips and agency news. The page also links to the agency's YouTube channel. These are videos the agency chose to release; PublicDocket links to them and does not host or edit footage.",kw:"released videos video watch bodycam body cam camera footage youtube clips"},
+ {b:"fcso",date:"",title:"Flagler County Sheriff's Office on YouTube",url:"https://www.youtube.com/user/FLAGLERCOUNTYSO",site:"youtube.com",path:"YouTube › FLAGLERCOUNTYSO",
+  snip:"The Sheriff's Office's official YouTube channel, linked from flaglersheriff.com. This is where the agency posts its videos.",kw:"released videos video watch bodycam body cam dash cam camera footage youtube channel briefing"},
  {b:"fcso",date:"",title:"Florida law on body camera recordings (s. 119.071(2)(l), Florida Statutes)",url:"https://www.flsenate.gov/Laws/Statutes/2025/119.071",site:"flsenate.gov",path:"Florida Statutes › 119.071",
   snip:"Body camera footage is generally a public record, but recordings taken inside a home, a health care, mental health or social services facility, or anywhere a person would reasonably expect privacy are confidential. People shown in a recording (or their representatives) can still get the parts showing them; others need a court order. Agencies must keep recordings at least 90 days.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam camera footage video law statute exemption confidential privacy retention"},
  {b:"county",date:"",title:"Public records requests: Flagler County government",url:"https://flaglercounty.gov/departments/administration/communications/public-information/public-records-requests",path:"Administration › Public Records Requests",
@@ -451,15 +473,15 @@ function fmt(s){const d=dt(s);return MO[d.getMonth()]+" "+d.getDate()+", "+d.get
 const RECS=[];
 MEET.forEach((m,i)=>{const B=BODY[m[2]],d=dt(m[0]);
   RECS.push({id:"m"+i,m,t:"meeting",b:m[2],date:m[0],title:`${B.short}: ${m[3]} — ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()}`,
-   url:B.url,path:"Meetings › "+m[0],
-   snip:`${m[1]} at ${B.where}. ${m[6]?m[6]+" ":""}${m[5]==="c"?"":"Agenda typically posted the week before."}`,status:m[5],
+   url:B.url,path:"Meetings › "+MO[d.getMonth()]+" "+d.getDate(),
+   snip:`${m[1]} at ${m[4]||B.where}.${m[6]?" "+m[6]:""}`,status:m[5],
    hay:[B.keys,B.name,m[3],m[6],MOL[d.getMonth()],MO[d.getMonth()],WDL[d.getDay()],String(d.getDate()),"meeting",ST[m[5]]].join(" ")})});
-DOCS.forEach(x=>{const B=BODY[x.b];RECS.push({t:"doc",b:x.b,date:x.date,title:x.title,url:x.url,path:x.path,site:x.site,snip:x.snip,hay:[B.keys,B.name,x.kw,x.title,x.snip].join(" ")})});
+DOCS.forEach(x=>{const B=BODY[x.b];RECS.push({t:"doc",b:x.b,date:x.date,title:x.title,url:x.url,path:x.path,site:x.site,snip:x.snip,hay:[B.keys,B.name,x.kw,x.title].join(" ")})});
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const terms=q=>q.toLowerCase().replace(/[^\w\s-]/g," ").split(/\s+/).filter(t=>t&&!["the","a","of","and","in","on","for","meeting","meetings"].includes(t));
-function hl(s,ts){let out=esc(s);ts.filter(t=>t.length>1).forEach(t=>{out=out.replace(new RegExp("("+t.replace(/[-]/g,"\\-")+")","gi"),"<mark>$1</mark>")});return out}
+function hl(s,ts){let out=esc(s);ts.filter(t=>t.length>1).forEach(t=>{out=out.replace(new RegExp("\\b("+t.replace(/[-]/g,"\\-")+"(?:s|es)?)\\b(?![^<]*>)","gi"),"<mark>$1</mark>")});return out}
 let tab="all",cur="";
 function load(k,d){try{const v=localStorage.getItem(k);return v?JSON.parse(v):d}catch(e){return d}}
 function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
@@ -469,8 +491,10 @@ let loc=load("pd-loc",{st:"FL",co:"Flagler"});
 function score(r,ts){
   if(!ts.length)return 1;
   const T=r.title.toLowerCase(),H=r.hay.toLowerCase(),S=r.snip.toLowerCase();let sc=0;
-  for(const t of ts){let hit=0;if(T.includes(t))hit+=3;if(H.includes(t))hit+=2;if(S.includes(t))hit+=1;if(!hit)return 0;sc+=hit}
-  if(r.t==="meeting"&&dt(r.date)>=TODAY)sc+=1/(1+(dt(r.date)-TODAY)/864e5);
+  let weak=false;
+  for(const t of ts){let hit=0;if(T.includes(t))hit+=3;if(H.includes(t))hit+=2;if(S.includes(t))hit+=1;if(!hit)return 0;if(hit===1)weak=true;sc+=hit}
+  r._weak=weak;
+  if(r.t==="meeting"){if(dt(r.date)>=TODAY)sc+=1/(1+(dt(r.date)-TODAY)/864e5);else sc-=100}
   return sc;
 }
 function panelFor(ts){
@@ -491,11 +515,11 @@ function panelFor(ts){
 function resultHTML(r,ts){
   const B=BODY[r.b];
   const sv=r.t==="meeting"&&saved.includes(r.id);
-  const chip=r.t==="meeting"?`<div class="chipline"><span class="chip${r.status==="w"?" warn":""}">${ST[r.status]}</span></div>
-  <div class="acts" data-id="${r.id}"><button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button></div>`:"";
+  const past=r.t==="meeting"&&dt(r.date)<TODAY;
+  const chip=r.t==="meeting"?`<div class="acts" data-id="${r.id}"><span class="chip${r.status==="w"&&!past?" warn":""}">${past?"Past meeting":ST[r.status]}</span>${past?"":`<button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button>`}</div>`:"";
   const datePre=r.date&&r.t==="doc"?`<span class="d">${fmt(r.date)} — </span>`:"";
-  return `<div class="res"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(r.site||B.site)} › ${esc(r.path)}</span></div></div>
-  <h3><a href="${r.url}" target="_blank" rel="noopener">${hl(r.title,ts)}</a></h3>
+  return `<div class="res${past?" past":""}"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(r.site||B.site)} › ${esc(r.path)}</span></div></div>
+  <h3><a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}</a></h3>
   <p class="snip">${datePre}${hl(r.snip,ts)}</p>${chip}</div>`;
 }
 function run(q,push){
@@ -505,13 +529,16 @@ function run(q,push){
   document.querySelectorAll("[data-t]").forEach(x=>x.setAttribute("aria-selected",x.dataset.t===tab));
   const t0=performance.now(),ts=terms(cur);
   if(tab==="saved"){
-    const rs=RECS.filter(r=>saved.includes(r.id)&&(!ts.length||score(r,ts)>0)).sort((a,b)=>a.date<b.date?-1:1);
+    const rs=RECS.filter(r=>saved.includes(r.id)&&(!ts.length||score(r,ts)!==0)).sort((a,b)=>a.date<b.date?-1:1);
     $("stats").textContent=rs.length?`${rs.length} saved event${rs.length>1?"s":""} on this device`:"";
     $("list").innerHTML=rs.length?rs.map(r=>resultHTML(r,ts)).join(""):`<div class="none"><p>No saved events yet.</p><p>Tap <b>☆ Save</b> on any meeting to keep it here. Saved events stay on this device and browser.</p></div>`;
     $("panel").hidden=true;document.title="Saved - PublicDocket";return;
   }
-  let rs=RECS.map(r=>({r,s:score(r,ts)})).filter(x=>x.s>0&&(tab==="all"||x.r.t===tab));
-  rs.sort((a,b)=>b.s-a.s||((a.r.date||"9")<(b.r.date||"9")?-1:1));
+  let rs=RECS.map(r=>({r,s:score(r,ts)})).filter(x=>x.s!==0&&(tab==="all"||x.r.t===tab));
+  if(rs.some(x=>!x.r._weak))rs=rs.filter(x=>!x.r._weak);
+  // upcoming meetings in date order, then agendas & notices by relevance, then past meetings
+  const grp=r=>r.t!=="meeting"?1:(dt(r.date)>=TODAY?0:2);
+  rs.sort((a,b)=>grp(a.r)-grp(b.r)||(grp(a.r)===1?b.s-a.s:0)||(grp(a.r)===2?(a.r.date<b.r.date?1:-1):(a.r.date||"9")<(b.r.date||"9")?-1:1));
   const ms=Math.max(.01,(performance.now()-t0)/1000);
   $("stats").textContent=rs.length?`${rs.length} result${rs.length>1?"s":""}`:"";
   $("list").innerHTML=rs.length?rs.map(x=>resultHTML(x.r,ts)).join(""):
