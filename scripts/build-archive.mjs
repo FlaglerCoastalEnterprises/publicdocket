@@ -175,7 +175,7 @@ h1,h2,.stats b{font-family:"Nunito Sans",system-ui,sans-serif!important;font-wei
 <header><p class="eyebrow">Archive · Updated ${fmt(today)}</p><h1>Flagler County public meetings at a glance</h1>
 <p class="lede">The highlights first. Every record we've collected is below, each linked to the official government source.</p></header>
 <div class="stats" aria-label="Archive totals">
-<div><b>${up.length}</b><span>upcoming meetings</span></div><div><b>${past.length}</b><span>past meetings</span></div><div><b>${documents.length}</b><span>documents</span></div><div><b>${bodyList.length}</b><span>boards covered</span></div>
+<div><b>${up.length}</b><span>upcoming meetings</span></div><div><b>${past.length}</b><span>past meetings</span></div><div><b>${documents.length}</b><span>documents</span></div><div><b>${Object.values(current.BODY).filter(b => !b.rec).length}</b><span>boards covered</span></div>
 </div>
 ${hl.length ? `<section aria-labelledby="hlh"><h2 id="hlh">Highlights</h2><div class="hgrid">${hl.map(card).join("")}</div></section>` : ""}
 ${recentDocs.length ? `<section aria-labelledby="rdh"><h2 id="rdh">Recently posted</h2><ul class="docs recent">${recentDocs.map(drow).join("")}</ul></section>` : ""}
