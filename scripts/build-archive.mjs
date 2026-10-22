@@ -112,9 +112,10 @@ const page = `<!doctype html>
 <meta property="og:title" content="Flagler County Public Meetings Archive">
 <meta property="og:image" content="${SITE}/logo-full.png">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <style>
-:root{--bg:#f3f8fd;--card:#fff;--fg:#14202e;--muted:#5a6878;--line:#d7e2ee;--brand:#1f5a96;--gold:#a8823c;--navy:#0f2340;--warn:#b06000;--ok:#1e6b3a;--soft:#eaf2fa;--font:Arial,"Helvetica Neue",Helvetica,sans-serif}
-@media (prefers-color-scheme:dark){:root{--bg:#14202e;--card:#1d2b3b;--fg:#e8eef5;--muted:#a3b2c2;--line:#30455c;--brand:#8ab4f8;--gold:#d9b56e;--navy:#e8eef5;--warn:#f6ad55;--ok:#7fd19b;--soft:#22344a;color-scheme:dark}}
+:root{--bg:#f6fbf9;--card:#fff;--fg:#1b2e2b;--muted:#536b66;--line:#d3e5e0;--brand:#1a7d71;--on-brand:#fff;--gold:#a8823c;--navy:#173f3a;--warn:#a65a00;--ok:#1e6b3a;--soft:#e9f5f1;--font:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1b1a;--card:#152522;--fg:#e2f1ed;--muted:#9bb7b1;--line:#2a3f3c;--brand:#5cc7b2;--on-brand:#0f1b1a;--gold:#d9b56e;--navy:#e2f1ed;--warn:#f2b266;--ok:#7fd19b;--soft:#172826;color-scheme:dark}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--font);line-height:1.5;font-size:15px}
 .wrap{max-width:860px;margin:0 auto;padding-block:28px 56px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:grid;gap:28px}
@@ -165,6 +166,7 @@ tr:last-child td{border-bottom:0}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
 :focus-visible{outline:2px solid var(--brand);outline-offset:2px}
 footer{font-size:13px;color:var(--muted)}
+h1,h2,.stats b{font-family:"Nunito Sans",system-ui,sans-serif!important;font-weight:800}
 </style>
 </head>
 <body>

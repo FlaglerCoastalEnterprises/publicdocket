@@ -11,25 +11,27 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"PublicDocket","url":"https://publicdocket.coastalenterprises386.workers.dev/","potentialAction":{"@type":"SearchAction","target":"https://publicdocket.coastalenterprises386.workers.dev/?q={search_term_string}","query-input":"required name=search_term_string"},"publisher":{"@type":"Organization","name":"Flagler Coastal Enterprises LLC","email":"coastalenterprises386@gmail.com","sameAs":["https://x.com/FCEpublicdocket"]}}
 </script>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
 <style>
 /* Layout: search-engine pattern — centered home box; results view with top bar, tabs, result list and a side panel */
 :root{
-  --bg:#ffffff; --fg:#202124; --muted:#5f6368; --line:#dadce0; --soft:#f1f3f4;
-  --link:#1a4f8b; --visited:#5b3a8c; --crumb:#4d5156; --brand:#1f5a96; --hl:#fff3c4; --warn:#b06000; --hl-fg:#202124;
-  --navy:#0f2340; --gold:#a8823c; --sky:#e3f0fb; --sand:#fbf5e8; --card:#ffffff; --on-brand:#ffffff;
-  --shadow:0 1px 6px rgba(32,33,36,.28);
-  --font:Arial,"Helvetica Neue",Helvetica,sans-serif;
+  --bg:#f6fbf9; --fg:#1b2e2b; --muted:#536b66; --line:#d3e5e0; --soft:#e9f5f1;
+  --link:#11695f; --visited:#5a4a8a; --crumb:#4b605c; --brand:#1a7d71; --hl:#c8efe3; --warn:#a65a00; --hl-fg:#1b2e2b;
+  --navy:#173f3a; --gold:#a8823c; --sky:#d6f1e9; --sand:#fbf6ea; --card:#ffffff; --on-brand:#ffffff; --sea:#7fd1bd;
+  --shadow:0 2px 14px rgba(23,63,58,.10),0 1px 3px rgba(23,63,58,.08);
+  --font:"Nunito Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --soft:#303134;
-  --link:#8ab4f8; --visited:#c58af9; --crumb:#bdc1c6; --brand:#7fb3e6; --hl:#4a3f12; --warn:#f6ad55; --hl-fg:#fdf6d8;
-  --navy:#e8eaed; --gold:#d9b56e; --sky:#14243a; --sand:#2a2418; --card:#283039; --on-brand:#0f2340;
-  --shadow:0 1px 6px rgba(0,0,0,.5); color-scheme:dark}}
+  --bg:#0f1b1a; --fg:#e2f1ed; --muted:#9bb7b1; --line:#2a3f3c; --soft:#172826;
+  --link:#7fd6c3; --visited:#c3a8f0; --crumb:#b5cbc6; --brand:#5cc7b2; --hl:#1f4a42; --warn:#f2b266; --hl-fg:#e2f1ed;
+  --navy:#e2f1ed; --gold:#d9b56e; --sky:#123430; --sand:#26231a; --card:#152522; --on-brand:#0f1b1a; --sea:#3e8f80;
+  --shadow:0 2px 14px rgba(0,0,0,.45); color-scheme:dark}}
 :root[data-theme="dark"]{
-  --bg:#202124; --fg:#e8eaed; --muted:#9aa0a6; --line:#3c4043; --soft:#303134;
-  --link:#8ab4f8; --visited:#c58af9; --crumb:#bdc1c6; --brand:#7fb3e6; --hl:#4a3f12; --warn:#f6ad55; --hl-fg:#fdf6d8;
-  --navy:#e8eaed; --gold:#d9b56e; --sky:#14243a; --sand:#2a2418; --card:#283039; --on-brand:#0f2340;
-  --shadow:0 1px 6px rgba(0,0,0,.5); color-scheme:dark}
+  --bg:#0f1b1a; --fg:#e2f1ed; --muted:#9bb7b1; --line:#2a3f3c; --soft:#172826;
+  --link:#7fd6c3; --visited:#c3a8f0; --crumb:#b5cbc6; --brand:#5cc7b2; --hl:#1f4a42; --warn:#f2b266; --hl-fg:#e2f1ed;
+  --navy:#e2f1ed; --gold:#d9b56e; --sky:#123430; --sand:#26231a; --card:#152522; --on-brand:#0f1b1a; --sea:#3e8f80;
+  --shadow:0 2px 14px rgba(0,0,0,.45); color-scheme:dark}
 [hidden]{display:none!important}
 html,body{height:100%}
 body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:14px;line-height:1.58}
@@ -65,7 +67,7 @@ button,input{font:inherit;color:inherit}
 .tryline a{margin:0 4px}
 .heads{width:100%;max-width:584px;display:grid;gap:4px;margin-top:6px}
 .heads h2,.spons h2{font-size:13px;font-weight:700;color:var(--gold);margin:0 0 4px;text-transform:uppercase;letter-spacing:.06em}
-.hlist{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(15,35,64,.08)}
+.hlist{display:grid;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 2px 10px rgba(23,63,58,.08)}
 .hl{display:grid;grid-template-columns:52px minmax(0,1fr);gap:14px;align-items:center;padding:12px 16px;background:var(--card);border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;width:100%}
 .hl:first-child{border-top:0}
 .hl:hover{background:var(--soft)}
@@ -82,7 +84,7 @@ button,input{font:inherit;color:inherit}
 .pub{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--muted);background:none;border:0;cursor:pointer;padding:0}
 .pub img,.pubfoot img,.mark img{background:#fff;border-radius:8px;padding:3px 5px}
 .pub img{height:34px;width:auto}
-.signup{width:100%;max-width:584px;box-sizing:border-box;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:8px;box-shadow:0 2px 10px rgba(15,35,64,.08)}
+.signup{width:100%;max-width:584px;box-sizing:border-box;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:8px;box-shadow:0 2px 10px rgba(23,63,58,.08)}
 .signup h2{font-family:Georgia,serif;font-size:20px;color:var(--navy);margin:0;text-transform:none;letter-spacing:0;font-weight:700}
 .signup p{margin:0;color:var(--muted)}
 .su{display:grid;gap:10px}
@@ -193,6 +195,48 @@ button,input{font:inherit;color:inherit}
 .copy{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 .copy code{background:var(--soft);padding:4px 8px;border-radius:4px}
 .copy button{border:1px solid var(--line);background:var(--bg);border-radius:4px;padding:4px 12px;cursor:pointer}
+
+/* seafoam refresh: rounder, softer */
+body{font-size:15px}
+.logo{font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800;letter-spacing:-.03em}
+.logo span{color:var(--brand)}
+#home{background:radial-gradient(1200px 520px at 50% -120px,var(--sky) 0%,transparent 70%),var(--bg)}
+.home-main .box{border-radius:28px}
+.box{border-radius:26px;background:var(--card)}
+.btns button{border-radius:24px;height:42px;font-weight:600}
+.btns button[type=submit]{box-shadow:0 2px 8px rgba(26,125,113,.25)}
+.hlist,.signup,.recs .rgrid a,.panel,.cov{border-radius:18px}
+.hlist,.signup{box-shadow:var(--shadow);border-color:transparent}
+.hl{padding:14px 18px}
+.hl .dd{background:var(--soft);border-radius:12px;padding:6px 0}
+.hl .dd b{font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800;color:var(--brand)}
+.hl .ttl{font-weight:700;color:var(--navy)}
+.heads h2,.spons h2,.recs h2{color:var(--brand)}
+.signup h2{font-family:"Nunito Sans",system-ui,sans-serif;font-weight:800}
+.su input[type=email],.su input[type=text]{border-radius:12px}
+.su .go{border-radius:24px;padding:10px 22px}
+.slot,.sponcard{border-radius:18px}
+.pillbtn{border-radius:20px;background:var(--card)}
+.sheet{border-radius:20px}
+.sheetbtns button{border-radius:20px}
+.foot{background:var(--soft)}
+.top{background:linear-gradient(180deg,var(--sky),var(--bg))}
+.top .logo{font-size:24px}
+.res h3{font-weight:600}
+.res h3 mark{background:var(--hl);color:inherit;border-radius:4px;padding:0 2px}
+.fav{background:var(--sky);border-color:transparent;color:var(--navy)}
+.panel{background:var(--card);box-shadow:var(--shadow);border-color:transparent}
+.panel h2{font-weight:700;color:var(--navy)}
+.tabs button[aria-selected="true"]{font-weight:700}
+.recs{width:100%;max-width:584px;display:grid;gap:8px}
+.recs h2{font-size:13px;font-weight:700;margin:0;text-transform:uppercase;letter-spacing:.06em}
+.recs p{margin:0;color:var(--muted);font-size:14px}
+.rgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (max-width:560px){.rgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.rgrid a{display:grid;gap:2px;padding:12px 14px;background:var(--card);border:1px solid var(--line);text-decoration:none;color:var(--fg);transition:border-color .15s,transform .15s}
+.rgrid a:hover{border-color:var(--sea);transform:translateY(-1px);text-decoration:none}
+.rgrid b{color:var(--navy);font-size:14px}
+.rgrid span{font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -224,6 +268,18 @@ button,input{font:inherit;color:inherit}
       <h2 id="hh">Coming up in Flagler</h2>
       <div class="hlist" id="hlist"></div>
     </section>
+    <section class="recs" aria-labelledby="rh">
+      <h2 id="rh">Public records &amp; body cam footage</h2>
+      <p>Florida's public records law lets anyone ask for government records, including police body camera video, with some exceptions. Here's where to ask.</p>
+      <div class="rgrid">
+        <a href="?q=sheriff%20records" data-q="sheriff records"><b>Sheriff's Office</b><span>Reports, 911 audio, body cam</span></a>
+        <a href="?q=Flagler%20Beach%20police%20records" data-q="Flagler Beach police records"><b>Flagler Beach Police</b><span>Reports and video</span></a>
+        <a href="?q=county%20public%20records" data-q="county public records"><b>Flagler County</b><span>County Commission &amp; departments</span></a>
+        <a href="?q=Palm%20Coast%20public%20records" data-q="Palm Coast public records"><b>Palm Coast</b><span>City Clerk &amp; permit search</span></a>
+        <a href="?q=school%20public%20records" data-q="school public records"><b>Flagler Schools</b><span>District records</span></a>
+        <a href="?q=body%20camera%20law" data-q="body camera law"><b>Body cam rules</b><span>What Florida law allows</span></a>
+      </div>
+    </section>
     <section class="signup" aria-labelledby="suh">
       <h2 id="suh">Get the free weekly digest</h2>
       <p>Every Sunday: the week's meetings, new agendas and deadlines in Flagler County.</p>
@@ -237,7 +293,7 @@ button,input{font:inherit;color:inherit}
     </section>
   </main>
   <footer class="foot">
-    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + tax deed auctions</span></div>
+    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
       <div><span>Updated Oct 22, 2026</span><a href="#" data-info="sources">Sources</a></div>
@@ -306,8 +362,10 @@ const BODY={
    type:"City commission",sched:"2nd & 4th Thursday, 5:30 p.m.",where:"City Hall, Flagler Beach",members:"",phone:"",keys:"flagler beach city commission"},
  bun:{name:"Bunnell City Commission",short:"Bunnell City Commission",site:"bunnellcity.us",url:"https://www.bunnellcity.us/1479/Agendas-Minutes",fav:"BN",
    type:"City commission",sched:"2nd & 4th Monday, 7 p.m.",where:"City Chambers, 2400 Commerce Pkwy, Bunnell",members:"Catherine Robinson (Mayor), John R. Rogers (Vice Mayor), Bill Baxley, Donnie Nobles, Tonya Gordon",phone:"(386) 437-7500, option 5",keys:"bunnell city commission"},
- clerk:{name:"Flagler County Clerk of Court: Tax Deed Sales",short:"Flagler Clerk of Court (tax deeds)",site:"flaglerclerk.gov",url:"https://flagler.realtaxdeed.com/",fav:"CL",
-   type:"Tax deed auctions",sched:"Online auctions; sale dates are on the official auction calendar",where:"Online at flagler.realtaxdeed.com",members:"",phone:"(386) 313-4375 (Tax Deed line)",keys:"tax deed deeds auction auctions sale sales clerk realtaxdeed foreclosure surplus bid bidding",schedLbl:"Sales",linkLbl:"Official auction calendar"},
+ fcso:{name:"Flagler County Sheriff's Office",short:"Flagler County Sheriff's Office",site:"flaglersheriff.com",url:"https://flaglersheriff.com/public-interest/records",fav:"SO",rec:1,
+   type:"Sheriff's office · public records",sched:"Records Unit: Mon.–Fri., 8 a.m.–4 p.m.",where:"Sheriff's Operations Center, 61 Sheriff E.W. Johnston Dr., Bunnell",members:"",phone:"(386) 437-4116",keys:"sheriff sheriffs fcso deputy deputies police body cam bodycam camera cameras footage video videos incident crash accident report reports 911 arrest",schedLbl:"Hours",linkLbl:"How to request records"},
+ fbpd:{name:"Flagler Beach Police Department",short:"Flagler Beach Police Department",site:"fbpd.org",url:"https://www.fbpd.org/public-records",fav:"BP",rec:1,
+   type:"Police department · public records",sched:"Requests by phone or email (records@fbpd.org)",where:"204 S. Flagler Ave., Flagler Beach",members:"",phone:"(386) 517-2020",keys:"flagler beach police fbpd body cam bodycam camera footage video report reports incident",schedLbl:"Requests",linkLbl:"Public records page"},
  sb:{name:"Flagler County School Board",short:"Flagler County School Board",site:"flaglerschools.com",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",fav:"FS",
    type:"School board",sched:"Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",where:"1769 E. Moody Blvd., Bldg. 2, Bunnell",members:"",phone:"(386) 437-7526 x1104",keys:"school board flagler schools education boarddocs"}
 };
@@ -355,10 +413,22 @@ const DOCS=[
   snip:"Agendas, minutes, video and downloadable MP3 audio for Palm Coast City Council business meetings and workshops.",kw:"agenda minutes audio mp3 video workshop"},
  {b:"fb",date:"",title:"Flagler Beach meetings, agendas and packets",url:"https://flaglerbeach-fl.municodemeetings.com/",path:"Municode Meetings",
   snip:"City Commission agendas, agenda packets, minutes and meeting video for the City of Flagler Beach.",kw:"agenda packet minutes video municode"},
- {b:"clerk",date:"",title:"Flagler County tax deed auctions (online auction calendar)",url:"https://flagler.realtaxdeed.com/",path:"Online auction site (flagler.realtaxdeed.com)",
-  snip:"Official online auction site for Flagler County tax deed sales, run for the Clerk of Court. Upcoming sale dates and the properties in each sale are listed on its calendar.",kw:"tax deed auction calendar sale dates online bidding properties"},
- {b:"clerk",date:"",title:"Tax Deed Sales | Flagler County Clerk of Court",url:"https://flaglerclerk.gov/sales/tax-deeds-sales/",path:"Sales › Tax Deeds Sales",
-  snip:"Rules for bidders: the winning bidder pays a non-refundable deposit of 5% of the final bid or $200, whichever is greater, and for online sales the deposit must be on file before the auction. Cashier's check, certified check, money order or cash; no personal or business checks. Photo ID required. Case files are on flagler.realtdm.com. Tax Deed line (386) 313-4375.",kw:"tax deed rules deposit payment bidder surplus funds lands available for taxes realtdm"},
+ {b:"fcso",date:"",title:"How to request Sheriff's Office records and body camera footage",url:"https://flaglersheriff.com/public-interest/records",path:"Public Interest › Record Requests",
+  snip:"Email publicrecordsrequest@flaglersheriff.com, call (386) 437-4116, or visit the Records Unit in Bunnell (Mon.–Fri., 8 a.m.–4 p.m.). To speed things up, include the case number, date, time and location of the incident. Flagler County lists this as the place to request accident and incident reports and body cam footage. Copies cost $0.15 a page past 7 pages; extensive requests (30+ minutes) may cost more.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam footage video incident accident crash report fees"},
+ {b:"fcso",date:"",title:"Florida law on body camera recordings (s. 119.071(2)(l), Florida Statutes)",url:"https://www.flsenate.gov/Laws/Statutes/2025/119.071",site:"flsenate.gov",path:"Florida Statutes › 119.071",
+  snip:"Body camera footage is generally a public record, but recordings taken inside a home, a health care, mental health or social services facility, or anywhere a person would reasonably expect privacy are confidential. People shown in a recording (or their representatives) can still get the parts showing them; others need a court order. Agencies must keep recordings at least 90 days.",kw:"public records request requests foia sunshine law chapter 119 open records body cam bodycam camera footage video law statute exemption confidential privacy retention"},
+ {b:"county",date:"",title:"Public records requests: Flagler County government",url:"https://flaglercounty.gov/departments/administration/communications/public-information/public-records-requests",path:"Administration › Public Records Requests",
+  snip:"For County Commission and county department records, email PublicRecords@flaglercounty.gov or call 386-313-4005. Or deliver in person or by mail to 1769 E. Moody Blvd., Bldg. 2, Third Floor, Bunnell. The page also links where to request records from the Sheriff, Clerk, Palm Coast, Flagler Beach, Health Department and Tax Collector.",kw:"public records request requests foia sunshine law chapter 119 open records county commission departments"},
+ {b:"pc",date:"",title:"Public records requests: City of Palm Coast",url:"https://www.palmcoast.gov/city-clerk",path:"City Clerk",
+  snip:"The City Clerk is the records custodian. Email CityClerk@palmcoastgov.com, call (386) 986-3713, or visit City Hall, 160 Lake Ave. (Mon.–Fri., 8 a.m.–5 p.m.). You don't have to give your name or a reason. Emailed records that take under 20 minutes are free; printed copies are free up to 19 pages, then 15 cents a page.",kw:"public records request requests foia sunshine law chapter 119 open records city clerk fees"},
+ {b:"pc",date:"",title:"Palm Coast online public records search (permits, code enforcement)",url:"https://records.palmcoast.gov/",site:"records.palmcoast.gov",path:"Public records search",
+  snip:"The city's searchable records database. Flagler County's records page points here for Palm Coast permits and code enforcement records.",kw:"public records request requests foia sunshine law chapter 119 open records permits permit code enforcement search database"},
+ {b:"fbpd",date:"",title:"Request records from the Flagler Beach Police Department",url:"https://www.fbpd.org/public-records",path:"Public Records",
+  snip:"Call (386) 517-2020 or email records@fbpd.org. The department is at 204 S. Flagler Ave. For video, contact the records office to confirm what it needs.",kw:"public records request requests foia sunshine law chapter 119 open records police body cam bodycam footage video report"},
+ {b:"fb",date:"",title:"Public records requests: City of Flagler Beach",url:"https://www.cityofflaglerbeach.com/DocumentCenter/View/1211/For-public-records-requests?bidId=",site:"cityofflaglerbeach.com",path:"Document Center › Public records requests",
+  snip:"The City of Flagler Beach's public records request information, as linked from Flagler County's public records page.",kw:"public records request requests foia sunshine law chapter 119 open records city"},
+ {b:"sb",date:"",title:"Public records requests: Flagler Schools",url:"https://www.flaglerschools.com/public-records",path:"Public Records",
+  snip:"Email publicrecordsrequests@flaglerschools.com, call 386-437-7526 x1120, fax 386-586-2641, or send by mail or in person to 1769 E. Moody Blvd., Bldg. 2, Bunnell. Copies are 15 cents a page (20 cents two-sided); requests over 30 minutes may be charged staff time. Note: email addresses are public records in Florida, so call or write if you don't want yours released.",kw:"public records request requests foia sunshine law chapter 119 open records school district fees"},
  {b:"sb",date:"",title:"BoardDocs | Flagler County School Board",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",path:"BoardDocs › Public",
   snip:"Agendas, supporting documents and board policies for Flagler Schools board meetings and workshops.",kw:"boarddocs agenda policies workshop"},
  {b:"sb",date:"",title:"School Board meeting videos",url:"https://youtube.com/playlist?list=PLfx_w2JpNlBzcLsx7mTHJCM0z9nNsKrZE",path:"YouTube › Board Meetings",
@@ -375,7 +445,7 @@ MEET.forEach((m,i)=>{const B=BODY[m[2]],d=dt(m[0]);
    url:B.url,path:"Meetings › "+m[0],
    snip:`${m[1]} at ${B.where}. ${m[6]?m[6]+" ":""}${m[5]==="c"?"":"Agenda typically posted the week before."}`,status:m[5],
    hay:[B.keys,B.name,m[3],m[6],MOL[d.getMonth()],MO[d.getMonth()],WDL[d.getDay()],String(d.getDate()),"meeting",ST[m[5]]].join(" ")})});
-DOCS.forEach(x=>{const B=BODY[x.b];RECS.push({t:"doc",b:x.b,date:x.date,title:x.title,url:x.url,path:x.path,snip:x.snip,hay:[B.keys,B.name,x.kw,x.title,x.snip].join(" ")})});
+DOCS.forEach(x=>{const B=BODY[x.b];RECS.push({t:"doc",b:x.b,date:x.date,title:x.title,url:x.url,path:x.path,site:x.site,snip:x.snip,hay:[B.keys,B.name,x.kw,x.title,x.snip].join(" ")})});
 
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
@@ -415,7 +485,7 @@ function resultHTML(r,ts){
   const chip=r.t==="meeting"?`<div class="chipline"><span class="chip${r.status==="w"?" warn":""}">${ST[r.status]}</span></div>
   <div class="acts" data-id="${r.id}"><button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button></div>`:"";
   const datePre=r.date&&r.t==="doc"?`<span class="d">${fmt(r.date)} — </span>`:"";
-  return `<div class="res"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(B.site)} › ${esc(r.path)}</span></div></div>
+  return `<div class="res"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(r.site||B.site)} › ${esc(r.path)}</span></div></div>
   <h3><a href="${r.url}" target="_blank" rel="noopener">${hl(r.title,ts)}</a></h3>
   <p class="snip">${datePre}${hl(r.snip,ts)}</p>${chip}</div>`;
 }
@@ -434,7 +504,7 @@ function run(q,push){
   let rs=RECS.map(r=>({r,s:score(r,ts)})).filter(x=>x.s>0&&(tab==="all"||x.r.t===tab));
   rs.sort((a,b)=>b.s-a.s||((a.r.date||"9")<(b.r.date||"9")?-1:1));
   const ms=Math.max(.01,(performance.now()-t0)/1000);
-  $("stats").textContent=rs.length?`About ${rs.length} result${rs.length>1?"s":""} (${ms.toFixed(2)} seconds)`:"";
+  $("stats").textContent=rs.length?`${rs.length} result${rs.length>1?"s":""}`:"";
   $("list").innerHTML=rs.length?rs.map(x=>resultHTML(x.r,ts)).join(""):
    `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any Flagler County records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like November.</li><li>Try fewer words.</li></ul></div>`;
   const p=panelFor(ts);$("panel").innerHTML=p;$("panel").hidden=!p;
@@ -452,7 +522,7 @@ const INFO={
 
  sponsor:["Sponsor PublicDocket","<p>Put your business in front of Flagler residents, builders, real estate pros and local leaders who follow what's happening at City Hall and the County Commission.</p><table class='ratecard'><tr><th>Package</th><th>Includes</th><th>Price</th></tr><tr><td><b>Founding Sponsor</b><br>3 months · 3 spots</td><td>Logo on the homepage and every results page, plus a mention in every weekly digest. Rate locked for renewal.</td><td>$150</td></tr><tr><td><b>Digest sponsor</b><br>1 month</td><td>Featured message in 4 weekly digest emails.</td><td>$75</td></tr><tr><td><b>Single issue</b></td><td>Featured message in one weekly digest.</td><td>$25</td></tr></table><p>Sponsors never influence what we publish. Every sponsored spot is labeled. To reserve a spot, email:</p><div class='copy'><code id='addr'>coastalenterprises386@gmail.com</code><button type='button' id='cp'>Copy</button></div>"],
  corrections:["Corrections","<p>If a date, time or link is wrong, email coastalenterprises386@gmail.com. Errors are fixed within 24 hours and noted here.</p><p>No corrections yet.</p>"],
- sources:["Sources","<p>"+Object.values(BODY).map(B=>`<a href="${B.url}" target="_blank" rel="noopener">${esc(B.name)}</a>`).join("<br>")+"</p>"]
+ sources:["Sources","<p>"+Object.values(BODY).filter(B=>!B.rec).map(B=>`<a href="${B.url}" target="_blank" rel="noopener">${esc(B.name)}</a>`).join("<br>")+"</p>"]
 };
 function showInfo(k){
   $("home").style.display="none";$("results").style.display="block";$("q2").value="";$("stats").textContent="";
@@ -471,7 +541,7 @@ document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
- {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing on the 610-acre landfill proposal, 9 a.m. 18 appeals filed, including one by Flagler County. Agenda due Oct. 21.",q:"Project Butterfly"},
+ {d:"2026-10-28",b:"bun",tag:"Hearing",t:"Bunnell to rehear Project Butterfly appeals in special session",w:"Quasi-judicial de novo hearing on the 610-acre landfill proposal, 9 a.m. 18 appeals filed, including one by Flagler County. Agenda posts on the city's Agendas & Minutes page.",q:"Project Butterfly"},
  {d:"2026-10-27",b:"sb",tag:"",t:"School Board workshop and regular meeting set for Oct. 27",w:"Information workshop 1 p.m.; regular meeting 6 p.m.",q:"school board October 27"},
  {d:"2026-10-26",b:"bun",tag:"",t:"Bunnell City Commission meets Oct. 26",w:"Regular meeting, 7 p.m., City Chambers, 2400 Commerce Pkwy.",q:"Bunnell October 26"},
  {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
@@ -508,7 +578,7 @@ function mountForms(root){
       <div class="row"><input type="email" id="su-email-${k}" name="email" required placeholder="Your email" aria-label="Email address" autocomplete="email">
       <input type="text" id="su-name-${k}" name="name" placeholder="First name (optional)" aria-label="First name" autocomplete="given-name"></div>
       <fieldset><legend>I care most about (optional):</legend>
-      ${Object.entries(BODY).filter(([b])=>b!=="clerk").map(([b,B])=>`<label><input type="checkbox" name="topics" value="${esc(B.short)}" id="su-${b}-${k}"> ${esc(B.short.replace(" City Commission","").replace(" City Council","").replace("Flagler County ",""))}</label>`).join("")}</fieldset>
+      ${Object.entries(BODY).filter(([b,B])=>!B.rec).map(([b,B])=>`<label><input type="checkbox" name="topics" value="${esc(B.short)}" id="su-${b}-${k}"> ${esc(B.short.replace(" City Commission","").replace(" City Council","").replace("Flagler County ",""))}</label>`).join("")}</fieldset>
       <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
       <div class="row"><button class="go" type="submit">Subscribe free</button></div>
       <p class="msg" role="status" aria-live="polite"></p>
@@ -604,7 +674,7 @@ function fillCo(st,co){
   hint();
 }
 function hint(){const st=stsel.value,co=st==="FL"?cosel.value:cotxt.value.trim();
-  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies plus tax deed auctions.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
+  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
 stsel.addEventListener("change",()=>fillCo(stsel.value,""));cosel.addEventListener("change",hint);cotxt.addEventListener("input",hint);
 function openLoc(){stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
 function closeLoc(){$("scrim").hidden=true}
