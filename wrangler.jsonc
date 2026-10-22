@@ -1,15 +1,5 @@
 {
   "name": "publicdocket",
   "compatibility_date": "2026-09-01",
-  "main": "src/worker.js",
-  "assets": {
-    "directory": "./public",
-    "binding": "ASSETS",
-    "not_found_handling": "single-page-application",
-    "run_worker_first": ["/api/*"]
-  },
-  "d1_databases": [
-    { "binding": "DB", "database_name": "publicdocket-site", "database_id": "00a5f9cb-89b3-4df8-a3aa-e70b0d3f807d" }
-  ],
-  "triggers": { "crons": ["*/10 * * * *"] }
+  "assets": { "directory": "./public", "not_found_handling": "single-page-application" }
 }
