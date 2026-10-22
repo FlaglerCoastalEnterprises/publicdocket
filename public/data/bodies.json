@@ -3,7 +3,7 @@
  "generated": "2026-10-22",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 6,
+ "count": 8,
  "bodies": [
   {
    "key": "county",
@@ -58,6 +58,24 @@
    "location": "Online at flagler.realtaxdeed.com",
    "official_site": "https://flagler.realtaxdeed.com/",
    "phone": "(386) 313-4375 (Tax Deed line)"
+  },
+  {
+   "key": "fcso",
+   "name": "Flagler County Sheriff's Office",
+   "type": "Sheriff's office · public records",
+   "schedule": "Records Unit: Mon.–Fri., 8 a.m.–4 p.m.",
+   "location": "Sheriff's Operations Center, 61 Sheriff E.W. Johnston Dr., Bunnell",
+   "official_site": "https://flaglersheriff.com/public-interest/records",
+   "phone": "(386) 437-4116"
+  },
+  {
+   "key": "fbpd",
+   "name": "Flagler Beach Police Department",
+   "type": "Police department · public records",
+   "schedule": "Requests by phone or email (records@fbpd.org)",
+   "location": "204 S. Flagler Ave., Flagler Beach",
+   "official_site": "https://www.fbpd.org/public-records",
+   "phone": "(386) 517-2020"
   }
  ]
 }
