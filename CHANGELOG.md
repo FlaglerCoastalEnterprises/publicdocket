@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-10-24 (daily run): Added a no-JavaScript fallback under "Coming up" that points visitors and search crawlers to the public archive and the meetings/documents CSV downloads. Sitemap and footer dates updated. No meeting changes could be verified from official sources this run (Project Butterfly agenda, County Nov. 2 agenda and Palm Coast Nov. 3 date still unconfirmed).
 - 2026-10-23 (daily run): Project Butterfly hearing note no longer says the agenda was expected Oct. 21; it now points to the city's Agendas & Minutes page (agenda still not verified at run time). Added theme-color tags so phone browsers tint the address bar to match the site in light and dark mode. Sitemap and footer dates updated. No other meeting changes could be verified from official sources.
 - 2026-10-22: Removed the docket check added earlier today. The Clerk's website refuses automated visitors (it returned "403 Forbidden" to our server), so we won't pull data from it. The site is back to plain static files; the "Today's court docket" link stays.
 - 2026-10-22: Added a link to the Flagler County Clerk of Court's live daily court docket (homepage records section + search for "court docket"), with the Clerk's office address, phone and hours. PublicDocket links to the docket; it doesn't copy names or case details from it.
