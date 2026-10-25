@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 24, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 25, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -597,9 +597,9 @@ const HEAD=[
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
  {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"}
 ];
-$("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d);
+$("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d),rd=Math.floor((d-TODAY)/864e5),rel=rd===0?"Today":rd===1?"Tomorrow":"";
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
- <div class="tx"><span class="src">${esc(BODY[h.b].short)}${h.tag?` · <span class="tag">${esc(h.tag)}</span>`:""}</span><span class="ttl">${esc(h.t)}</span><span class="why">${esc(h.w)}</span></div></button>`}).join("");
+ <div class="tx"><span class="src">${esc(BODY[h.b].short)}${rel?` · <span class="tag">${rel}</span>`:""}${h.tag?` · <span class="tag">${esc(h.tag)}</span>`:""}</span><span class="ttl">${esc(h.t)}</span><span class="why">${esc(h.w)}</span></div></button>`}).join("");
 document.querySelectorAll("[data-hq]").forEach(b=>b.addEventListener("click",()=>run(b.dataset.hq,true)));
 
 /* ---------- schema.org Event data for upcoming meetings (SEO) ---------- */
