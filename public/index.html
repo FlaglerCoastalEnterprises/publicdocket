@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 25, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 26, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -723,8 +723,9 @@ function fillCo(st,co){
 function hint(){const st=stsel.value,co=st==="FL"?cosel.value:cotxt.value.trim();
   $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
 stsel.addEventListener("change",()=>fillCo(stsel.value,""));cosel.addEventListener("change",hint);cotxt.addEventListener("input",hint);
-function openLoc(){stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
-function closeLoc(){$("scrim").hidden=true}
+let locOpener=null;
+function openLoc(){locOpener=document.activeElement;stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
+function closeLoc(){$("scrim").hidden=true;if(locOpener&&locOpener.focus&&document.contains(locOpener))locOpener.focus();locOpener=null}
 document.querySelectorAll(".locbtn").forEach(b=>b.addEventListener("click",openLoc));
 $("loccancel").addEventListener("click",closeLoc);
 $("scrim").addEventListener("click",e=>{if(e.target.id==="scrim")closeLoc()});
