@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 29, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 30, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -426,7 +426,9 @@ const MEET=[
  ["2026-12-01","6:00 p.m.","pc","Business meeting","","s",""],
  ["2026-12-07","9:00 a.m.","county","Regular meeting","","c","Listed on the county's 2026 BOCC meeting calendar (flaglercounty.gov). Streams on YouTube."],
  ["2026-12-08","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
- ["2026-12-10","5:30 p.m.","fb","Regular meeting","","s",""]
+ ["2026-12-10","5:30 p.m.","fb","Regular meeting","","s",""],
+ ["2026-12-14","5:00 p.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
+ ["2026-12-14","7:00 p.m.","bun","Regular meeting","","s",""]
 ];
 const DOCS=[
  {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
@@ -518,7 +520,7 @@ function panelFor(ts){
   const nxt=MEET.filter(m=>m[2]===best&&dt(m[0])>=TODAY)[0];
   const d=nxt&&dt(nxt[0]);
   return `<h2>${esc(B.name)}</h2><div class="sub">${esc(B.type)} · Flagler County, Florida</div>
-  ${nxt?`<div class="next"><b>Next meeting:</b> ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()} at ${nxt[1]}<br>${esc(nxt[3])}</div>`:""}
+  ${nxt?`<div class="next"><b>Next meeting:</b> ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()} at ${nxt[1]}<br>${esc(nxt[3])}${nxt[5]==="w"?` · <span class="chip warn">${ST.w}</span>`:""}</div>`:""}
   <dl><dt>${esc(B.schedLbl||"Meets")}</dt><dd>${esc(B.sched)}</dd><dt>Where</dt><dd>${esc(B.where)}</dd>
   ${B.members?`<dt>Members</dt><dd>${esc(B.members)}</dd>`:""}${B.phone?`<dt>Phone</dt><dd>${esc(B.phone)}</dd>`:""}</dl>
   <a href="${B.url}" target="_blank" rel="noopener">${esc(B.linkLbl||"Official agendas")} →</a>`;
