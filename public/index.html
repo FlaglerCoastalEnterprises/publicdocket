@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated Oct 30, 2026</span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated Oct 31, 2026</span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -595,7 +595,8 @@ const HEAD=[
  {d:"2026-11-17",b:"sb",tag:"Earlier date",t:"School Board meets Nov. 17, a week earlier than usual",w:"Information workshop 1 p.m.; board meeting 6 p.m. A week earlier than its usual fourth-Tuesday slot, per the board calendar.",q:"school board November 17"},
  {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop Nov. 10",w:"3 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
- {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"}
+ {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"},
+ {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d),rd=Math.floor((d-TODAY)/864e5),rel=rd===0?"Today":rd===1?"Tomorrow":"";
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
@@ -611,7 +612,7 @@ document.querySelectorAll("[data-hq]").forEach(b=>b.addEventListener("click",()=
  const ev=MEET.filter(m=>m[5]!=="w"&&dt(m[0])>=TODAY).slice(0,30).map(m=>{const b=BODY[m[2]],t=tm(m[1]);
   return {"@type":"Event","name":b.short+": "+m[3],"startDate":m[0]+(t?t+off(m[0]):""),"eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
    "location":{"@type":"Place","name":m[4]||b.where||b.name,"address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US","streetAddress":m[4]||b.where||""}},
-   "organizer":{"@type":"GovernmentOrganization","name":b.name,"url":b.url},"isAccessibleForFree":true,"url":b.url,"description":m[6]||(b.name+" "+m[3].toLowerCase()+".")}});
+   "organizer":{"@type":"GovernmentOrganization","name":b.name,"url":b.url},"isAccessibleForFree":true,"image":"https://publicdocket.coastalenterprises386.workers.dev/logo-full.png","url":b.url,"description":m[6]||(b.name+" "+m[3].toLowerCase()+".")}});
  if(!ev.length)return;const el=document.createElement("script");el.type="application/ld+json";el.textContent=JSON.stringify({"@context":"https://schema.org","@graph":ev});document.head.appendChild(el);
 }catch(e){}})();
 
