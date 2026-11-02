@@ -271,7 +271,7 @@ body{font-size:15px}
 
 <div id="home">
   <div class="homebar gut">
-    <button type="button" class="pub" data-info="about" aria-label="About the publisher"><img src="/logo-mark.png" alt="Flagler Coastal Enterprises logo"><span>by Flagler Coastal Enterprises</span></button>
+    <button type="button" class="pub" data-info="about" aria-label="About the publisher"><img src="/logo-mark.png" width="160" height="108" alt="Flagler Coastal Enterprises logo"><span>by Flagler Coastal Enterprises</span></button>
     <div class="right">
       <button type="button" class="pillbtn locbtn"><span aria-hidden="true">📍</span> <span class="locname">Flagler County, FL</span> ▾</button>
       <button type="button" class="pillbtn savedbtn"><span aria-hidden="true">★</span> Saved <span class="savedn">0</span></button>
@@ -324,10 +324,10 @@ body{font-size:15px}
     </section>
   </main>
   <footer class="foot">
-    <div class="row1 gut pubfoot"><img src="/logo-mark.png" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
+    <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-01">Nov 1, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-02">Nov 2, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -596,6 +596,7 @@ const HEAD=[
  {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop Nov. 10",w:"3 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
  {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
  {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"},
+ {d:"2026-11-17",b:"pc",tag:"",t:"Palm Coast City Council business meeting Nov. 17",w:"9 a.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast November 17"},
  {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d),rd=Math.floor((d-TODAY)/864e5),rel=rd===0?"Today":rd===1?"Tomorrow":"";
