@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-02">Nov 2, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-03">Nov 3, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -413,6 +413,8 @@ const MEET=[
  ["2026-10-28","9:00 a.m.","bun","Special meeting: De Novo hearing on Project Butterfly","Bunnell Chambers Meeting Room, 2400 Commerce Pkwy., Bunnell","c","Quasi-judicial appeal hearing on 18 appeals. Agenda and hearing materials post on the city's Agendas & Minutes page. Overflow parking at 2301 Commerce Pkwy."],
  ["2026-11-02","9:00 a.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
  ["2026-11-03","6:00 p.m.","pc","Business meeting","","w","Falls on Election Day; the date may change."],
+ ["2026-11-09","3:00 p.m.","county","Workshop: \"Reach 3\" beach and dune project update","Commission Chambers, 1769 E. Moody Blvd., Bunnell","c","County Engineering and its consultant present the design and alternatives for dune reconstruction and beach renourishment from north of Varn Park to Washington Oaks Gardens State Park. Announced by Flagler County on Oct. 28."],
+ ["2026-11-09","5:00 p.m.","county","Community meeting: \"Reach 3\" beach and dune project","Hammock Community Center, 79 Mala Compra Road","c","Open 5 to 7 p.m. Public community meeting on the Reach 3 design and alternatives (north of Varn Park to Washington Oaks Gardens State Park). Announced by Flagler County on Oct. 28."],
  ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
  ["2026-11-10","9:00 a.m.","pc","Workshop","","c","Listed on the city's 2026 City Council meetings page."],
  ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
@@ -431,6 +433,8 @@ const MEET=[
  ["2026-12-14","7:00 p.m.","bun","Regular meeting","","s",""]
 ];
 const DOCS=[
+ {b:"county",date:"2026-10-28",title:"Engineering to provide \u2018Reach 3\u2019 update at BOCC workshop",url:"https://www.flaglercounty.gov/News-articles/2026-10-28-Reach-3-Update",path:"News \u203a Oct. 28, 2026",
+  snip:"County news release. On Mon., Nov. 9, County Engineering and its consultant will present the design and alternatives for dune reconstruction and beach renourishment on \"Reach 3,\" north of Varn Park to Washington Oaks Gardens State Park: a County Commission workshop at 3 p.m. in the Commission Chambers, 1769 E. Moody Blvd., Bunnell, then a community meeting 5 to 7 p.m. at the Hammock Community Center, 79 Mala Compra Road.",kw:"reach 3 beach renourishment dune dunes reconstruction sand erosion hammock varn park washington oaks workshop community meeting coastal engineering"},
  {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
   snip:"Media release. The Commission will rehear the Project Butterfly application on Oct. 28 at 9 a.m. after appeals of the Sept. 1 Planning, Zoning and Appeals Board decision. Order: staff, applicant, appellants (20 min), appellees (20 min), rebuttal (15 min), public comment, then decision. Notices mailed to owners within 500 feet.",kw:"project butterfly project b de novo appeal hearing quasi-judicial planning zoning pza development"},
  {b:"bun",date:"",title:"Agendas & Minutes | City of Bunnell",url:"https://www.bunnellcity.us/1479/Agendas-Minutes",path:"Government › Agendas & Minutes",
@@ -590,7 +594,7 @@ document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
- {d:"2026-11-02",b:"county",tag:"",t:"County Commission returns to its morning slot Nov. 2",w:"Regular 1st-Monday meeting, 9 a.m. Agendas post on the county's CivicClerk portal.",q:"county commission November 2"},
+ {d:"2026-11-09",b:"county",tag:"Public input",t:"Two county meetings on the \"Reach 3\" beach and dune project Nov. 9",w:"Commission workshop 3 p.m. in Bunnell; community meeting 5 to 7 p.m. at the Hammock Community Center. Covers north of Varn Park to Washington Oaks.",q:"Reach 3"},
  {d:"2026-11-10",b:"pc",tag:"",t:"Palm Coast City Council workshop Nov. 10",w:"9 a.m. at City Hall. Listed on the city's 2026 meetings page.",q:"Palm Coast November 10"},
  {d:"2026-11-17",b:"sb",tag:"Earlier date",t:"School Board meets Nov. 17, a week earlier than usual",w:"Information workshop 1 p.m.; board meeting 6 p.m. A week earlier than its usual fourth-Tuesday slot, per the board calendar.",q:"school board November 17"},
  {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop Nov. 10",w:"3 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
