@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-03">Nov 3, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-04">Nov 4, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -416,10 +416,10 @@ const MEET=[
  ["2026-11-09","3:00 p.m.","county","Workshop: \"Reach 3\" beach and dune project update","Commission Chambers, 1769 E. Moody Blvd., Bunnell","c","County Engineering and its consultant present the design and alternatives for dune reconstruction and beach renourishment from north of Varn Park to Washington Oaks Gardens State Park. Announced by Flagler County on Oct. 28."],
  ["2026-11-09","5:00 p.m.","county","Community meeting: \"Reach 3\" beach and dune project","Hammock Community Center, 79 Mala Compra Road","c","Open 5 to 7 p.m. Public community meeting on the Reach 3 design and alternatives (north of Varn Park to Washington Oaks Gardens State Park). Announced by Flagler County on Oct. 28."],
  ["2026-11-09","7:00 p.m.","bun","Regular meeting","","s",""],
- ["2026-11-10","9:00 a.m.","pc","Workshop","","c","Listed on the city's 2026 City Council meetings page."],
+ ["2026-11-10","9:00 a.m.","pc","Workshop","","x","Canceled, per the city's 2026 City Council meetings page."],
  ["2026-11-10","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
  ["2026-11-12","5:30 p.m.","fb","Regular meeting","","s",""],
- ["2026-11-16","5:00 p.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
+ ["2026-11-16","5:00 p.m.","county","Regular meeting","Board Chambers, Government Services Bldg. 2, 1769 E. Moody Blvd., Bunnell","c","Listed on the county's 2026 meeting calendar (5 to 8 p.m.). Open to the public; streams on YouTube. A 1 p.m. workshop may be added if needed."],
  ["2026-11-17","9:00 a.m.","pc","Business meeting","","c","Listed on the city's 2026 City Council meetings page."],
  ["2026-11-17","1:00 p.m.","sb","Information workshop","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
  ["2026-11-17","6:00 p.m.","sb","Regular board meeting","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
@@ -484,7 +484,7 @@ const DOCS=[
 ];
 const MO=["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],MOL=["January","February","March","April","May","June","July","August","September","October","November","December"],WD=["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],WDL=["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
 const TODAY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
-const ST={c:"Confirmed",s:"On regular schedule",w:"Date may change"};
+const ST={c:"Confirmed",s:"On regular schedule",w:"Date may change",x:"Canceled"};
 function dt(s){return new Date(s+"T12:00:00")}
 function fmt(s){const d=dt(s);return MO[d.getMonth()]+" "+d.getDate()+", "+d.getFullYear()}
 const RECS=[];
@@ -521,7 +521,7 @@ function panelFor(ts){
   if(!best||bs<1)return "";
   if(best==="county"&&ts.length===1&&ts[0]==="flagler")return "";
   const B=BODY[best];
-  const nxt=MEET.filter(m=>m[2]===best&&dt(m[0])>=TODAY)[0];
+  const nxt=MEET.filter(m=>m[2]===best&&m[5]!=="x"&&dt(m[0])>=TODAY)[0];
   const d=nxt&&dt(nxt[0]);
   return `<h2>${esc(B.name)}</h2><div class="sub">${esc(B.type)} · Flagler County, Florida</div>
   ${nxt?`<div class="next"><b>Next meeting:</b> ${WDL[d.getDay()]}, ${MOL[d.getMonth()]} ${d.getDate()} at ${nxt[1]}<br>${esc(nxt[3])}${nxt[5]==="w"?` · <span class="chip warn">${ST.w}</span>`:""}</div>`:""}
@@ -533,7 +533,7 @@ function resultHTML(r,ts){
   const B=BODY[r.b];
   const sv=r.t==="meeting"&&saved.includes(r.id);
   const past=r.t==="meeting"&&dt(r.date)<TODAY;
-  const chip=r.t==="meeting"?`<div class="acts" data-id="${r.id}"><span class="chip${r.status==="w"&&!past?" warn":""}">${past?"Past meeting":ST[r.status]}</span>${past?"":`<button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button>`}</div>`:"";
+  const chip=r.t==="meeting"?`<div class="acts" data-id="${r.id}"><span class="chip${(r.status==="w"||r.status==="x")&&!past?" warn":""}">${past?"Past meeting":ST[r.status]}</span>${past||r.status==="x"?"":`<button type="button" class="act" data-a="save" aria-pressed="${sv}">${sv?"★ Saved":"☆ Save"}</button><button type="button" class="act" data-a="share">Share</button><button type="button" class="act" data-a="cal">Add to calendar</button>`}</div>`:"";
   const datePre=r.date&&r.t==="doc"?`<span class="d">${fmt(r.date)} — </span>`:"";
   return `<div class="res${past?" past":""}"><div class="crumb"><div class="fav" aria-hidden="true">${B.fav}</div><div class="site"><b>${esc(B.short)}</b><span>${esc(r.site||B.site)} › ${esc(r.path)}</span></div></div>
   <h3><a href="${r.url}" target="_blank" rel="noopener">${esc(r.title)}</a></h3>
@@ -588,18 +588,17 @@ $("f1").addEventListener("submit",e=>{e.preventDefault();run($("q1").value,true)
 $("f2").addEventListener("submit",e=>{e.preventDefault();run($("q2").value,true)});
 $("homebtn").addEventListener("click",()=>showHome(true));
 $("clr").addEventListener("click",()=>{$("q2").value="";$("q2").focus()});
-$("nextbtn").addEventListener("click",()=>{const m=MEET.find(m=>dt(m[0])>=TODAY);run(BODY[m[2]].short+" "+MOL[dt(m[0]).getMonth()]+" "+dt(m[0]).getDate(),true)});
+$("nextbtn").addEventListener("click",()=>{const m=MEET.find(m=>m[5]!=="x"&&dt(m[0])>=TODAY);run(BODY[m[2]].short+" "+MOL[dt(m[0]).getMonth()]+" "+dt(m[0]).getDate(),true)});
 document.querySelectorAll("[data-q]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();run(a.dataset.q,true)}));
 document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();showInfo(a.dataset.info)}));
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
  {d:"2026-11-09",b:"county",tag:"Public input",t:"Two county meetings on the \"Reach 3\" beach and dune project Nov. 9",w:"Commission workshop 3 p.m. in Bunnell; community meeting 5 to 7 p.m. at the Hammock Community Center. Covers north of Varn Park to Washington Oaks.",q:"Reach 3"},
- {d:"2026-11-10",b:"pc",tag:"",t:"Palm Coast City Council workshop Nov. 10",w:"9 a.m. at City Hall. Listed on the city's 2026 meetings page.",q:"Palm Coast November 10"},
+ {d:"2026-11-10",b:"pc",tag:"Canceled",t:"Palm Coast council's Nov. 10 workshop is canceled",w:"The city's 2026 meetings page lists the 9 a.m. workshop as canceled. Next council meeting: Nov. 17, 9 a.m.",q:"Palm Coast November 17"},
  {d:"2026-11-17",b:"sb",tag:"Earlier date",t:"School Board meets Nov. 17, a week earlier than usual",w:"Information workshop 1 p.m.; board meeting 6 p.m. A week earlier than its usual fourth-Tuesday slot, per the board calendar.",q:"school board November 17"},
  {d:"2026-11-10",b:"sb",tag:"",t:"School Board agenda workshop Nov. 10",w:"3 p.m., 1769 E. Moody Blvd., Bunnell.",q:"school board November 10"},
- {d:"2026-11-03",b:"pc",tag:"Date may change",t:"Palm Coast council meeting lands on Election Day",w:"The Nov. 3 business meeting may be moved. Check before you go.",q:"Palm Coast November 3"},
- {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"Regular 3rd-Monday meeting, 5 p.m., Government Services Bldg. 2, Bunnell. A 1 p.m. workshop may be added.",q:"county commission November 16"},
+ {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"5 p.m., Board Chambers, Government Services Bldg. 2, Bunnell. Open to the public and streamed on YouTube.",q:"county commission November 16"},
  {d:"2026-11-17",b:"pc",tag:"",t:"Palm Coast City Council business meeting Nov. 17",w:"9 a.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast November 17"},
  {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"}
 ];
@@ -614,7 +613,7 @@ document.querySelectorAll("[data-hq]").forEach(b=>b.addEventListener("click",()=
   const nth=(mo,n)=>{const f=new Date(y,mo-1,1).getDay();return 1+((7-f)%7)+7*(n-1)};
   const t=m*100+day,a=300+nth(3,2),b=1100+nth(11,1);return t>=a&&t<b?"-04:00":"-05:00"};
  const tm=s=>{const r=/^(\d{1,2}):(\d{2})\s*([ap])/i.exec(s||"");if(!r)return "";let h=+r[1]%12;if(r[3].toLowerCase()==="p")h+=12;return "T"+String(h).padStart(2,"0")+":"+r[2]+":00"};
- const ev=MEET.filter(m=>m[5]!=="w"&&dt(m[0])>=TODAY).slice(0,30).map(m=>{const b=BODY[m[2]],t=tm(m[1]);
+ const ev=MEET.filter(m=>m[5]!=="w"&&m[5]!=="x"&&dt(m[0])>=TODAY).slice(0,30).map(m=>{const b=BODY[m[2]],t=tm(m[1]);
   return {"@type":"Event","name":b.short+": "+m[3],"startDate":m[0]+(t?t+off(m[0]):""),"eventStatus":"https://schema.org/EventScheduled","eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
    "location":{"@type":"Place","name":m[4]||b.where||b.name,"address":{"@type":"PostalAddress","addressRegion":"FL","addressCountry":"US","streetAddress":m[4]||b.where||""}},
    "organizer":{"@type":"GovernmentOrganization","name":b.name,"url":b.url},"isAccessibleForFree":true,"image":"https://publicdocket.coastalenterprises386.workers.dev/logo-full.png","url":b.url,"description":m[6]||(b.name+" "+m[3].toLowerCase()+".")}});
