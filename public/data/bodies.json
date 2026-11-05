@@ -1,6 +1,6 @@
 {
  "publisher": "PublicDocket by Flagler Coastal Enterprises LLC",
- "generated": "2026-11-04",
+ "generated": "2026-11-05",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
  "count": 8,
@@ -45,7 +45,7 @@
    "key": "sb",
    "name": "Flagler County School Board",
    "type": "School board",
-   "schedule": "Regular: 2nd & 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: 4th Tue 1 p.m.",
+   "schedule": "Regular: one a month, usually 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: same day as the regular meeting, 1 p.m.",
    "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
    "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
    "phone": "(386) 437-7526 x1104"
