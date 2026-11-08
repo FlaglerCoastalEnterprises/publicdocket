@@ -1,6 +1,6 @@
 {
  "publisher": "PublicDocket by Flagler Coastal Enterprises LLC",
- "generated": "2026-11-07",
+ "generated": "2026-11-08",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
  "count": 8,
@@ -42,24 +42,6 @@
    "phone": "(386) 437-7500, option 5"
   },
   {
-   "key": "clerk",
-   "name": "Flagler County Clerk of the Circuit Court & Comptroller",
-   "type": "Clerk of Court · court records",
-   "schedule": "Mon.–Fri., 8:30 a.m.–4:30 p.m.",
-   "location": "Kim C. Hammond Justice Center, 1769 E. Moody Blvd., Bldg. 1, Bunnell",
-   "official_site": "https://flaglerclerk.gov/docket/",
-   "phone": "(386) 313-4400"
-  },
-  {
-   "key": "sb",
-   "name": "Flagler County School Board",
-   "type": "School board",
-   "schedule": "Regular: one a month, usually 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: same day as the regular meeting, 1 p.m.",
-   "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
-   "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
-   "phone": "(386) 437-7526 x1104"
-  },
-  {
    "key": "fcso",
    "name": "Flagler County Sheriff's Office",
    "type": "Sheriff's office · public records",
@@ -76,6 +58,24 @@
    "location": "204 S. Flagler Ave., Flagler Beach",
    "official_site": "https://www.fbpd.org/public-records",
    "phone": "(386) 517-2020"
+  },
+  {
+   "key": "sb",
+   "name": "Flagler County School Board",
+   "type": "School board",
+   "schedule": "Regular: one a month, usually 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: same day as the regular meeting, 1 p.m.",
+   "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
+   "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
+   "phone": "(386) 437-7526 x1104"
+  },
+  {
+   "key": "clerk",
+   "name": "Flagler County Clerk of the Circuit Court & Comptroller",
+   "type": "Clerk of Court · court records",
+   "schedule": "Mon.–Fri., 8:30 a.m.–4:30 p.m.",
+   "location": "Kim C. Hammond Justice Center, 1769 E. Moody Blvd., Bldg. 1, Bunnell",
+   "official_site": "https://flaglerclerk.gov/docket/",
+   "phone": "(386) 313-4400"
   }
  ]
 }
