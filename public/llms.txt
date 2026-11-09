@@ -5,6 +5,7 @@
 - Homepage: https://publicdocket.coastalenterprises386.workers.dev/
 - Search example: https://publicdocket.coastalenterprises386.workers.dev/?q=Project%20Butterfly
 - Search example (beach and dune project meetings, Nov. 9, 2026): https://publicdocket.coastalenterprises386.workers.dev/?q=Reach%203
+- Search example (County Commission evening meeting Nov. 16, 2026, 5 p.m., Bunnell): https://publicdocket.coastalenterprises386.workers.dev/?q=county%20commission%20November%2016
 - Search example (School Board meetings Nov. 17, 2026, a week earlier than usual): https://publicdocket.coastalenterprises386.workers.dev/?q=school%20board%20November%2017
 - Free weekly email digest (sign up): https://publicdocket.coastalenterprises386.workers.dev/subscribe/
 - Contact: coastalenterprises386@gmail.com
