@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-11-11 (daily run): Flagler Beach Nov. 12 and Dec. 10 meetings now Confirmed from the city's official 2026 Regular Commission Meeting Schedule; removed the Nov. 26 (Thanksgiving) placeholder, which is not on that schedule; schedule line notes one meeting a month in Nov./Dec. Added a document entry linking that schedule (dates and agenda cut-off rule). Removed past Nov. 10 headlines and added a Flagler Beach Nov. 12 headline (6 upcoming). Sitemap and footer dates updated.
 - 2026-11-10 (daily run): Removed the past Nov. 9 "Reach 3" headline and added a "Coming up" headline for the Palm Coast City Council Dec. 1 evening business meeting (6 p.m., City Hall, on the city's 2026 meetings page); 7 upcoming headlines remain. The search box on results pages now shows the same "Search meetings, agendas and notices" hint as the homepage box. Sitemap and footer dates updated. No new meetings or agendas could be verified today (palmcoast.gov needed a permission prompt the scheduled run could not answer; inbox had only news alerts).
 - 2026-11-09 (daily run): llms.txt (read by AI assistants) now includes a search example for the County Commission's Nov. 16 evening meeting (5 p.m., Bunnell). Sitemap and footer dates updated. All 7 "Coming up" headlines are still upcoming (the two Nov. 9 "Reach 3" meetings are today). No new meetings or agendas could be verified today (palmcoast.gov needed a permission prompt the scheduled run could not answer; inbox and searches had no new official meeting notices).
 - 2026-11-08 (daily run): Palm Coast's canceled Nov. 10 council workshop is now marked as canceled in the search-engine event data (instead of being left out), which is how Google recommends handling canceled events so stale listings get corrected. Sitemap and footer dates updated. All 7 "Coming up" headlines are still upcoming. No new meetings or agendas could be verified today (palmcoast.gov and the county's Nov. 16 page needed a permission prompt the scheduled run could not answer; inbox and searches had no new official meeting notices).
@@ -45,10 +46,3 @@
 - 2026-10-19: Connected Cloudflare to GitHub for automatic publishing.
 - 2026-10-19: Newsletter sign-ups now go straight to Kit (form 10069452), with email backup.
 - 2026-10-19: Added /subscribe page (shareable newsletter sign-up, feeds Kit); footer "Weekly digest" links to it.
-
-## 2026-11-11 (daily run)
-- Flagler Beach: confirmed Nov. 12 and Dec. 10 meetings from the city's official 2026 Regular Commission Meeting Schedule; removed the Nov. 26 (Thanksgiving) placeholder, which is not on the schedule; schedule line notes one meeting in Nov./Dec.
-- Added a DOCS entry linking the Flagler Beach 2026 meeting schedule (dates + agenda cut-off rule).
-- Headlines: removed past Nov. 10 items; added Flagler Beach Nov. 12 (6 upcoming).
-- Sitemap lastmod and footer date updated.
-
