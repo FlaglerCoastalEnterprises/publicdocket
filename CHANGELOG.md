@@ -45,3 +45,10 @@
 - 2026-10-19: Connected Cloudflare to GitHub for automatic publishing.
 - 2026-10-19: Newsletter sign-ups now go straight to Kit (form 10069452), with email backup.
 - 2026-10-19: Added /subscribe page (shareable newsletter sign-up, feeds Kit); footer "Weekly digest" links to it.
+
+## 2026-11-11 (daily run)
+- Flagler Beach: confirmed Nov. 12 and Dec. 10 meetings from the city's official 2026 Regular Commission Meeting Schedule; removed the Nov. 26 (Thanksgiving) placeholder, which is not on the schedule; schedule line notes one meeting in Nov./Dec.
+- Added a DOCS entry linking the Flagler Beach 2026 meeting schedule (dates + agenda cut-off rule).
+- Headlines: removed past Nov. 10 items; added Flagler Beach Nov. 12 (6 upcoming).
+- Sitemap lastmod and footer date updated.
+
