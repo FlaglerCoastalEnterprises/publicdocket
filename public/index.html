@@ -327,7 +327,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-11">Nov 11, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-12">Nov 12, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -600,7 +600,9 @@ const HEAD=[
  {d:"2026-11-16",b:"county",tag:"",t:"County Commission evening meeting Nov. 16",w:"5 p.m., Board Chambers, Government Services Bldg. 2, Bunnell. Open to the public and streamed on YouTube.",q:"county commission November 16"},
  {d:"2026-11-17",b:"pc",tag:"",t:"Palm Coast City Council business meeting Nov. 17",w:"9 a.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast November 17"},
  {d:"2026-12-01",b:"pc",tag:"",t:"Palm Coast City Council evening business meeting Dec. 1",w:"6 p.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast December 1"},
- {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"}
+ {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"},
+ {d:"2026-12-08",b:"sb",tag:"",t:"School Board agenda workshop Dec. 8",w:"3 p.m. The only December date on the School Board's official calendar so far.",q:"school board December 8"},
+ {d:"2026-12-10",b:"fb",tag:"",t:"Flagler Beach City Commission meets Dec. 10",w:"5:30 p.m. at City Hall. Its only December meeting, per the city's 2026 meeting schedule.",q:"Flagler Beach December 10"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d),rd=Math.floor((d-TODAY)/864e5),rel=rd===0?"Today":rd===1?"Tomorrow":"";
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
