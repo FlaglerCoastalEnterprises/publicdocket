@@ -6,8 +6,8 @@
 - Search example: https://publicdocket.coastalenterprises386.workers.dev/?q=Project%20Butterfly
 - Search example (Palm Coast City Council evening business meeting Dec. 1, 2026, 6 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=Palm%20Coast%20December%201
 - Search example (Flagler Beach City Commission Dec. 10, 2026, 5:30 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=Flagler%20Beach%20December%2010
-- Search example (County Commission evening meeting Nov. 16, 2026, 5 p.m., Bunnell): https://publicdocket.coastalenterprises386.workers.dev/?q=county%20commission%20November%2016
-- Search example (School Board meetings Nov. 17, 2026, a week earlier than usual): https://publicdocket.coastalenterprises386.workers.dev/?q=school%20board%20November%2017
+- Search example (County Commission regular meeting Dec. 7, 2026, 9 a.m., Bunnell): https://publicdocket.coastalenterprises386.workers.dev/?q=county%20commission%20December%207
+- Search example (School Board agenda workshop Dec. 8, 2026, 3 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=school%20board%20December%208
 - Free weekly email digest (sign up): https://publicdocket.coastalenterprises386.workers.dev/subscribe/
 - Contact: coastalenterprises386@gmail.com
 - X (Twitter): https://x.com/FCEpublicdocket
