@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-11-19 (daily run): The "no results" suggestion now names the month of the next upcoming meeting (e.g. "December") instead of a fixed "November" (usability). Sitemap and footer dates updated. All 5 "Coming up" headlines still upcoming; no new official meetings or agendas could be verified.
 - 2026-11-18 (daily run): Removed the two past Nov. 17 headlines (5 upcoming remain: Dec. 1, 7, 8, 10, 14); refreshed llms.txt search examples to upcoming meetings (County Dec. 7, School Board Dec. 8) instead of past ones; updated footer date and sitemap lastmod.
 - 2026-11-17 (daily run): Added a keyboard "Skip to search" link (accessibility). Removed the past Nov. 16 County headline and added a County Commission Dec. 14 headline (7 upcoming). Sitemap and footer dates updated. No new official meetings or agendas could be verified (palmcoast.gov needed a permission prompt; searches and inbox had no official agenda notices).
 - 2026-11-16 (daily run): Added a robots meta tag allowing full search-result snippets and large image previews (SEO). Sitemap and footer dates updated. All 7 "Coming up" headlines are still upcoming (County meets today). No new official meetings or agendas could be verified (palmcoast.gov needed a permission prompt; searches and inbox had no Nov 16/17 agendas).

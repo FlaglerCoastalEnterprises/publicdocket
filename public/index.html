@@ -334,7 +334,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-18">Nov 18, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-19">Nov 19, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -567,7 +567,7 @@ function run(q,push){
   const ms=Math.max(.01,(performance.now()-t0)/1000);
   $("stats").textContent=rs.length?`${rs.length} result${rs.length>1?"s":""}`:"";
   $("list").innerHTML=rs.length?rs.map(x=>resultHTML(x.r,ts)).join(""):
-   `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any Flagler County records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like November.</li><li>Try fewer words.</li></ul></div>`;
+   `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any Flagler County records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like ${(()=>{const n=MEET.find(m=>m[5]!=="x"&&dt(m[0])>=TODAY);return MOL[(n?dt(n[0]):TODAY).getMonth()]})()}.</li><li>Try fewer words.</li></ul></div>`;
   const p=panelFor(ts);$("panel").innerHTML=p;$("panel").hidden=!p;
   document.title=cur+" - PublicDocket";
   if(push){try{history.pushState({q:cur},"","?q="+encodeURIComponent(cur))}catch(e){}}
