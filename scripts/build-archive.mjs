@@ -106,6 +106,8 @@ const page = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f6fbf9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1b1a" media="(prefers-color-scheme: dark)">
 <title>Flagler County Public Meetings Archive | PublicDocket</title>
 <meta name="description" content="Highlights and full archive of Flagler County public meetings, agendas and notices indexed by PublicDocket, with links to official sources. Free CSV and JSON downloads.">
 <link rel="canonical" href="${SITE}/archive/">
