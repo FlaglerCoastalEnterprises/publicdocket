@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-11-22 (daily run): Search boxes now show a "Search" key on phone keyboards (enterkeyhint, usability). Sitemap and footer dates updated. No new official meetings or agendas found (Bunnell Nov. 23 agenda, County/Palm Coast December); 5 upcoming headlines kept (Dec. 1, 7, 8, 10, 14).
+
 - 2026-11-21 (daily run): Added theme-color tags to the Archive (via scripts/build-archive.mjs) and Subscribe pages so phone browser bars match the site colors, like the homepage (polish). Sitemap (homepage, archive, subscribe) and footer dates updated. No new official meetings or agendas could be verified; all 5 "Coming up" headlines (Dec. 1, 7, 8, 10, 14) are still upcoming.
 
 - 2026-11-20 (daily run): Headlines within the next week now show "In N days" (e.g. "In 4 days") next to the source, alongside the existing Today/Tomorrow labels (usability). Sitemap and footer dates updated. No new official meetings or agendas could be verified (palmcoast.gov and the School Board calendar file needed a permission prompt; searches found nothing new). 5 upcoming headlines remain.
