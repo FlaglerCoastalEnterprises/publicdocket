@@ -17,6 +17,8 @@
 <meta property="og:description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place.">
 <meta property="og:image" content="https://publicdocket.coastalenterprises386.workers.dev/logo-full.png">
 <meta property="og:image:alt" content="PublicDocket logo">
+<meta property="og:image:width" content="440">
+<meta property="og:image:height" content="305">
 <link rel="icon" type="image/png" href="/logo-mark.png">
 <link rel="apple-touch-icon" href="/logo-mark.png">
 <meta name="theme-color" content="#f6fbf9" media="(prefers-color-scheme: light)">
@@ -334,7 +336,7 @@ body{font-size:15px}
     <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-22">Nov 22, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-23">Nov 23, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -439,6 +441,8 @@ const MEET=[
  ["2026-12-14","7:00 p.m.","bun","Regular meeting","","s",""]
 ];
 const DOCS=[
+ {b:"fb",date:"2026-11-23",title:"2027 City Elections: Flagler Beach mayor and one commission seat",url:"https://www.flaglerelections.gov/Elections/2027-City-Elections",site:"flaglerelections.gov",path:"Elections › 2027 City Elections",
+  snip:"Flagler Beach and Beverly Beach hold city elections on Tue., March 2, 2027 (polls 7 a.m. to 7 p.m.; no early voting). Flagler Beach: mayor and one city commissioner; candidate petition deadline Nov. 24, 2026; qualifying Dec. 22–28, 2026, 9 a.m. to 5 p.m., with the City Clerk. New voter registration deadline Feb. 1, 2027; vote-by-mail requests by Feb. 18 at 5 p.m. Bunnell has no 2027 election; Palm Coast's next is 2028.",kw:"election elections 2027 ballot candidate qualifying petition mayor commissioner vote voter registration vote-by-mail mail ballot beverly beach supervisor of elections march 2"},
  {b:"county",date:"2026-10-28",title:"Engineering to provide \u2018Reach 3\u2019 update at BOCC workshop",url:"https://www.flaglercounty.gov/News-articles/2026-10-28-Reach-3-Update",path:"News \u203a Oct. 28, 2026",
   snip:"County news release. On Mon., Nov. 9, County Engineering and its consultant will present the design and alternatives for dune reconstruction and beach renourishment on \"Reach 3,\" north of Varn Park to Washington Oaks Gardens State Park: a County Commission workshop at 3 p.m. in the Commission Chambers, 1769 E. Moody Blvd., Bunnell, then a community meeting 5 to 7 p.m. at the Hammock Community Center, 79 Mala Compra Road.",kw:"reach 3 beach renourishment dune dunes reconstruction sand erosion hammock varn park washington oaks workshop community meeting coastal engineering"},
  {b:"bun",date:"2026-10-13",title:"City of Bunnell announces special Commission meeting for De Novo hearing regarding Project Butterfly",url:"https://www.bunnellcity.us/CivicAlerts.aspx?AID=35",path:"News Flash › Detail 35",
@@ -602,11 +606,13 @@ document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
+ {d:"2026-11-24",b:"fb",tag:"Deadline",t:"Flagler Beach election: candidate petition deadline Nov. 24",w:"Mayor and one City Commission seat are on the March 2, 2027 ballot, per the Flagler County Supervisor of Elections.",q:"Flagler Beach election"},
  {d:"2026-12-01",b:"pc",tag:"",t:"Palm Coast City Council evening business meeting Dec. 1",w:"6 p.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast December 1"},
  {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"},
  {d:"2026-12-08",b:"sb",tag:"",t:"School Board agenda workshop Dec. 8",w:"3 p.m. The only December date on the School Board's official calendar so far.",q:"school board December 8"},
  {d:"2026-12-10",b:"fb",tag:"",t:"Flagler Beach City Commission meets Dec. 10",w:"5:30 p.m. at City Hall. Its only December meeting, per the city's 2026 meeting schedule.",q:"Flagler Beach December 10"},
- {d:"2026-12-14",b:"county",tag:"",t:"County Commission's last 2026 meeting Dec. 14",w:"Regular meeting, 5 p.m., on the county's adopted 2026 schedule. A 1 p.m. workshop may be added if needed.",q:"county commission December 14"}
+ {d:"2026-12-14",b:"county",tag:"",t:"County Commission's last 2026 meeting Dec. 14",w:"Regular meeting, 5 p.m., on the county's adopted 2026 schedule. A 1 p.m. workshop may be added if needed.",q:"county commission December 14"},
+ {d:"2026-12-22",b:"fb",tag:"",t:"Flagler Beach candidate qualifying opens Dec. 22",w:"Qualifying for mayor and one commission seat runs Dec. 22–28, 9 a.m. to 5 p.m., with the City Clerk. Election is March 2, 2027.",q:"Flagler Beach election"}
 ];
 $("hlist").innerHTML=HEAD.filter(h=>dt(h.d)>=TODAY).sort((a,b)=>a.d<b.d?-1:1).sort((a,b)=>(b.tag==="Hearing")-(a.tag==="Hearing")).map((h,i)=>{const d=dt(h.d),rd=Math.floor((d-TODAY)/864e5),rel=rd===0?"Today":rd===1?"Tomorrow":rd<7?`In ${rd} days`:"";
  return `<button type="button" class="hl" data-hq="${esc(h.q)}"><div class="dd"><span>${MO[d.getMonth()]}</span><b>${d.getDate()}</b><span>${WD[d.getDay()]}</span></div>
