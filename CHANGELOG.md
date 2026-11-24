@@ -1,5 +1,7 @@
 # Changelog
 
+- 2026-11-24 (daily run): Added rel="alternate" links in the homepage head pointing to the open meetings data (JSON and CSV), so search engines and AI tools can find the machine-readable data. Sitemap and footer dates updated. No new official meetings or agendas found; 7 upcoming headlines kept (Nov. 24 petition deadline is today). No expansion body added (no verified official schedule read this run).
+
 - 2026-11-23 (daily run): Added the Flagler Beach March 2, 2027 city election (mayor + one commission seat) from the Flagler County Supervisor of Elections 2027 City Elections page: new notice entry (petition deadline Nov. 24, qualifying Dec. 22–28, registration and mail-ballot deadlines) and two headlines (Nov. 24 deadline, Dec. 22 qualifying). Added og:image width/height tags (SEO, better link previews). Sitemap and footer dates updated.
 
 - 2026-11-22 (daily run): Search boxes now show a "Search" key on phone keyboards (enterkeyhint, usability). Sitemap and footer dates updated. No new official meetings or agendas found (Bunnell Nov. 23 agenda, County/Palm Coast December); 5 upcoming headlines kept (Dec. 1, 7, 8, 10, 14).
