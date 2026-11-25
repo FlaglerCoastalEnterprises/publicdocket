@@ -1,9 +1,9 @@
 {
  "publisher": "PublicDocket by Flagler Coastal Enterprises LLC",
- "generated": "2026-11-24",
+ "generated": "2026-11-25",
  "license": "Public government information. Summaries by PublicDocket; free to reuse with credit.",
  "note": "Links point to the official government record, which governs. 'No longer listed' means the item was removed before its date (often rescheduled or canceled).",
- "count": 8,
+ "count": 9,
  "bodies": [
   {
    "key": "county",
@@ -76,6 +76,15 @@
    "location": "1769 E. Moody Blvd., Bldg. 2, Bunnell",
    "official_site": "https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",
    "phone": "(386) 437-7526 x1104"
+  },
+  {
+   "key": "vol",
+   "name": "Volusia County Council",
+   "type": "County governing board",
+   "schedule": "Usually 1st & 3rd Tuesday (see the council calendar for exact dates and times)",
+   "location": "Frank T. Bruno Jr. County Council Chambers, Rooms 204/207, 123 W. Indiana Ave., DeLand",
+   "official_site": "https://www.volusia.org/government/county-council/county-council-meetings/county-council-calendar.stml",
+   "phone": ""
   }
  ]
 }
