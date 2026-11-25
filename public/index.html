@@ -14,7 +14,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://publicdocket.coastalenterprises386.workers.dev/">
 <meta property="og:title" content="PublicDocket Flagler: Search Flagler County Meetings, Agendas &amp; Notices">
-<meta property="og:description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place.">
+<meta property="og:description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell, the Flagler County School Board and the Volusia County Council in one place.">
 <meta property="og:image" content="https://publicdocket.coastalenterprises386.workers.dev/logo-full.png">
 <meta property="og:image:alt" content="PublicDocket logo">
 <meta property="og:image:width" content="440">
@@ -25,7 +25,7 @@
 <link rel="alternate" type="text/csv" href="/data/meetings.csv" title="PublicDocket meetings (CSV open data)">
 <meta name="theme-color" content="#f6fbf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1b1a" media="(prefers-color-scheme: dark)">
-<meta name="description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place.">
+<meta name="description" content="Search public meetings, agendas and notices from Flagler County, Palm Coast, Flagler Beach, Bunnell, the Flagler County School Board and the Volusia County Council in one place.">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"WebSite","name":"PublicDocket","url":"https://publicdocket.coastalenterprises386.workers.dev/","potentialAction":{"@type":"SearchAction","target":"https://publicdocket.coastalenterprises386.workers.dev/?q={search_term_string}","query-input":"required name=search_term_string"},"publisher":{"@type":"Organization","name":"Flagler Coastal Enterprises LLC","email":"coastalenterprises386@gmail.com","sameAs":["https://x.com/FCEpublicdocket"]}}
 </script>
@@ -335,10 +335,10 @@ body{font-size:15px}
     </section>
   </main>
   <footer class="foot">
-    <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 5 government bodies + public records contacts</span></div>
+    <div class="row1 gut pubfoot"><img src="/logo-mark.png" width="160" height="108" alt=""><span>Published by Flagler Coastal Enterprises LLC · Palm Coast, Florida · Searching 6 government bodies + public records contacts</span></div>
     <div class="row2 gut">
       <div><a href="#" data-info="about">About</a><a href="/subscribe/">Weekly digest</a><a href="/archive/">Archive</a><a href="https://x.com/FCEpublicdocket" rel="noopener me">Follow on X</a><a href="#" data-info="sponsor">Advertise</a><a href="#" data-info="corrections">Corrections</a></div>
-      <div><span>Updated <time datetime="2026-11-24">Nov 24, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
+      <div><span>Updated <time datetime="2026-11-25">Nov 25, 2026</time></span><a href="#" data-info="sources">Sources</a></div>
     </div>
   </footer>
 </div>
@@ -410,6 +410,8 @@ const BODY={
    type:"Police department · public records",sched:"Requests by phone or email (records@fbpd.org)",where:"204 S. Flagler Ave., Flagler Beach",members:"",phone:"(386) 517-2020",keys:"flagler beach police fbpd body cam bodycam camera footage video report reports incident",schedLbl:"Requests",linkLbl:"Public records page"},
  clerk:{name:"Flagler County Clerk of the Circuit Court & Comptroller",short:"Flagler County Clerk of Court",site:"flaglerclerk.gov",url:"https://flaglerclerk.gov/docket/",fav:"CC",rec:1,
    type:"Clerk of Court · court records",sched:"Mon.–Fri., 8:30 a.m.–4:30 p.m.",where:"Kim C. Hammond Justice Center, 1769 E. Moody Blvd., Bldg. 1, Bunnell",members:"",phone:"(386) 313-4400",keys:"clerk court courts docket dockets hearing hearings judge courtroom case cases justice center",schedLbl:"Office hours",linkLbl:"Today's court docket"},
+ vol:{name:"Volusia County Council",short:"Volusia County Council",site:"volusia.org",url:"https://www.volusia.org/government/county-council/county-council-meetings/county-council-calendar.stml",fav:"VC",
+   type:"County governing board",sched:"Usually 1st & 3rd Tuesday (see the council calendar for exact dates and times)",where:"Frank T. Bruno Jr. County Council Chambers, Rooms 204/207, 123 W. Indiana Ave., DeLand",members:"",phone:"",keys:"volusia county council deland daytona"},
  sb:{name:"Flagler County School Board",short:"Flagler County School Board",site:"flaglerschools.com",url:"https://go.boarddocs.com/fla/flcsd/Board.nsf/Public",fav:"FS",
    type:"School board",sched:"Regular: one a month, usually 4th Tue 6 p.m.; Agenda workshop: 2nd Tue 3 p.m.; Info workshop: same day as the regular meeting, 1 p.m.",where:"1769 E. Moody Blvd., Bldg. 2, Bunnell",members:"",phone:"(386) 437-7526 x1104",keys:"school board flagler schools education boarddocs"}
 };
@@ -435,12 +437,15 @@ const MEET=[
  ["2026-11-17","1:00 p.m.","sb","Information workshop","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
  ["2026-11-17","6:00 p.m.","sb","Regular board meeting","","c","On the School Board's official calendar (flaglerschools.com). Scheduled a week earlier than the usual fourth Tuesday (Nov. 24)."],
  ["2026-11-23","7:00 p.m.","bun","Regular meeting","","s",""],
+ ["2026-12-01","9:00 a.m.","vol","Regular session","Frank T. Bruno Jr. County Council Chambers, 123 W. Indiana Ave., DeLand","c","Listed on the Volusia County Council calendar (volusia.org). Public participation welcome."],
  ["2026-12-01","6:00 p.m.","pc","Business meeting","City Hall","c","Listed on the city's 2026 City Council meetings page."],
  ["2026-12-07","9:00 a.m.","county","Regular meeting","Board Chambers, Government Services Bldg. 2, 1769 E. Moody Blvd., Bunnell","c","Listed on the county's 2026 BOCC meeting calendar (9 to 11 a.m.). Open to the public; streams on YouTube."],
  ["2026-12-08","3:00 p.m.","sb","Agenda workshop","","c","On the School Board's official calendar (flaglerschools.com)."],
  ["2026-12-10","5:30 p.m.","fb","Regular meeting","City Hall, Flagler Beach","c","On the city's 2026 Regular Commission Meeting Schedule (cityofflaglerbeach.com). The only meeting listed for December."],
  ["2026-12-14","5:00 p.m.","county","Regular meeting","","c","On the county's adopted 2026 meeting schedule. A 1 p.m. workshop may be added if needed."],
- ["2026-12-14","7:00 p.m.","bun","Regular meeting","","s",""]
+ ["2026-12-14","7:00 p.m.","bun","Regular meeting","","s",""],
+ ["2026-12-15","4:00 p.m.","vol","Regular session","Frank T. Bruno Jr. County Council Chambers, 123 W. Indiana Ave., DeLand","c","Listed on the Volusia County Council calendar (volusia.org). Public participation welcome."],
+ ["2027-01-07","9:00 a.m.","vol","Regular session","Frank T. Bruno Jr. County Council Chambers, 123 W. Indiana Ave., DeLand","c","Listed on the Volusia County Council calendar (volusia.org). A Thursday meeting. Public participation welcome."]
 ];
 const DOCS=[
  {b:"fb",date:"2026-11-23",title:"2027 City Elections: Flagler Beach mayor and one commission seat",url:"https://www.flaglerelections.gov/Elections/2027-City-Elections",site:"flaglerelections.gov",path:"Elections › 2027 City Elections",
@@ -573,7 +578,7 @@ function run(q,push){
   const ms=Math.max(.01,(performance.now()-t0)/1000);
   $("stats").textContent=rs.length?`${rs.length} result${rs.length>1?"s":""}`:"";
   $("list").innerHTML=rs.length?rs.map(x=>resultHTML(x.r,ts)).join(""):
-   `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any Flagler County records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like ${(()=>{const n=MEET.find(m=>m[5]!=="x"&&dt(m[0])>=TODAY);return MOL[(n?dt(n[0]):TODAY).getMonth()]})()}.</li><li>Try fewer words.</li></ul></div>`;
+   `<div class="none"><p>Your search - <b>${esc(cur)}</b> - did not match any PublicDocket records.</p><p>Suggestions:</p><ul><li>Try a government body, like Bunnell or school board.</li><li>Try a month, like ${(()=>{const n=MEET.find(m=>m[5]!=="x"&&dt(m[0])>=TODAY);return MOL[(n?dt(n[0]):TODAY).getMonth()]})()}.</li><li>Try fewer words.</li></ul></div>`;
   const p=panelFor(ts);$("panel").innerHTML=p;$("panel").hidden=!p;
   document.title=cur+" - PublicDocket";
   if(push){try{history.pushState({q:cur},"","?q="+encodeURIComponent(cur))}catch(e){}}
@@ -584,7 +589,7 @@ function showHome(push){
   if(push){try{history.pushState({q:""},"",location.pathname)}catch(e){}}
 }
 const INFO={
- about:["About PublicDocket","<img class='biglogo' src='/logo-full.png' alt='Flagler Coastal Enterprises LLC: People, Opportunity, A Stronger Tomorrow'><p>PublicDocket searches public meetings, agendas and notices from the Flagler County Commission, Palm Coast, Flagler Beach, Bunnell and the Flagler County School Board in one place. Every result links to the government's own page.</p><p><b>Confirmed</b> meetings appear on the government's posted calendar. <b>On regular schedule</b> meetings follow the body's adopted schedule but aren't posted yet. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.</p>"],
+ about:["About PublicDocket","<img class='biglogo' src='/logo-full.png' alt='Flagler Coastal Enterprises LLC: People, Opportunity, A Stronger Tomorrow'><p>PublicDocket searches public meetings, agendas and notices from the Flagler County Commission, Palm Coast, Flagler Beach, Bunnell, the Flagler County School Board and the Volusia County Council in one place. Every result links to the government's own page.</p><p><b>Confirmed</b> meetings appear on the government's posted calendar. <b>On regular schedule</b> meetings follow the body's adopted schedule but aren't posted yet. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.</p>"],
  digest:["Weekly digest","<p>A free Sunday email with the coming week's meetings, new agendas and deadlines in Flagler County, sent every Sunday.</p><div class='suform' data-form='page'></div>"],
 
  sponsor:["Sponsor PublicDocket","<p>Put your business in front of Flagler residents, builders, real estate pros and local leaders who follow what's happening at City Hall and the County Commission.</p><table class='ratecard'><tr><th>Package</th><th>Includes</th><th>Price</th></tr><tr><td><b>Founding Sponsor</b><br>3 months · 3 spots</td><td>Logo on the homepage and every results page, plus a mention in every weekly digest. Rate locked for renewal.</td><td>$150</td></tr><tr><td><b>Digest sponsor</b><br>1 month</td><td>Featured message in 4 weekly digest emails.</td><td>$75</td></tr><tr><td><b>Single issue</b></td><td>Featured message in one weekly digest.</td><td>$25</td></tr></table><p>Sponsors never influence what we publish. Every sponsored spot is labeled. To reserve a spot, email:</p><div class='copy'><code id='addr'>coastalenterprises386@gmail.com</code><button type='button' id='cp'>Copy</button></div>"],
@@ -608,7 +613,7 @@ document.querySelectorAll("[data-info]").forEach(a=>a.addEventListener("click",e
 document.querySelectorAll("[data-t]").forEach(b=>b.addEventListener("click",()=>{tab=b.dataset.t;run(cur,false)}));
 addEventListener("popstate",e=>{const q=(e.state&&e.state.q)||"";q?run(q,false):showHome(false)});
 const HEAD=[
- {d:"2026-11-24",b:"fb",tag:"Deadline",t:"Flagler Beach election: candidate petition deadline Nov. 24",w:"Mayor and one City Commission seat are on the March 2, 2027 ballot, per the Flagler County Supervisor of Elections.",q:"Flagler Beach election"},
+ {d:"2026-12-01",b:"vol",tag:"New",t:"Now covering Volusia County Council: meets Dec. 1 in DeLand",w:"9 a.m. regular session at the County Council Chambers, 123 W. Indiana Ave. Next: Dec. 15, 4 p.m. Listed on the council's official calendar.",q:"Volusia County Council"},
  {d:"2026-12-01",b:"pc",tag:"",t:"Palm Coast City Council evening business meeting Dec. 1",w:"6 p.m. at City Hall. Listed on the city's 2026 City Council meetings page.",q:"Palm Coast December 1"},
  {d:"2026-12-07",b:"county",tag:"",t:"County Commission first December meeting Dec. 7",w:"Regular meeting, 9 a.m. Listed on the county's 2026 meeting calendar; streams on YouTube.",q:"county commission December 7"},
  {d:"2026-12-08",b:"sb",tag:"",t:"School Board agenda workshop Dec. 8",w:"3 p.m. The only December date on the School Board's official calendar so far.",q:"school board December 8"},
@@ -731,7 +736,7 @@ $("list").addEventListener("click",async e=>{
 /* ---------- location ---------- */
 const STATES={AL:"Alabama",AK:"Alaska",AZ:"Arizona",AR:"Arkansas",CA:"California",CO:"Colorado",CT:"Connecticut",DE:"Delaware",DC:"District of Columbia",FL:"Florida",GA:"Georgia",HI:"Hawaii",ID:"Idaho",IL:"Illinois",IN:"Indiana",IA:"Iowa",KS:"Kansas",KY:"Kentucky",LA:"Louisiana",ME:"Maine",MD:"Maryland",MA:"Massachusetts",MI:"Michigan",MN:"Minnesota",MS:"Mississippi",MO:"Missouri",MT:"Montana",NE:"Nebraska",NV:"Nevada",NH:"New Hampshire",NJ:"New Jersey",NM:"New Mexico",NY:"New York",NC:"North Carolina",ND:"North Dakota",OH:"Ohio",OK:"Oklahoma",OR:"Oregon",PA:"Pennsylvania",RI:"Rhode Island",SC:"South Carolina",SD:"South Dakota",TN:"Tennessee",TX:"Texas",UT:"Utah",VT:"Vermont",VA:"Virginia",WA:"Washington",WV:"West Virginia",WI:"Wisconsin",WY:"Wyoming"};
 const FLCO=["Alachua","Baker","Bay","Bradford","Brevard","Broward","Calhoun","Charlotte","Citrus","Clay","Collier","Columbia","DeSoto","Dixie","Duval","Escambia","Flagler","Franklin","Gadsden","Gilchrist","Glades","Gulf","Hamilton","Hardee","Hendry","Hernando","Highlands","Hillsborough","Holmes","Indian River","Jackson","Jefferson","Lafayette","Lake","Lee","Leon","Levy","Liberty","Madison","Manatee","Marion","Martin","Miami-Dade","Monroe","Nassau","Okaloosa","Okeechobee","Orange","Osceola","Palm Beach","Pasco","Pinellas","Polk","Putnam","Santa Rosa","Sarasota","Seminole","St. Johns","St. Lucie","Sumter","Suwannee","Taylor","Union","Volusia","Wakulla","Walton","Washington"];
-const COVERED=l=>l.st==="FL"&&l.co==="Flagler";
+const COVERED=l=>l.st==="FL"&&(l.co==="Flagler"||l.co==="Volusia");
 const stsel=$("stsel"),cosel=$("cosel"),cotxt=$("cotxt");
 stsel.innerHTML=Object.entries(STATES).map(([k,v])=>`<option value="${k}">${v}</option>`).join("");
 function fillCo(st,co){
@@ -740,7 +745,7 @@ function fillCo(st,co){
   hint();
 }
 function hint(){const st=stsel.value,co=st==="FL"?cosel.value:cotxt.value.trim();
-  $("lochint").textContent=COVERED({st,co})?"Flagler County is fully covered: 5 government bodies.":"PublicDocket covers Flagler County, FL today. Pick your county and we'll show you how to request coverage."}
+  $("lochint").textContent=COVERED({st,co})?(co==="Volusia"?"Volusia County: the County Council is covered so far. More Volusia bodies are coming.":"Flagler County is fully covered: 5 government bodies."):"PublicDocket covers Flagler County, FL and the Volusia County Council today. Pick your county and we'll show you how to request coverage."}
 stsel.addEventListener("change",()=>fillCo(stsel.value,""));cosel.addEventListener("change",hint);cotxt.addEventListener("input",hint);
 let locOpener=null;
 function openLoc(){locOpener=document.activeElement;stsel.value=loc.st;fillCo(loc.st,loc.co);$("scrim").hidden=false;stsel.focus()}
@@ -753,13 +758,13 @@ $("locsave").addEventListener("click",()=>{
   const st=stsel.value,co=(st==="FL"?cosel.value:cotxt.value.trim().replace(/\s+county$/i,""));
   if(!co){toast("Enter a county name first.");return}
   loc={st,co};store("pd-loc",loc);closeLoc();applyLoc();
-  toast(COVERED(loc)?"Showing Flagler County, FL":`${co} County isn't covered yet`);
+  toast(COVERED(loc)?`Showing ${co} County, FL`:`${co} County isn't covered yet`);
   if($("results").style.display==="block")run(cur,false);
 });
 function applyLoc(){
   const name=`${loc.co} County, ${loc.st}`;
   document.querySelectorAll(".locname").forEach(e=>e.textContent=name);
-  $("home").querySelector(".loctag").textContent=COVERED(loc)?"FLAGLER":loc.co.toUpperCase();
+  $("home").querySelector(".loctag").textContent=loc.co.toUpperCase();
   document.querySelectorAll(".cov").forEach(c=>{
     if(COVERED(loc)){c.hidden=true;return}
     const msg=`Please add ${loc.co} County, ${STATES[loc.st]} to PublicDocket.`;

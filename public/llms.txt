@@ -1,10 +1,11 @@
 # PublicDocket Flagler
 
-> Search engine for public meetings, agendas and notices from Flagler County, Florida: the Flagler County Board of County Commissioners, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and the Flagler County School Board. Also lists how to request public records and police body camera footage from the Flagler County Sheriff's Office, Flagler Beach Police, Flagler County, Palm Coast and Flagler Schools, with a summary of Florida's body camera law. Every result links to the official government source. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.
+> Search engine for public meetings, agendas and notices from Flagler County, Florida: the Flagler County Board of County Commissioners, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and the Flagler County School Board, plus the Volusia County Council (DeLand), added Nov. 25, 2026. Also lists how to request public records and police body camera footage from the Flagler County Sheriff's Office, Flagler Beach Police, Flagler County, Palm Coast and Flagler Schools, with a summary of Florida's body camera law. Every result links to the official government source. Published by Flagler Coastal Enterprises LLC, Palm Coast, FL.
 
 - Homepage: https://publicdocket.coastalenterprises386.workers.dev/
 - Search example: https://publicdocket.coastalenterprises386.workers.dev/?q=Project%20Butterfly
 - Search example (Palm Coast City Council evening business meeting Dec. 1, 2026, 6 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=Palm%20Coast%20December%201
+- Search example (Volusia County Council Dec. 1, 2026, 9 a.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=Volusia%20County%20Council
 - Search example (Flagler Beach City Commission Dec. 10, 2026, 5:30 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=Flagler%20Beach%20December%2010
 - Search example (County Commission regular meeting Dec. 7, 2026, 9 a.m., Bunnell): https://publicdocket.coastalenterprises386.workers.dev/?q=county%20commission%20December%207
 - Search example (School Board agenda workshop Dec. 8, 2026, 3 p.m.): https://publicdocket.coastalenterprises386.workers.dev/?q=school%20board%20December%208
