@@ -96,8 +96,8 @@ const mrow = m => `<tr data-s="${esc((m.date + " " + fmt(m.date) + " " + m.body 
 const table = (rows, cap) => rows.length ? `<div class="tw"><table><caption class="sr">${cap}</caption><thead><tr><th scope="col">Date</th><th scope="col">Body</th><th scope="col">Meeting</th><th scope="col">Status</th></tr></thead><tbody>${rows.map(mrow).join("")}</tbody></table></div>` : `<p class="mut">None yet. Meetings move here after they happen.</p>`;
 const drow = d => `<li data-s="${esc((d.title + " " + d.body + " " + d.summary).toLowerCase())}"><a href="${esc(d.url)}" rel="noopener">${esc(d.title)}</a><span class="mut"> · ${esc(d.body)}${d.date ? " · " + fmt(d.date) : ""}</span>${d.summary ? `<p>${esc(d.summary)}</p>` : ""}</li>`;
 const ld = { "@context": "https://schema.org", "@type": "Dataset", name: "PublicDocket Flagler meetings and documents archive",
-  description: "Every Flagler County, Florida public meeting, agenda and notice indexed by PublicDocket, with links to the official government sources: Flagler County Commission, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and Flagler County School Board.",
-  url: SITE + "/archive/", isAccessibleForFree: true, dateModified: today, spatialCoverage: "Flagler County, Florida",
+  description: "Every Flagler County, Florida public meeting, agenda and notice indexed by PublicDocket, with links to the official government sources: Flagler County Commission, Palm Coast City Council, Flagler Beach City Commission, Bunnell City Commission and Flagler County School Board, plus the neighboring Volusia County Council (from Nov. 2026).",
+  url: SITE + "/archive/", isAccessibleForFree: true, dateModified: today, spatialCoverage: ["Flagler County, Florida", "Volusia County, Florida"],
   creator: { "@type": "Organization", name: "Flagler Coastal Enterprises LLC", url: SITE + "/" },
   distribution: ["meetings", "documents", "bodies"].flatMap(n => [{ "@type": "DataDownload", encodingFormat: "application/json", contentUrl: `${SITE}/data/${n}.json` }, { "@type": "DataDownload", encodingFormat: "text/csv", contentUrl: `${SITE}/data/${n}.csv` }]) };
 
