@@ -108,10 +108,11 @@ const page = `<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#f6fbf9" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#0f1b1a" media="(prefers-color-scheme: dark)">
-<title>Flagler County Public Meetings Archive | PublicDocket</title>
-<meta name="description" content="Highlights and full archive of Flagler County public meetings, agendas and notices indexed by PublicDocket, with links to official sources. Free CSV and JSON downloads.">
+<title>Flagler &amp; Volusia Public Meetings Archive | PublicDocket</title>
+<meta name="description" content="Highlights and full archive of Flagler County and Volusia County Council public meetings, agendas and notices indexed by PublicDocket, with links to official sources. Free CSV and JSON downloads.">
 <link rel="canonical" href="${SITE}/archive/">
-<meta property="og:title" content="Flagler County Public Meetings Archive">
+<meta property="og:title" content="Flagler &amp; Volusia Public Meetings Archive">
+<meta property="og:description" content="Archive of Flagler County and Volusia County Council public meetings, agendas and notices, with links to official sources and free CSV/JSON downloads.">
 <meta property="og:image" content="${SITE}/logo-full.png">
 <script type="application/ld+json">${JSON.stringify(ld)}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:opsz,wght@6..12,400;6..12,700;6..12,800&display=swap" rel="stylesheet">
@@ -174,7 +175,7 @@ h1,h2,.stats b{font-family:"Nunito Sans",system-ui,sans-serif!important;font-wei
 <body>
 <div class="wrap">
 <a class="logo" href="/"><img src="/logo-mark.png" alt="Flagler Coastal Enterprises logo"><span>PublicDocket · by Flagler Coastal Enterprises</span></a>
-<header><p class="eyebrow">Archive · Updated ${fmt(today)}</p><h1>Flagler County public meetings at a glance</h1>
+<header><p class="eyebrow">Archive · Updated ${fmt(today)}</p><h1>Flagler &amp; Volusia public meetings at a glance</h1>
 <p class="lede">The highlights first. Every record we've collected is below, each linked to the official government source.</p></header>
 <div class="stats" aria-label="Archive totals">
 <div><b>${up.length}</b><span>upcoming meetings</span></div><div><b>${past.length}</b><span>past meetings</span></div><div><b>${documents.length}</b><span>documents</span></div><div><b>${Object.values(current.BODY).filter(b => !b.rec).length}</b><span>boards covered</span></div>
