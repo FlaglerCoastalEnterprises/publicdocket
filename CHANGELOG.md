@@ -1,5 +1,6 @@
 # Changelog
 
+- 2026-11-28 (daily run): County Dec. 7 meeting note adds the official agenda contact (Agendas@FlaglerCounty.gov, 386-313-4001, from the county event page). Sitemap and footer dates. No new or changed meetings or agendas found (Palm Coast Dec. 1 and County Dec. 7 agendas not yet posted).
 - 2026-11-27 (daily run): SEO: archive page title, h1, meta description and og:title now name Volusia as well as Flagler; added an og:description to the archive (scripts/build-archive.mjs). No new or changed meetings found on official sources (holiday week; Palm Coast Dec. 1 and County Dec. 7 agendas not posted yet; Daytona Beach schedule not verifiable). Headlines unchanged (8 upcoming). Sitemap + footer dates. No data format changes.
 
 - 2026-11-26 (daily run): Added the Volusia County Council Jan. 19, 2027, 4 p.m. regular session (confirmed on the official council calendar, volusia.org). Added a Volusia Dec. 15 headline so at least 5 headlines remain after Dec. 1 (8 upcoming). SEO: archive Dataset description and spatialCoverage now include Volusia County (scripts/build-archive.mjs). No new Flagler agendas found (County Dec. 7 page has no agenda yet). Sitemap + footer dates. No data format changes.
